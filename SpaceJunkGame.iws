@@ -7,42 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/bucket.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/droplet.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/libs/gdx-backend-android.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Desktop/libs/gdx-backend-lwjgl-natives.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Desktop/libs/gdx-backend-lwjgl.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Desktop/libs/gdx-natives.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/libs/gdx.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/res/drawable-hdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/res/drawable-ldpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/res/drawable-mdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/res/drawable-xhdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/jump.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/libs/armeabi/libgdx.so" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/libs/armeabi-v7a/libgdx.so" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/music-1.mp3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/Android.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/gen/com/ollysoft/Android/BuildConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/gen/com/ollysoft/spacejunk/BuildConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Desktop/Desktop.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/Main.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/gen/com/ollysoft/spacejunk/Manifest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/gen/com/ollysoft/spacejunk/R.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/src/com/ollysoft/spacejunk/SpaceJunkAndroidStarter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SpaceJunkGame.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SpaceJunkGame.ipr" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SpaceJunkGame.iws" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/ant.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/build.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/local.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/res/layout/main.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/proguard-project.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/project.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/res/values/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/background-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/collector.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Android/assets/bucket.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java" afterPath="$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpaceJunkGame.iws" afterPath="$PROJECT_DIR$/SpaceJunkGame.iws" />
     </list>
     <ignored path="SpaceJunkGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -106,10 +77,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SpaceJunkGame.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SpaceJunkGame.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="13" selection-start="475" selection-end="475" vertical-scroll-proportion="0.47619048" vertical-offset="0" max-vertical-offset="630">
+            <state line="25" column="19" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -120,7 +91,7 @@
       <file leaf-file-name="MainMenuScreen.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="14" selection-start="954" selection-end="954" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140">
+            <state line="31" column="35" selection-start="785" selection-end="788" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,13 +99,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameScreen.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GameScreen.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="47" selection-start="1690" selection-end="1690" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="2610">
+            <state line="90" column="1" selection-start="2379" selection-end="2379" vertical-scroll-proportion="0.26190478" vertical-offset="1185" max-vertical-offset="2640">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Desktop.iml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Desktop/Desktop.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DesktopStarter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="0" selection-start="504" selection-end="504" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -151,25 +140,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Android/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="18" selection-start="793" selection-end="793" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ant.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Android/ant.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Android/build.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="542" max-vertical-offset="1470">
+            <state line="17" column="0" selection-start="793" selection-end="793" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
               <folding />
             </state>
           </provider>
@@ -196,7 +167,7 @@
       <file leaf-file-name="project.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Android/project.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="18" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+            <state line="14" column="0" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
               <folding />
             </state>
           </provider>
@@ -217,13 +188,13 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/ollysoft/spacejunk/SpaceJunkGame.java" />
         <option value="$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk.java" />
-        <option value="$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java" />
         <option value="$PROJECT_DIR$/Android/src/com/example/spacejunk/SpaceJunkAndroidStarter.java" />
         <option value="$PROJECT_DIR$/Android/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/Android/src/com/ollysoft/spacejunk/SpaceJunkAndroidStarter.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java" />
-        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
+        <option value="$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
       </list>
     </option>
   </component>
@@ -659,12 +630,17 @@
       <changelist id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="" />
       <created>1392318854266</created>
       <updated>1392318854266</updated>
-      <workItem from="1392318861882" duration="5362000" />
+      <workItem from="1392318861882" duration="7411000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit with demo from libgdx">
+      <created>1392330997044</created>
+      <updated>1392330997044</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5362000" />
+    <option name="totallyTimeSpent" value="7411000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1111" extended-state="6" />
@@ -675,6 +651,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297244" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297244" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -682,7 +659,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297244" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.59350395" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -692,7 +669,6 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874015" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -710,6 +686,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="Initial commit with demo from libgdx" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit with demo from libgdx" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -719,13 +697,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="28" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Android/Android.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="617">
@@ -770,14 +741,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Android/project.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="18" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+        <state line="14" column="0" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Android/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="18" selection-start="793" selection-end="793" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+        <state line="17" column="0" selection-start="793" selection-end="793" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
           <folding />
         </state>
       </provider>
@@ -789,9 +760,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="19" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Desktop/Desktop.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="631">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="504" selection-end="504" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="14" selection-start="954" selection-end="954" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140">
+        <state line="31" column="35" selection-start="785" selection-end="788" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -800,16 +794,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="47" selection-start="1690" selection-end="1690" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="2610">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="13" selection-start="475" selection-end="475" vertical-scroll-proportion="0.47619048" vertical-offset="0" max-vertical-offset="630">
+        <state line="90" column="1" selection-start="2379" selection-end="2379" vertical-scroll-proportion="0.26190478" vertical-offset="1185" max-vertical-offset="2640">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
