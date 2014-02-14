@@ -23,11 +23,11 @@ public class GoBackToMainMenu extends InputAdapter {
     if ((keycode == Input.Keys.ESCAPE) || (keycode == Input.Keys.BACK)) {
       if (game.currentScreen == game.gameScreen) {
         game.displayMainMenu();
-        return false;
+        return true;
       }
     }
 
-    return true;
+    return false;
 
   }
 

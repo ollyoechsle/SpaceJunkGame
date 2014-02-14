@@ -23,7 +23,6 @@ public class MainMenuScreen extends ScreenAdapter {
   public MainMenuScreen(final SpaceJunkGame game) {
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
 
-    // Add widgets to the table here.
     uiSkin = new Skin(Gdx.files.internal("uiskin.json"));
 
     Label appName = new Label("Space Junk!", uiSkin);

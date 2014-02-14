@@ -37,7 +37,6 @@ public class GameScreen implements Screen {
   private Magnet magnet;
   private Vector3 touchPos = new Vector3();
 
-  Array<Rectangle> raindrops;
   long lastDropTime;
   private SpaceJunkGame game;
   private Stage stage;
@@ -67,9 +66,6 @@ public class GameScreen implements Screen {
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     stage.addActor(magnet);
 
-
-
-    raindrops = new Array<Rectangle>();
     spawnBlock();
 
   }

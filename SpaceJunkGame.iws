@@ -5,16 +5,16 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/default.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/uiskin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/default.fnt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/uiskin.atlas" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/uiskin.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/GoBackToMainMenu.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/GoBackToMainMenu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpaceJunkGame.iws" afterPath="$PROJECT_DIR$/SpaceJunkGame.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java" />
     </list>
     <ignored path="SpaceJunkGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,7 +99,7 @@
       <file leaf-file-name="GameScreen.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="3" selection-start="2497" selection-end="2497" vertical-scroll-proportion="0.0" vertical-offset="333" max-vertical-offset="2460">
+            <state line="75" column="86" selection-start="2371" selection-end="2371" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2400">
               <folding />
             </state>
           </provider>
@@ -108,13 +108,13 @@
       <file leaf-file-name="MainMenuScreen.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="3" selection-start="1848" selection-end="1864" vertical-scroll-proportion="1.1674347" vertical-offset="200" max-vertical-offset="1440">
+            <state line="39" column="40" selection-start="1252" selection-end="1252" vertical-scroll-proportion="0.5913978" vertical-offset="200" max-vertical-offset="1425">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1035#1246#0" expanded="true" />
-                <element signature="e#1239#1240#0" expanded="true" />
-                <element signature="e#1325#1516#0" expanded="true" />
-                <element signature="e#1509#1510#0" expanded="true" />
+                <element signature="e#997#1208#0" expanded="true" />
+                <element signature="e#1201#1202#0" expanded="true" />
+                <element signature="e#1287#1478#0" expanded="true" />
+                <element signature="e#1471#1472#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -197,14 +197,14 @@
         <option value="$PROJECT_DIR$/Android/src/com/ollysoft/spacejunk/SpaceJunkAndroidStarter.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Magnet.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Block.java" />
-        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/GoBackToMainMenu.java" />
         <option value="$PROJECT_DIR$/Android/assets/uiskin.atlas" />
         <option value="$PROJECT_DIR$/Android/assets/uiskin.json" />
         <option value="$PROJECT_DIR$/Android/assets/default.fnt" />
-        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java" />
-        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenu.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScree.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/GoBackToMainMenu.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java" />
       </list>
     </option>
@@ -696,7 +696,7 @@
       <updated>1392318854266</updated>
       <workItem from="1392318861882" duration="11701000" />
       <workItem from="1392413158808" duration="62000" />
-      <workItem from="1392413590278" duration="5768000" />
+      <workItem from="1392413590278" duration="6448000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with demo from libgdx">
       <created>1392330997044</created>
@@ -714,11 +714,15 @@
       <created>1392416754001</created>
       <updated>1392416754001</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Adds a main menu using screen2d.ui">
+      <created>1392419384169</created>
+      <updated>1392419384169</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17531000" />
+    <option name="totallyTimeSpent" value="18211000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1108" extended-state="6" />
@@ -769,7 +773,8 @@
     <MESSAGE value="Adjusts some images; adds main menu screen" />
     <MESSAGE value="Moves magnet into its own class" />
     <MESSAGE value="Uses Scene2d for rendering" />
-    <option name="LAST_COMMIT_MESSAGE" value="Uses Scene2d for rendering" />
+    <MESSAGE value="Adds a main menu using screen2d.ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds a main menu using screen2d.ui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1019,13 +1024,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/GoBackToMainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="16" selection-start="681" selection-end="681" vertical-scroll-proportion="0.4054054" vertical-offset="0" max-vertical-offset="962">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Android/assets/uiskin.atlas">
       <provider selected="true" editor-type-id="text-editor">
         <state line="196" column="11" selection-start="2892" selection-end="2892" vertical-scroll-proportion="0.0" vertical-offset="1985" max-vertical-offset="3030">
@@ -1054,29 +1052,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/GoBackToMainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="13" selection-start="234" selection-end="234" vertical-scroll-proportion="0.10914761" vertical-offset="0" max-vertical-offset="962">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="5" selection-start="523" selection-end="523" vertical-scroll-proportion="0.2741117" vertical-offset="0" max-vertical-offset="985">
+        <state line="6" column="0" selection-start="194" selection-end="194" vertical-scroll-proportion="0.04568528" vertical-offset="0" max-vertical-offset="985">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="3" selection-start="2497" selection-end="2497" vertical-scroll-proportion="0.0" vertical-offset="333" max-vertical-offset="2460">
+        <state line="75" column="86" selection-start="2371" selection-end="2371" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2400">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="3" selection-start="1848" selection-end="1864" vertical-scroll-proportion="1.1674347" vertical-offset="200" max-vertical-offset="1440">
+        <state line="39" column="40" selection-start="1252" selection-end="1252" vertical-scroll-proportion="0.5913978" vertical-offset="200" max-vertical-offset="1425">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1035#1246#0" expanded="true" />
-            <element signature="e#1239#1240#0" expanded="true" />
-            <element signature="e#1325#1516#0" expanded="true" />
-            <element signature="e#1509#1510#0" expanded="true" />
+            <element signature="e#997#1208#0" expanded="true" />
+            <element signature="e#1201#1202#0" expanded="true" />
+            <element signature="e#1287#1478#0" expanded="true" />
+            <element signature="e#1471#1472#0" expanded="true" />
           </folding>
         </state>
       </provider>
