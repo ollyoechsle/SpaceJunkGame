@@ -70,6 +70,11 @@ public class MainMenuScreen extends ScreenAdapter {
     Gdx.input.setInputProcessor(stage);
   }
 
+  @Override
+  public void hide() {
+    Gdx.input.setInputProcessor(null);
+  }
+
   public void resize(int width, int height) {
     stage.setViewport(width, height, true);
   }

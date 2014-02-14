@@ -80,12 +80,20 @@ public class GameScreen implements Screen {
 
   @Override
   public void hide() {
+    Gdx.input.setInputProcessor(null);
   }
 
   @Override
   public void render(float delta) {
 
-    draw();
+    Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+
+    batch.begin();
+    drawBackground();
+    batch.end();
+
+    stage.act(Gdx.graphics.getDeltaTime());
+    stage.draw();
 
     handleInputs();
 
@@ -97,8 +105,6 @@ public class GameScreen implements Screen {
     if (TimeUtils.nanoTime() - lastDropTime > 1000000000) {
       spawnBlock();
     }
-
-    stage.act();
   }
 
   private void handleInputs() {
@@ -121,18 +127,6 @@ public class GameScreen implements Screen {
     if (magnet.getX() > 800 - 64) {
       magnet.setX(800 - 64);
     }
-  }
-
-  private void draw() {
-    Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-
-    batch.begin();
-    drawBackground();
-    batch.end();
-
-    stage.act(Gdx.graphics.getDeltaTime());
-    stage.draw();
-
   }
 
   private void drawBackground() {
