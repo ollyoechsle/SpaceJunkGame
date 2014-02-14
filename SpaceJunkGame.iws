@@ -7,18 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/block.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Block.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/GoBackToMainMenu.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Android/assets/droplet.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Android/assets/background-1.png" afterPath="$PROJECT_DIR$/Android/assets/background-1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java" afterPath="$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/default.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/uiskin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/default.fnt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/uiskin.atlas" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/uiskin.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Magnet.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Magnet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Android/src/com/ollysoft/spacejunk/SpaceJunkAndroidStarter.java" afterPath="$PROJECT_DIR$/Android/src/com/ollysoft/spacejunk/SpaceJunkAndroidStarter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpaceJunkGame.iws" afterPath="$PROJECT_DIR$/SpaceJunkGame.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java" />
     </list>
     <ignored path="SpaceJunkGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -100,10 +96,52 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameScreen.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GameScreen.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="0" selection-start="3563" selection-end="3563" vertical-scroll-proportion="1.1213517" vertical-offset="1025" max-vertical-offset="2445">
+            <state line="82" column="3" selection-start="2497" selection-end="2497" vertical-scroll-proportion="0.0" vertical-offset="333" max-vertical-offset="2460">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainMenuScreen.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="64" column="3" selection-start="1848" selection-end="1864" vertical-scroll-proportion="1.1674347" vertical-offset="200" max-vertical-offset="1440">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1035#1246#0" expanded="true" />
+                <element signature="e#1239#1240#0" expanded="true" />
+                <element signature="e#1325#1516#0" expanded="true" />
+                <element signature="e#1509#1510#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uiskin.atlas" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Android/assets/uiskin.atlas">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="196" column="11" selection-start="2892" selection-end="2892" vertical-scroll-proportion="0.0" vertical-offset="1985" max-vertical-offset="3030">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uiskin.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Android/assets/uiskin.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="31" selection-start="1161" selection-end="1161" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="960">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="default.fnt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Android/assets/default.fnt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="100" column="17" selection-start="11430" selection-end="11430" vertical-scroll-proportion="0.0" vertical-offset="545" max-vertical-offset="1590">
               <folding />
             </state>
           </provider>
@@ -124,42 +162,6 @@
         <entry file="jar:///Developer/Android-SDK/sdk/platforms/android-19/android.jar!/android/os/Handler.class">
           <provider selected="true" editor-type-id="text-editor">
             <state line="78" column="0" selection-start="3303" selection-end="3303" vertical-scroll-proportion="0.0" vertical-offset="884" max-vertical-offset="1245">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Rectangle.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/math/Rectangle.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="9" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1230">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Magnet.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Magnet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="7" selection-start="558" selection-end="1081" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Actor.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/scenes/scene2d/Actor.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2925">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DesktopStarter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="21" selection-start="443" selection-end="443" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="390">
               <folding />
             </state>
           </provider>
@@ -194,11 +196,16 @@
         <option value="$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java" />
         <option value="$PROJECT_DIR$/Android/src/com/ollysoft/spacejunk/SpaceJunkAndroidStarter.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Magnet.java" />
-        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Block.java" />
-        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/GoBackToMainMenu.java" />
+        <option value="$PROJECT_DIR$/Android/assets/uiskin.atlas" />
+        <option value="$PROJECT_DIR$/Android/assets/uiskin.json" />
+        <option value="$PROJECT_DIR$/Android/assets/default.fnt" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenu.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScree.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java" />
       </list>
     </option>
   </component>
@@ -689,7 +696,7 @@
       <updated>1392318854266</updated>
       <workItem from="1392318861882" duration="11701000" />
       <workItem from="1392413158808" duration="62000" />
-      <workItem from="1392413590278" duration="3143000" />
+      <workItem from="1392413590278" duration="5768000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with demo from libgdx">
       <created>1392330997044</created>
@@ -703,11 +710,15 @@
       <created>1392409126835</created>
       <updated>1392409126835</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Uses Scene2d for rendering">
+      <created>1392416754001</created>
+      <updated>1392416754001</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14906000" />
+    <option name="totallyTimeSpent" value="17531000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1108" extended-state="6" />
@@ -757,7 +768,8 @@
     <MESSAGE value="Adjusts some images" />
     <MESSAGE value="Adjusts some images; adds main menu screen" />
     <MESSAGE value="Moves magnet into its own class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moves magnet into its own class" />
+    <MESSAGE value="Uses Scene2d for rendering" />
+    <option name="LAST_COMMIT_MESSAGE" value="Uses Scene2d for rendering" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -777,13 +789,6 @@
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/GoBackToMainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="29" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="525">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="35" selection-start="785" selection-end="788" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="1140">
           <folding />
         </state>
       </provider>
@@ -847,13 +852,6 @@
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/GoBackToMainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="29" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="525">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="35" selection-start="785" selection-end="788" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="1140">
           <folding />
         </state>
       </provider>
@@ -977,13 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/scenes/scene2d/Actor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2925">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Developer/Android-SDK/sdk/platforms/android-19/android.jar!/android/os/HandlerThread.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="0" selection-start="675" selection-end="675" vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="405">
@@ -1014,7 +1005,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Magnet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="7" selection-start="558" selection-end="1081" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+        <state line="40" column="3" selection-start="558" selection-end="1081" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
           <folding />
         </state>
       </provider>
@@ -1035,24 +1026,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java">
+    <entry file="file://$PROJECT_DIR$/Android/assets/uiskin.atlas">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="14" selection-start="497" selection-end="497" vertical-scroll-proportion="0.26507276" vertical-offset="0" max-vertical-offset="962">
+        <state line="196" column="11" selection-start="2892" selection-end="2892" vertical-scroll-proportion="0.0" vertical-offset="1985" max-vertical-offset="3030">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java">
+    <entry file="file://$PROJECT_DIR$/Android/assets/uiskin.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="18" selection-start="895" selection-end="895" vertical-scroll-proportion="0.4989605" vertical-offset="0" max-vertical-offset="1095">
+        <state line="22" column="31" selection-start="1161" selection-end="1161" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Android/assets/default.fnt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="17" selection-start="11430" selection-end="11430" vertical-scroll-proportion="0.0" vertical-offset="545" max-vertical-offset="1590">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/scenes/scene2d/Actor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="189" column="58" selection-start="7341" selection-end="7341" vertical-scroll-proportion="-37.2" vertical-offset="1890" max-vertical-offset="2910">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="5" selection-start="523" selection-end="523" vertical-scroll-proportion="0.2741117" vertical-offset="0" max-vertical-offset="985">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="0" selection-start="3563" selection-end="3563" vertical-scroll-proportion="1.1213517" vertical-offset="1025" max-vertical-offset="2445">
+        <state line="82" column="3" selection-start="2497" selection-end="2497" vertical-scroll-proportion="0.0" vertical-offset="333" max-vertical-offset="2460">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="3" selection-start="1848" selection-end="1864" vertical-scroll-proportion="1.1674347" vertical-offset="200" max-vertical-offset="1440">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1035#1246#0" expanded="true" />
+            <element signature="e#1239#1240#0" expanded="true" />
+            <element signature="e#1325#1516#0" expanded="true" />
+            <element signature="e#1509#1510#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

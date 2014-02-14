@@ -67,7 +67,7 @@ public class GameScreen implements Screen {
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     stage.addActor(magnet);
 
-    Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GoBackToMainMenu(game)));
+
 
     raindrops = new Array<Rectangle>();
     spawnBlock();
@@ -76,6 +76,7 @@ public class GameScreen implements Screen {
 
   @Override
   public void show() {
+    Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GoBackToMainMenu(game)));
     // start the playback of the background music
     // when the screen is shown
     music.play();

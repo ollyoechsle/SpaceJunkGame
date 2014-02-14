@@ -1,70 +1,90 @@
 package com.ollysoft.spacejunk;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL10;
-import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.scenes.scene2d.Event;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.utils.Logger;
 
-public class MainMenuScreen implements Screen {
+/**
+ * com.ollysoft.spacejunk
+ */
+public class MainMenuScreen extends ScreenAdapter {
 
-  final SpaceJunkGame game;
+  private Stage stage;
+  private final Skin uiSkin;
 
-  OrthographicCamera camera;
+  public MainMenuScreen(final SpaceJunkGame game) {
+    stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
 
-  public MainMenuScreen(final SpaceJunkGame gam) {
-    game = gam;
+    // Add widgets to the table here.
+    uiSkin = new Skin(Gdx.files.internal("uiskin.json"));
 
-    camera = new OrthographicCamera();
-    camera.setToOrtho(false, 800, 480);
+    Label appName = new Label("Space Junk!", uiSkin);
 
-  }
+    TextButton newGame = new TextButton("New Game", uiSkin);
+    newGame.addListener(new EventListener() {
+      @Override
+      public boolean handle(Event event) {
+        new Logger("SpaceJunk").debug("Display game screen");
+        game.displayGameScreen();
+        return true;
+      }
+    });
 
-  @Override
-  public void render(float delta) {
-    Gdx.gl.glClearColor(0, 0, 0.2f, 1);
-    Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+    TextButton exit = new TextButton("Exit", uiSkin);
+    exit.addListener(new EventListener() {
+      @Override
+      public boolean handle(Event event) {
+        new Logger("SpaceJunk").debug("Exit game");
+        Gdx.app.exit();
+        return true;
+      }
+    });
 
-    camera.update();
-    game.batch.setProjectionMatrix(camera.combined);
+    Table table = new Table();
+    stage.addActor(table);
 
-    game.batch.begin();
-    game.font.draw(game.batch, "Welcome to Space Junk!!! ", 100, 150);
-    game.font.draw(game.batch, "Tap anywhere to begin!", 100, 100);
-    game.batch.end();
+    table.setFillParent(true);
 
-    if (Gdx.input.isTouched()) {
-      game.displayGameScreen();
-      dispose();
-    }
-  }
+    table.add(appName).width(100f).spaceBottom(100);
+    table.row();
 
-  @Override
-  public void dispose() {
+    table.add(newGame).width(400f).height(100f).spaceBottom(10);
+    table.row();
 
-  }
+    table.add(exit).width(400f).height(100f).spaceBottom(10);
+    table.row();
 
-  @Override
-  public void resize(int i, int i2) {
+    table.layout();
 
   }
 
   @Override
   public void show() {
-
+    Gdx.input.setInputProcessor(stage);
   }
 
-  @Override
-  public void hide() {
-
+  public void resize(int width, int height) {
+    stage.setViewport(width, height, true);
   }
 
-  @Override
-  public void pause() {
-
+  public void render(float v) {
+    Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
+    Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+    stage.act(Gdx.graphics.getDeltaTime());
+    stage.draw();
   }
 
-  @Override
-  public void resume() {
-
+  public void dispose() {
+    uiSkin.dispose();
+    stage.dispose();
   }
+
 }
