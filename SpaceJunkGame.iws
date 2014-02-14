@@ -6,13 +6,9 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/background-1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Android/assets/collector.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Android/assets/bucket.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java" afterPath="$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java" />
+    <list default="true" id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="Adjusts some images; adds main menu screen&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Magnet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpaceJunkGame.iws" afterPath="$PROJECT_DIR$/SpaceJunkGame.iws" />
     </list>
     <ignored path="SpaceJunkGame.iws" />
@@ -80,7 +76,7 @@
       <file leaf-file-name="SpaceJunkGame.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="19" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+            <state line="29" column="25" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -102,7 +98,27 @@
       <file leaf-file-name="GameScreen.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="1" selection-start="2379" selection-end="2379" vertical-scroll-proportion="0.26190478" vertical-offset="1185" max-vertical-offset="2640">
+            <state line="65" column="98" selection-start="1911" selection-end="1911" vertical-scroll-proportion="0.7047619" vertical-offset="531" max-vertical-offset="2820">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rectangle.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/math/Rectangle.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="9" selection-start="487" selection-end="487" vertical-scroll-proportion="-8.4" vertical-offset="0" max-vertical-offset="1215">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Magnet.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Magnet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="46" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,7 +139,9 @@
         <entry file="file://$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="20" column="0" selection-start="504" selection-end="504" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,24 +159,6 @@
         <entry file="file://$PROJECT_DIR$/Android/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="17" column="0" selection-start="793" selection-end="793" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="local.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Android/local.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="proguard-project.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Android/proguard-project.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
               <folding />
             </state>
           </provider>
@@ -194,6 +194,7 @@
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java" />
         <option value="$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Magnet.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
       </list>
     </option>
@@ -281,6 +282,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="spacejunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpaceJunkGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpaceJunkGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spacejunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="objects" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -438,6 +465,7 @@
     <property name="dynamic.classpath" value="false" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="0179036c128dad4b" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Emulator" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RunManager" selected="Android Application.Android">
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails" singleton="true">
@@ -630,17 +658,21 @@
       <changelist id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="" />
       <created>1392318854266</created>
       <updated>1392318854266</updated>
-      <workItem from="1392318861882" duration="7411000" />
+      <workItem from="1392318861882" duration="9246000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with demo from libgdx">
       <created>1392330997044</created>
       <updated>1392330997044</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Adjusts some images; adds main menu screen">
+      <created>1392333071936</created>
+      <updated>1392333071936</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7411000" />
+    <option name="totallyTimeSpent" value="9246000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1111" extended-state="6" />
@@ -687,7 +719,9 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Initial commit with demo from libgdx" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit with demo from libgdx" />
+    <MESSAGE value="Adjusts some images" />
+    <MESSAGE value="Adjusts some images; adds main menu screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusts some images; adds main menu screen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -760,15 +794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="19" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Desktop/Desktop.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="631">
@@ -779,7 +804,18 @@
     <entry file="file://$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="0" selection-start="504" selection-end="504" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="25" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -792,9 +828,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/math/Rectangle.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="9" selection-start="487" selection-end="487" vertical-scroll-proportion="-8.4" vertical-offset="0" max-vertical-offset="1215">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Magnet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="46" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="1" selection-start="2379" selection-end="2379" vertical-scroll-proportion="0.26190478" vertical-offset="1185" max-vertical-offset="2640">
+        <state line="65" column="98" selection-start="1911" selection-end="1911" vertical-scroll-proportion="0.7047619" vertical-offset="531" max-vertical-offset="2820">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

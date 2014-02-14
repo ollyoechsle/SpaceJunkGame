@@ -14,6 +14,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
+import com.ollysoft.spacejunk.objects.Magnet;
 
 import java.util.Iterator;
 
@@ -22,14 +23,14 @@ import java.util.Iterator;
  */
 public class GameScreen implements Screen {
 
-  Texture dropImage, bucketImage, background;
-  Sound dropSound;
-  Music rainMusic;
+  private Texture  dropImage, bucketImage, background;
+  private Sound dropSound;
+  private Music rainMusic;
 
-  OrthographicCamera camera;
-  SpriteBatch batch;
+  private OrthographicCamera camera;
+  private SpriteBatch batch;
 
-  Rectangle collector;
+  private Magnet magnet;
   private Vector3 touchPos = new Vector3();
 
   Array<Rectangle> raindrops;
@@ -39,7 +40,7 @@ public class GameScreen implements Screen {
   public GameScreen(SpaceJunkGame game) {
     this.game = game;
 
-    // load the images for the droplet and the collector, 64x64 pixels each
+    // load the images for the droplet and the magnet, 64x64 pixels each
     background = new Texture(Gdx.files.internal("background-1.png"));
     dropImage = new Texture(Gdx.files.internal("droplet.png"));
     bucketImage = new Texture(Gdx.files.internal("collector.png"));
@@ -54,11 +55,9 @@ public class GameScreen implements Screen {
 
     batch = new SpriteBatch();
 
-    collector = new Rectangle();
-    collector.x = 800 / 2 - 64 / 2;
-    collector.y = 20;
-    collector.width = 64;
-    collector.height = 64;
+    magnet = new Magnet(bucketImage);
+    magnet.x = 800 / 2 - 64 / 2;
+    magnet.y = 20;
 
     raindrops = new Array<Rectangle>();
     spawnRaindrop();
@@ -78,41 +77,16 @@ public class GameScreen implements Screen {
 
   @Override
   public void render(float delta) {
-    Gdx.gl.glClearColor(0, 0, 0.2f, 1);
-    Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
-    camera.update();
+    draw();
 
-    batch.setProjectionMatrix(camera.combined);
-    batch.begin();
-    batch.draw(background, 0, 0);
-    batch.draw(bucketImage, collector.x, collector.y);
+    handleInputs();
 
-    for (Rectangle raindrop : raindrops) {
-      batch.draw(dropImage, raindrop.x, raindrop.y);
-    }
-    batch.end();
+    animate();
 
-    if (Gdx.input.isTouched()) {
-      touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
-      camera.unproject(touchPos);
-      collector.x = touchPos.x - 64 / 2;
-    }
+  }
 
-    if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-      collector.x -= 200 * Gdx.graphics.getDeltaTime();
-    }
-    if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-      collector.x += 200 * Gdx.graphics.getDeltaTime();
-    }
-
-    if (collector.x < 0) {
-      collector.x = 0;
-    }
-    if (collector.x > 800 - 64) {
-      collector.x = 800 - 64;
-    }
-
+  private void animate() {
     if (TimeUtils.nanoTime() - lastDropTime > 1000000000) {
       spawnRaindrop();
     }
@@ -124,14 +98,52 @@ public class GameScreen implements Screen {
       if (raindrop.y + 64 < 0) {
         iter.remove();
       }
-      if (raindrop.overlaps(collector)) {
+      if (raindrop.overlaps(magnet)) {
         dropSound.play();
         iter.remove();
       }
 
     }
+  }
 
+  private void handleInputs() {
+    if (Gdx.input.isTouched()) {
+      touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
+      camera.unproject(touchPos);
+      magnet.x = touchPos.x - 64 / 2;
+    }
 
+    if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+      magnet.x -= 200 * Gdx.graphics.getDeltaTime();
+    }
+    if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+      magnet.x += 200 * Gdx.graphics.getDeltaTime();
+    }
+
+    if (magnet.x < 0) {
+      magnet.x = 0;
+    }
+    if (magnet.x > 800 - 64) {
+      magnet.x = 800 - 64;
+    }
+  }
+
+  private void draw() {
+    Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+    Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+
+    camera.update();
+
+    batch.setProjectionMatrix(camera.combined);
+    batch.begin();
+    batch.draw(background, 0, 0);
+    magnet.draw(batch);
+    batch.draw(bucketImage, magnet.x, magnet.y);
+
+    for (Rectangle raindrop : raindrops) {
+      batch.draw(dropImage, raindrop.x, raindrop.y);
+    }
+    batch.end();
   }
 
   private void spawnRaindrop() {
