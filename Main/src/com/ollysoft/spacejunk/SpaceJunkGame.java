@@ -1,6 +1,7 @@
 package com.ollysoft.spacejunk;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -10,11 +11,23 @@ public class SpaceJunkGame extends Game {
   public SpriteBatch batch;
   public BitmapFont font;
 
+  public MainMenuScreen mainMenuScreen;
+  public GameScreen gameScreen;
+  public Screen currentScreen;
+
   public void create() {
     batch = new SpriteBatch();
-    //Use LibGDX's default Arial font.
     font = new BitmapFont();
-    this.setScreen(new MainMenuScreen(this));
+    mainMenuScreen = new MainMenuScreen(this);
+    gameScreen = new GameScreen(this);
+
+    displayMainMenu();
+  }
+
+  @Override
+  public void setScreen(Screen screen) {
+    super.setScreen(screen);
+    this.currentScreen = screen;
   }
 
   public void render() {
@@ -24,6 +37,14 @@ public class SpaceJunkGame extends Game {
   public void dispose() {
     batch.dispose();
     font.dispose();
+  }
+
+  public void displayMainMenu() {
+    this.setScreen(mainMenuScreen);
+  }
+
+  public void displayGameScreen() {
+    this.setScreen(gameScreen);
   }
 
 }

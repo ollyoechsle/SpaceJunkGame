@@ -13,7 +13,7 @@ public class DesktopStarter {
     cfg.title = "Space Junk!";
     cfg.useGL20 = true;
     cfg.width = 768;
-    cfg.height = 1024;
+    cfg.height = 1280;
     new LwjglApplication(new SpaceJunkGame(), cfg);
   }
 
