@@ -20,8 +20,8 @@ public class SpaceJunkGame extends Game {
 
   @Override
   public void setScreen(Screen screen) {
-    super.setScreen(screen);
     this.currentScreen = screen;
+    super.setScreen(screen);
   }
 
   public void displayMainMenu() {

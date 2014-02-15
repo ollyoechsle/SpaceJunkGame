@@ -3,7 +3,7 @@ package com.ollysoft.spacejunk;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL10;
@@ -11,47 +11,49 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.ollysoft.spacejunk.objects.Block;
 import com.ollysoft.spacejunk.objects.Magnet;
+import com.ollysoft.spacejunk.objects.Score;
 import com.ollysoft.spacejunk.util.GoBackToMainMenu;
 
 /**
  * com.ollysoft.spacejunk
  */
-public class GameScreen implements Screen {
+public class GameScreen extends ScreenAdapter {
 
-  private Texture blockImage, bucketImage, background;
-  private Sound dropSound;
-  private Music music;
+  public final Texture blockImage, magnetImage, background;
+  public final Sound dropSound;
+  public final Music music;
+  public final Sound crashSound;
 
   private OrthographicCamera camera;
   private SpriteBatch batch;
 
-  private Magnet magnet;
+  public final Magnet magnet;
   private Vector3 touchPos = new Vector3();
 
   long lastDropTime;
   private SpaceJunkGame game;
   private Stage stage;
+  public final Score score;
 
   public GameScreen(SpaceJunkGame game) {
     this.game = game;
 
+    this.score = new Score(0);
+
     // load the images for the droplet and the magnet, 64x64 pixels each
     background = new Texture(Gdx.files.internal("background-1.png"));
     blockImage = new Texture(Gdx.files.internal("block.png"));
-    bucketImage = new Texture(Gdx.files.internal("collector.png"));
+    magnetImage = new Texture(Gdx.files.internal("collector.png"));
 
     // load the drop sound effect and the rain background "music"
     dropSound = Gdx.audio.newSound(Gdx.files.internal("jump.wav"));
-    music = Gdx.audio.newMusic(Gdx.files.internal("music-1.mp3"));
+    crashSound = Gdx.audio.newSound(Gdx.files.internal("crash.wav"));
+    music = Gdx.audio.newMusic(Gdx.files.internal("music-2.mp3"));
     music.setLooping(true);
 
     camera = new OrthographicCamera();
@@ -59,12 +61,12 @@ public class GameScreen implements Screen {
 
     batch = new SpriteBatch();
 
-    magnet = new Magnet(bucketImage);
-    magnet.setX(800 / 2 - 64 / 2);
-    magnet.setY(20);
+    magnet = new Magnet(magnetImage);
+    magnet.moveTo(Gdx.graphics.getWidth() / 2f);
 
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     stage.addActor(magnet);
+    stage.addActor(score);
 
     spawnBlock();
 
@@ -80,6 +82,7 @@ public class GameScreen implements Screen {
 
   @Override
   public void hide() {
+    music.pause();
     Gdx.input.setInputProcessor(null);
   }
 
@@ -111,7 +114,7 @@ public class GameScreen implements Screen {
     if (Gdx.input.isTouched()) {
       touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
       camera.unproject(touchPos);
-      magnet.setPosition(touchPos.x - 64 / 2, touchPos.y - 64 / 2);
+      magnet.moveTo(touchPos.x);
     }
 
     if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
@@ -121,12 +124,6 @@ public class GameScreen implements Screen {
       magnet.moveX(200 * Gdx.graphics.getDeltaTime());
     }
 
-    if (magnet.getX() < 0) {
-      magnet.setX(0);
-    }
-    if (magnet.getX() > 800 - 64) {
-      magnet.setX(800 - 64);
-    }
   }
 
   private void drawBackground() {
@@ -134,7 +131,7 @@ public class GameScreen implements Screen {
   }
 
   private void spawnBlock() {
-    Block block = new Block(blockImage);
+    Block block = new Block(blockImage, this);
     block.setPosition(MathUtils.random(0, 800 - 64), 480);
     lastDropTime = TimeUtils.nanoTime();
     stage.addActor(block);
@@ -146,19 +143,9 @@ public class GameScreen implements Screen {
   }
 
   @Override
-  public void pause() {
-    music.pause();
-  }
-
-  @Override
-  public void resume() {
-    music.play();
-  }
-
-  @Override
   public void dispose() {
     blockImage.dispose();
-    bucketImage.dispose();
+    magnetImage.dispose();
     dropSound.dispose();
     music.dispose();
     batch.dispose();
