@@ -18,12 +18,12 @@ public class Score extends Actor {
     this.score = initialScore;
   }
 
-  public void onCollectedBlock(Block block) {
-    this.score += 10;
+  public void onCollectedBlock(Junk block) {
+    this.score += block.type.getScore();
   }
 
-  public void onMissedBlock(Block block) {
-    this.score -= 10;
+  public void onMissedBlock(Junk block) {
+    this.score -= block.type.getScore();
   }
 
   @Override

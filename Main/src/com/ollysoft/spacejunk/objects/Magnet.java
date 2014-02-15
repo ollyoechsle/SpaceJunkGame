@@ -3,7 +3,6 @@ package com.ollysoft.spacejunk.objects;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 
 /**
  * com.ollysoft.spacejunk.objects
@@ -17,7 +16,7 @@ public class Magnet extends RectangleActor {
 
     this.setWidth(384);
     this.setHeight(64);
-    this.setY(Block.SIZE * 4);
+    this.setY(Junk.SIZE * 4);
   }
 
   public void draw(SpriteBatch batch, float parentAlpha) {

@@ -1,6 +1,5 @@
 package com.ollysoft.spacejunk.objects;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ollysoft.spacejunk.GameScreen;
@@ -10,17 +9,19 @@ import static com.badlogic.gdx.math.Intersector.overlaps;
 /**
  * com.ollysoft.spacejunk.objects
  */
-public class Block extends RectangleActor {
+public class Junk extends RectangleActor {
 
   public static int SIZE = 64;
 
   private final TextureRegion texture;
+  public final JunkType type;
   private final GameScreen game;
 
-  public Block(Texture texture, GameScreen game) {
+  public Junk(JunkType type, GameScreen game) {
     super();
+    this.type = type;
     this.game = game;
-    this.texture = new TextureRegion(texture);
+    this.texture = type.getTexture(game.assets);
     this.setWidth(SIZE);
     this.setHeight(SIZE);
   }

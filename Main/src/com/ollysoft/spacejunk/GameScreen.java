@@ -14,9 +14,11 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.TimeUtils;
-import com.ollysoft.spacejunk.objects.Block;
+import com.ollysoft.spacejunk.objects.Junk;
+import com.ollysoft.spacejunk.objects.JunkType;
 import com.ollysoft.spacejunk.objects.Magnet;
 import com.ollysoft.spacejunk.objects.Score;
+import com.ollysoft.spacejunk.util.Assets;
 import com.ollysoft.spacejunk.util.GoBackToMainMenu;
 
 /**
@@ -24,10 +26,11 @@ import com.ollysoft.spacejunk.util.GoBackToMainMenu;
  */
 public class GameScreen extends ScreenAdapter {
 
-  public final Texture blockImage, magnetImage, background;
+  public final Texture magnetImage, background;
   public final Sound dropSound;
   public final Music music;
   public final Sound crashSound;
+  public final Assets assets;
 
   private OrthographicCamera camera;
   private SpriteBatch batch;
@@ -47,8 +50,8 @@ public class GameScreen extends ScreenAdapter {
 
     // load the images for the droplet and the magnet, 64x64 pixels each
     background = new Texture(Gdx.files.internal("background-1.png"));
-    blockImage = new Texture(Gdx.files.internal("block.png"));
     magnetImage = new Texture(Gdx.files.internal("collector.png"));
+    assets = new Assets();
 
     // load the drop sound effect and the rain background "music"
     dropSound = Gdx.audio.newSound(Gdx.files.internal("jump.wav"));
@@ -68,7 +71,7 @@ public class GameScreen extends ScreenAdapter {
     stage.addActor(magnet);
     stage.addActor(score);
 
-    spawnBlock();
+    spawnJunk();
 
   }
 
@@ -106,7 +109,7 @@ public class GameScreen extends ScreenAdapter {
 
   private void animate() {
     if (TimeUtils.nanoTime() - lastDropTime > 1000000000) {
-      spawnBlock();
+      spawnJunk();
     }
   }
 
@@ -130,9 +133,9 @@ public class GameScreen extends ScreenAdapter {
     batch.draw(background, 0, 0);
   }
 
-  private void spawnBlock() {
-    Block block = new Block(blockImage, this);
-    block.setPosition(MathUtils.random(0, 800 - 64), 480);
+  private void spawnJunk() {
+    Junk block = new Junk(JunkType.randomJunkType(), this);
+    block.setPosition(MathUtils.random(0, 800 - 64), 768);
     lastDropTime = TimeUtils.nanoTime();
     stage.addActor(block);
   }
@@ -144,7 +147,7 @@ public class GameScreen extends ScreenAdapter {
 
   @Override
   public void dispose() {
-    blockImage.dispose();
+    assets.dispose();
     magnetImage.dispose();
     dropSound.dispose();
     music.dispose();
