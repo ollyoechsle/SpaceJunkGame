@@ -13,6 +13,7 @@ import static org.junit.Assert.assertTrue;
 public class PlatformTest {
 
   private Platform p;
+  private int x = 100;
 
   @Test
   public void testAddJunk() throws Exception {
@@ -39,7 +40,7 @@ public class PlatformTest {
   @Test
   public void testHidesWhenFindingThreeTheSame() throws Exception {
 
-    Platform p = new Platform(null, 4);
+    p = new Platform(null, 4);
     p.setX(100);
 
     assertFalse(p.addJunk(someJunkAt(105)));
@@ -51,13 +52,21 @@ public class PlatformTest {
   @Test
   public void testOverlapping() {
 
-    Platform p = new Platform(null, 4);
-    p.setX(100);
+    p = new Platform(null, 4);
+
+    p.setX(x);
     p.setY(50);
 
-    assertFalse("This is above the platform", p.overlaps(new Rectangle(100, 150, 64, 64)) > -1);
-    assertTrue("This is touching the platform", p.overlaps(new Rectangle(100, 55, 64, 64)) > -1);
+    assertFalse("This is above the platform", overlaps(50 + p.getHeight() + 10));
 
+    assertTrue("This is just touching the platform", overlaps(50 + p.getHeight() - 1));
+
+    assertFalse("This is too far below the platform", overlaps(50 + p.getHeight() - BasicJunk.SIZE));
+
+  }
+
+  private boolean overlaps(float y) {
+    return p.overlaps(new Rectangle(x, y, 64, 64)) > -1;
   }
 
   @Test
@@ -78,7 +87,8 @@ public class PlatformTest {
   }
 
   private void assertStackHeight(int expectedNumberOfBlocks, JunkStack stack) {
-    assertEquals((BasicJunk.SIZE * expectedNumberOfBlocks) + p.getHeight(), stack.rectangle.getHeight(), 0.1);
+    assertEquals((BasicJunk.SIZE * expectedNumberOfBlocks) + p.getHeight(),
+                 stack.rectangle.getHeight(), 0.1);
   }
 
   private BasicJunk someJunkAt(int x) {

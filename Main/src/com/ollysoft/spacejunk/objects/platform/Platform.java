@@ -46,6 +46,10 @@ public class Platform extends Group {
     temporaryRectangle.setHeight(other.getHeight());
     for (int i = 0; i < stacks.length; i++) {
       if (stacks[i].rectangle.overlaps(temporaryRectangle)) {
+        if (temporaryRectangle.y < stacks[i].rectangle.height - (BasicJunk.SIZE / 2)) {
+          // already passed the top of the stack
+          continue;
+        }
         return i;
       }
     }

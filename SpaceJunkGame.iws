@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java" afterPath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpaceJunkGame.iws" afterPath="$PROJECT_DIR$/SpaceJunkGame.iws" />
     </list>
@@ -66,6 +66,36 @@
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint url="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" line="41" class="com.ollysoft.spacejunk.objects.platform.JunkStack$1" package="com.ollysoft.spacejunk.objects.platform">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java" line="48" class="com.ollysoft.spacejunk.objects.platform.Platform" package="com.ollysoft.spacejunk.objects.platform">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java" line="63" class="com.ollysoft.spacejunk.objects.platform.PlatformTest" package="com.ollysoft.spacejunk.objects.platform">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -139,19 +169,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlatformTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java">
+      <file leaf-file-name="Platform.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="35" selection-start="1605" selection-end="1605" vertical-scroll-proportion="1.313364" vertical-offset="0" max-vertical-offset="1305">
+            <state line="52" column="60" selection-start="1662" selection-end="1662" vertical-scroll-proportion="0.0" vertical-offset="452" max-vertical-offset="1650">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Platform.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java">
+      <file leaf-file-name="PlatformTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="37" selection-start="1785" selection-end="1785" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="1590">
+            <state line="59" column="4" selection-start="1339" selection-end="1339" vertical-scroll-proportion="0.453149" vertical-offset="470" max-vertical-offset="1455">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Actor.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/scenes/scene2d/Actor.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="146" column="15" selection-start="5475" selection-end="5475" vertical-scroll-proportion="-7.72" vertical-offset="1982" max-vertical-offset="2910">
               <folding />
             </state>
           </provider>
@@ -170,15 +209,6 @@
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/FallingJunk.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="31" column="28" selection-start="788" selection-end="788" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpaceJunkGame.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="597" selection-end="597" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="615">
               <folding />
             </state>
           </provider>
@@ -231,8 +261,8 @@
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Paddle.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/FallingJunk.java" />
-        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java" />
         <option value="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java" />
       </list>
     </option>
@@ -424,36 +454,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SpaceJunkGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SpaceJunkGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spacejunk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="objects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="platform" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -605,7 +605,7 @@
       <recent name="com.ollysoft.spacejunk.objects.platform" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlatformTest.repositionRocks">
+  <component name="RunManager" selected="JUnit.PlatformTest.testOverlapping">
     <configuration default="false" name="PlatformTest.testAddJunk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -912,8 +912,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.PlatformTest.repositionRocks" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.PlatformTest.testOverlapping" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.PlatformTest.testOverlapping" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.PlatformTest.repositionRocks" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.PlatformTest.testHidesWhenFindingThreeTheSame" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.PlatformTest.testAddJunk" />
       </list>
@@ -942,7 +942,7 @@
       <workItem from="1392413158808" duration="62000" />
       <workItem from="1392413590278" duration="22935000" />
       <workItem from="1392547150309" duration="13424000" />
-      <workItem from="1392570813736" duration="2836000" />
+      <workItem from="1392570813736" duration="3729000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with demo from libgdx">
       <created>1392330997044</created>
@@ -1024,11 +1024,15 @@
       <created>1392571294585</created>
       <updated>1392571294585</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Test for updating the blocks after they fade away">
+      <created>1392578061855</created>
+      <updated>1392578061855</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50958000" />
+    <option name="totallyTimeSpent" value="51851000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1108" extended-state="6" />
@@ -1096,7 +1100,8 @@
     <MESSAGE value="Rocks animate to their correct positions" />
     <MESSAGE value="Better move speed" />
     <MESSAGE value="Improved collision detection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved collision detection" />
+    <MESSAGE value="Test for updating the blocks after they fade away" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test for updating the blocks after they fade away" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1127,7 +1132,9 @@
     </entry>
     <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/math/Rectangle.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="9" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1230" />
+        <state line="15" column="9" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1230">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java">
@@ -1139,7 +1146,9 @@
     </entry>
     <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/scenes/scene2d/Actor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2925" />
+        <state line="6" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2925">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Desktop/src/com/ollysoft/spacejunk/DesktopStarter.java">
@@ -1308,11 +1317,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/scenes/scene2d/Actor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="0" selection-start="7340" selection-end="7340" vertical-scroll-proportion="-22.6" vertical-offset="2255" max-vertical-offset="2910" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/RectangleActor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="13" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
@@ -1360,11 +1364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/math/Rectangle.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="9" selection-start="533" selection-end="533" vertical-scroll-proportion="-7.72" vertical-offset="47" max-vertical-offset="1215" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/FallingJunk.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="28" selection-start="788" selection-end="788" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
@@ -1375,13 +1374,6 @@
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Paddle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="13" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="37" selection-start="1785" selection-end="1785" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="1590">
           <folding />
         </state>
       </provider>
@@ -1404,9 +1396,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/scenes/scene2d/Actor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="15" selection-start="5475" selection-end="5475" vertical-scroll-proportion="-7.72" vertical-offset="1982" max-vertical-offset="2910">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/math/Rectangle.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="9" selection-start="533" selection-end="533" vertical-scroll-proportion="-7.72" vertical-offset="47" max-vertical-offset="1215">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="60" selection-start="1662" selection-end="1662" vertical-scroll-proportion="0.0" vertical-offset="452" max-vertical-offset="1650">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="35" selection-start="1605" selection-end="1605" vertical-scroll-proportion="1.313364" vertical-offset="0" max-vertical-offset="1305">
+        <state line="59" column="4" selection-start="1339" selection-end="1339" vertical-scroll-proportion="0.453149" vertical-offset="470" max-vertical-offset="1455">
           <folding />
         </state>
       </provider>
