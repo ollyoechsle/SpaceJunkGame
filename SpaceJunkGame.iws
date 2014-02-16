@@ -7,8 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/BasicJunk.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/BasicJunk.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Platform.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Platform.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java" afterPath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpaceJunkGame.iws" afterPath="$PROJECT_DIR$/SpaceJunkGame.iws" />
     </list>
     <ignored path="SpaceJunkGame.iws" />
@@ -120,10 +119,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Platform.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Platform.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Platform.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="23" selection-start="2203" selection-end="2203" vertical-scroll-proportion="0.96006143" vertical-offset="635" max-vertical-offset="1620">
+            <state line="84" column="23" selection-start="2203" selection-end="2203" vertical-scroll-proportion="0.0" vertical-offset="635" max-vertical-offset="1620">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,10 +139,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlatformTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="PlatformTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="19" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+            <state line="12" column="21" selection-start="277" selection-end="277" vertical-scroll-proportion="0.16129032" vertical-offset="0" max-vertical-offset="651">
               <folding />
             </state>
           </provider>
@@ -206,12 +205,12 @@
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/RectangleActor.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/RectangleActor.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
-        <option value="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/FallingJunk.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/RectangleGroup.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Paddle.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/BasicJunk.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Platform.java" />
+        <option value="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java" />
       </list>
     </option>
   </component>
@@ -550,7 +549,7 @@
       <recent name="com.ollysoft.spacejunk.objects" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Desktop">
+  <component name="RunManager" selected="JUnit.PlatformTest.testAddJunk">
     <configuration default="false" name="PlatformTest.testAddJunk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -778,7 +777,7 @@
       <workItem from="1392318861882" duration="11701000" />
       <workItem from="1392413158808" duration="62000" />
       <workItem from="1392413590278" duration="22935000" />
-      <workItem from="1392547150309" duration="4117000" />
+      <workItem from="1392547150309" duration="4155000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with demo from libgdx">
       <created>1392330997044</created>
@@ -832,11 +831,15 @@
       <created>1392550792114</created>
       <updated>1392550792114</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Adds fadeout">
+      <created>1392555267390</created>
+      <updated>1392555267390</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38815000" />
+    <option name="totallyTimeSpent" value="38853000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1108" extended-state="6" />
@@ -897,7 +900,8 @@
     <MESSAGE value="Stacks positioned relative to platform/paddle&#10;" />
     <MESSAGE value="Adds PSD originals" />
     <MESSAGE value="Improved bg music" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved bg music" />
+    <MESSAGE value="Adds fadeout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds fadeout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1166,13 +1170,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="19" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/RectangleActor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="13" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
@@ -1219,10 +1216,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Platform.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="23" selection-start="2203" selection-end="2203" vertical-scroll-proportion="0.96006143" vertical-offset="635" max-vertical-offset="1620">
+        <state line="84" column="23" selection-start="2203" selection-end="2203" vertical-scroll-proportion="0.0" vertical-offset="635" max-vertical-offset="1620">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="21" selection-start="277" selection-end="277" vertical-scroll-proportion="0.16129032" vertical-offset="0" max-vertical-offset="651">
+          <folding />
         </state>
       </provider>
     </entry>
