@@ -1,7 +1,8 @@
-package com.ollysoft.spacejunk.objects;
+package com.ollysoft.spacejunk.objects.platform;
 
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
+import com.ollysoft.spacejunk.objects.platform.Platform;
 
 import org.junit.Test;
 

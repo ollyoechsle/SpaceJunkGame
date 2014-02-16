@@ -21,7 +21,7 @@ public class FallingJunk extends BasicJunk {
   public void act(float delta) {
     float y = getY() - (200 * delta);
     if (y + SIZE < 0) {
-      game.crashSound.play();
+      //game.crashSound.play();
       game.score.onMissedBlock(this);
       remove();
     } else {

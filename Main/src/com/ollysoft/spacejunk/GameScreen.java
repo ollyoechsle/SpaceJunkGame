@@ -15,9 +15,10 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.TimeUtils;
+import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
-import com.ollysoft.spacejunk.objects.Platform;
+import com.ollysoft.spacejunk.objects.platform.Platform;
 import com.ollysoft.spacejunk.objects.Score;
 import com.ollysoft.spacejunk.util.Assets;
 import com.ollysoft.spacejunk.util.GoBackToMainMenu;
@@ -55,7 +56,7 @@ public class GameScreen extends ScreenAdapter {
     assets = new Assets();
 
     // load the drop sound effect and the rain background "music"
-    dropSound = Gdx.audio.newSound(Gdx.files.internal("jump.wav"));
+    dropSound = Gdx.audio.newSound(Gdx.files.internal("beep.wav"));
     crashSound = Gdx.audio.newSound(Gdx.files.internal("crash.wav"));
     music = Gdx.audio.newMusic(Gdx.files.internal("music-2.mp3"));
     music.setLooping(true);
@@ -136,7 +137,7 @@ public class GameScreen extends ScreenAdapter {
 
   private void spawnJunk() {
     FallingJunk block = new FallingJunk(JunkType.randomJunkType(), this);
-    block.setPosition(MathUtils.random(0, 800 - 64), 768);
+    block.setPosition(MathUtils.random(0, Gdx.graphics.getWidth() - BasicJunk.SIZE), Gdx.graphics.getHeight());
     lastDropTime = TimeUtils.nanoTime();
     stage.addActor(block);
   }

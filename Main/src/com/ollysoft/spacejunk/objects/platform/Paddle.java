@@ -1,4 +1,4 @@
-package com.ollysoft.spacejunk.objects;
+package com.ollysoft.spacejunk.objects.platform;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;

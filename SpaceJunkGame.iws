@@ -7,7 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java" afterPath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Platform.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Paddle.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Paddle.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java" afterPath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/FallingJunk.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/FallingJunk.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpaceJunkGame.iws" afterPath="$PROJECT_DIR$/SpaceJunkGame.iws" />
     </list>
     <ignored path="SpaceJunkGame.iws" />
@@ -75,16 +81,7 @@
       <file leaf-file-name="Score.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Score.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="20" selection-start="1048" selection-end="1048" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="705">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RectangleActor.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/RectangleActor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="13" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+            <state line="35" column="20" selection-start="1048" selection-end="1048" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
               <folding />
             </state>
           </provider>
@@ -99,30 +96,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainMenuScreen.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java">
+      <file leaf-file-name="Paddle.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Paddle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="3" selection-start="1990" selection-end="1990" vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="1500">
-              <folding />
+            <state line="11" column="13" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Paddle.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Paddle.java">
+      <file leaf-file-name="JunkStack.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="13" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+            <state line="50" column="60" selection-start="1366" selection-end="1366" vertical-scroll-proportion="0.7357911" vertical-offset="271" max-vertical-offset="2085">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#993#1123#0" expanded="true" />
+                <element signature="e#1115#1116#0" expanded="true" />
+                <element signature="e#2265#2276#0" expanded="true" />
+                <element signature="e#2333#2344#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Platform.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Platform.java">
+        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="23" selection-start="2203" selection-end="2203" vertical-scroll-proportion="0.0" vertical-offset="635" max-vertical-offset="1620">
+            <state line="13" column="13" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1305">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -130,19 +133,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Group.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/scenes/scene2d/Group.class">
+      <file leaf-file-name="GameScreen.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="0" selection-start="3448" selection-end="3448" vertical-scroll-proportion="-34.8" vertical-offset="195" max-vertical-offset="1155">
+            <state line="158" column="32" selection-start="4382" selection-end="4382" vertical-scroll-proportion="0.0" vertical-offset="1238" max-vertical-offset="2235">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlatformTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java">
+      <file leaf-file-name="PlatformTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="21" selection-start="277" selection-end="277" vertical-scroll-proportion="0.16129032" vertical-offset="0" max-vertical-offset="651">
+            <state line="44" column="0" selection-start="1158" selection-end="1158" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
               <folding />
             </state>
           </provider>
@@ -160,7 +163,16 @@
       <file leaf-file-name="FallingJunk.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/FallingJunk.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="62" selection-start="866" selection-end="866" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+            <state line="32" column="6" selection-start="791" selection-end="791" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpaceJunkGame.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="0" selection-start="597" selection-end="597" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
               <folding />
             </state>
           </provider>
@@ -199,18 +211,20 @@
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/Assets.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/JunkType.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Magnet.java" />
-        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/JunkStack.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Junk.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/StaticJunk.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/RectangleActor.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/RectangleActor.java" />
-        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
-        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/FallingJunk.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/RectangleGroup.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Paddle.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/BasicJunk.java" />
-        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Platform.java" />
         <option value="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Platform.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/FallingJunk.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/JunkStack.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkRemovedHandler.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" />
       </list>
     </option>
   </component>
@@ -297,7 +311,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="objects" />
+              <option name="myItemId" value="platform" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -402,6 +416,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpaceJunkGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpaceJunkGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spacejunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="objects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platform" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -548,8 +592,11 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.ollysoft.spacejunk.objects" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.ollysoft.spacejunk.objects.platform" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlatformTest.testAddJunk">
+  <component name="RunManager" selected="Application.Desktop">
     <configuration default="false" name="PlatformTest.testAddJunk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -560,8 +607,8 @@
       <module name="Main" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.ollysoft.spacejunk.objects" />
-      <option name="MAIN_CLASS_NAME" value="com.ollysoft.spacejunk.objects.PlatformTest" />
+      <option name="PACKAGE_NAME" value="com.ollysoft.spacejunk.objects.platform" />
+      <option name="MAIN_CLASS_NAME" value="com.ollysoft.spacejunk.objects.platform.PlatformTest" />
       <option name="METHOD_NAME" value="testAddJunk" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -575,6 +622,40 @@
       <envs />
       <patterns />
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="PlatformTest.testHidesWhenFindingThreeTheSame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.ollysoft.spacejunk.objects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Main" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.ollysoft.spacejunk.objects.platform" />
+      <option name="MAIN_CLASS_NAME" value="com.ollysoft.spacejunk.objects.platform.PlatformTest" />
+      <option name="METHOD_NAME" value="testHidesWhenFindingThreeTheSame" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -744,14 +825,16 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Android Application.Android" />
       <item index="1" class="java.lang.String" itemvalue="Application.Desktop" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.PlatformTest.testAddJunk" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.PlatformTest.testHidesWhenFindingThreeTheSame" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.PlatformTest.testAddJunk" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.PlatformTest.testHidesWhenFindingThreeTheSame" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.PlatformTest.testAddJunk" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -777,7 +860,7 @@
       <workItem from="1392318861882" duration="11701000" />
       <workItem from="1392413158808" duration="62000" />
       <workItem from="1392413590278" duration="22935000" />
-      <workItem from="1392547150309" duration="4155000" />
+      <workItem from="1392547150309" duration="9848000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with demo from libgdx">
       <created>1392330997044</created>
@@ -835,11 +918,23 @@
       <created>1392555267390</created>
       <updated>1392555267390</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fixes test">
+      <created>1392555301349</created>
+      <updated>1392555301349</updated>
+    </task>
+    <task id="LOCAL-00016" summary="More chilled out background music">
+      <created>1392557658460</created>
+      <updated>1392557658460</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Detection for three-of-a-kind">
+      <created>1392557679085</created>
+      <updated>1392557679086</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38853000" />
+    <option name="totallyTimeSpent" value="44546000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1108" extended-state="6" />
@@ -901,7 +996,10 @@
     <MESSAGE value="Adds PSD originals" />
     <MESSAGE value="Improved bg music" />
     <MESSAGE value="Adds fadeout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds fadeout" />
+    <MESSAGE value="Fixes test" />
+    <MESSAGE value="More chilled out background music" />
+    <MESSAGE value="Detection for three-of-a-kind" />
+    <option name="LAST_COMMIT_MESSAGE" value="Detection for three-of-a-kind" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -911,20 +1009,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/GoBackToMainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="29" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="525">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="87" selection-start="2211" selection-end="2211" vertical-scroll-proportion="0.0" vertical-offset="693" max-vertical-offset="2955">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/graphics/Texture.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="44" column="144" selection-start="1948" selection-end="1948" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1410" />
@@ -935,7 +1019,7 @@
         <state line="15" column="9" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1230" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Platform.java">
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="2" selection-start="548" selection-end="548" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="735">
           <folding>
@@ -1090,13 +1174,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="597" selection-end="597" vertical-scroll-proportion="0.31979695" vertical-offset="0" max-vertical-offset="985">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Android/assets/background-1.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1142,13 +1219,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Score.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="20" selection-start="1048" selection-end="1048" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="705">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/MainMenuScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="75" column="3" selection-start="1990" selection-end="1990" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1500">
@@ -1177,13 +1247,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/FallingJunk.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="62" selection-start="866" selection-end="866" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/RectangleGroup.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="13" selection-start="234" selection-end="234" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
@@ -1191,16 +1254,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java">
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Paddle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="6" selection-start="2708" selection-end="2708" vertical-scroll-proportion="0.0" vertical-offset="137" max-vertical-offset="2235">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Paddle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+        <state line="11" column="13" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1214,19 +1270,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Platform.java">
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Score.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="23" selection-start="2203" selection-end="2203" vertical-scroll-proportion="0.0" vertical-offset="635" max-vertical-offset="1620">
+        <state line="35" column="20" selection-start="1048" selection-end="1048" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="597" selection-end="597" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/FallingJunk.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="6" selection-start="791" selection-end="791" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="0" selection-start="1158" selection-end="1158" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="158" column="32" selection-start="4382" selection-end="4382" vertical-scroll-proportion="0.0" vertical-offset="1238" max-vertical-offset="2235">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="13" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1305">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java">
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="21" selection-start="277" selection-end="277" vertical-scroll-proportion="0.16129032" vertical-offset="0" max-vertical-offset="651">
-          <folding />
+        <state line="50" column="60" selection-start="1366" selection-end="1366" vertical-scroll-proportion="0.7357911" vertical-offset="271" max-vertical-offset="2085">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#993#1123#0" expanded="true" />
+            <element signature="e#1115#1116#0" expanded="true" />
+            <element signature="e#2265#2276#0" expanded="true" />
+            <element signature="e#2333#2344#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
