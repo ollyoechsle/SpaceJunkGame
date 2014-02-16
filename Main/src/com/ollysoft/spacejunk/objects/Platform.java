@@ -1,10 +1,11 @@
 package com.ollysoft.spacejunk.objects;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.ollysoft.spacejunk.GameScreen;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
+import com.ollysoft.spacejunk.objects.util.RectangleGroup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,30 +13,29 @@ import java.util.List;
 /**
  * com.ollysoft.spacejunk.objects
  */
-public class Platform extends RectangleActor {
+public class Platform extends RectangleGroup {
 
-  protected TextureRegion texture;
   protected JunkStack[] stacks;
 
   public Platform(TextureRegion texture, int width) {
-    this.texture = texture;
+    super();
 
-    this.stacks = new JunkStack[width];
-    for (int i = 0; i < width; i++) {
-      this.stacks[i] = new JunkStack(this, i);
-      this.addActor(this.stacks[i]);
-    }
+    this.setTransform(false);
 
     this.setWidth(FallingJunk.SIZE * width);
     this.setHeight(FallingJunk.SIZE);
-    this.setY(FallingJunk.SIZE * 5);
-  }
 
-  public void draw(SpriteBatch batch, float parentAlpha) {
-    batch.draw(texture, this.getX(), this.getY(), this.getWidth(), this.getHeight());
-    for (JunkStack stack : stacks) {
-      stack.draw(batch, parentAlpha);
+    this.setX(GameScreen.width - (this.getWidth() / 2));
+    this.setY(FallingJunk.SIZE * 5);
+
+    addActor(new Paddle(texture, width));
+
+    this.stacks = new JunkStack[width];
+    for (int x = 0; x < width; x++) {
+      this.stacks[x] = new JunkStack(x);
+      addActor(this.stacks[x]);
     }
+
   }
 
   public void moveX(float delta) {
@@ -65,30 +65,23 @@ public class Platform extends RectangleActor {
     stacks[stackIndex].addJunk(junk);
   }
 
-  protected class JunkStack extends RectangleActor {
+  protected class JunkStack extends Group {
 
-    private Platform p;
     private int deltaX;
     private List<BasicJunk> stack;
 
-    private JunkStack(Platform p, int x) {
-      this.p = p;
+    private JunkStack(int x) {
       this.deltaX = x * BasicJunk.SIZE;
       this.stack = new ArrayList<BasicJunk>();
+      this.setTransform(false);
     }
 
     public void addJunk(BasicJunk fallenJunk) {
       BasicJunk newJunk = new BasicJunk(fallenJunk.type, fallenJunk.texture);
       newJunk.setX(this.deltaX);
-      newJunk.setY(stack.size() * BasicJunk.SIZE);
+      newJunk.setY((stack.size() + 1) * BasicJunk.SIZE);
       stack.add(newJunk);
       addActor(newJunk);
-    }
-
-    public void draw(SpriteBatch batch, float parentAlpha) {
-      for (BasicJunk junk : stack) {
-        junk.draw(batch, parentAlpha);
-      }
     }
 
     public int size() {

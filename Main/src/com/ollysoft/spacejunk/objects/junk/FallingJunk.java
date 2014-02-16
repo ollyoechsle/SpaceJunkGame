@@ -27,9 +27,9 @@ public class FallingJunk extends BasicJunk {
     } else {
       setY(y);
     }
-    if (overlaps(getRectangle(), game.magnet.getRectangle())) {
+    if (overlaps(getRectangle(), game.platform.getRectangle())) {
       this.remove();
-      game.magnet.addJunk(this);
+      game.platform.addJunk(this);
       game.dropSound.play();
       game.score.onCollectedBlock(this);
     }

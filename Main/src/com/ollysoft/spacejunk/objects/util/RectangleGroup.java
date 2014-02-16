@@ -1,16 +1,17 @@
-package com.ollysoft.spacejunk.objects;
+package com.ollysoft.spacejunk.objects.util;
 
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 
 /**
  * com.ollysoft.spacejunk.objects
  */
-public class RectangleActor extends Group {
+public class RectangleGroup extends Group {
 
   private Rectangle rectangle;
 
-  public RectangleActor() {
+  public RectangleGroup() {
     this.rectangle = new Rectangle(0, 0, 0, 0);
   }
 

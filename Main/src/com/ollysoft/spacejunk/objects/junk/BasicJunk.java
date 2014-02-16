@@ -2,7 +2,7 @@ package com.ollysoft.spacejunk.objects.junk;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.ollysoft.spacejunk.objects.RectangleActor;
+import com.ollysoft.spacejunk.objects.util.RectangleActor;
 
 /**
  * com.ollysoft.spacejunk.objects

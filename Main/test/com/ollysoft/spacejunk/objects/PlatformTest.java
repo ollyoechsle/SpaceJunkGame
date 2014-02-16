@@ -13,6 +13,7 @@ public class PlatformTest {
   public void testAddJunk() throws Exception {
 
     Platform p = new Platform(null, 4);
+    assertEquals(4, p.getChildren().size);
     p.setX(100);
     assertEquals(0, p.stacks[0].size());
 
@@ -25,7 +26,9 @@ public class PlatformTest {
     p.addJunk(someJunkAt(180));
     assertEquals(1, p.stacks[1].size());
 
-    assertEquals(4, p.getChildren().size);
+    assertEquals(2, p.stacks[0].getChildren().size);
+    assertEquals(1, p.stacks[1].getChildren().size);
+
 
   }
 

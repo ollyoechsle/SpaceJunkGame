@@ -36,7 +36,7 @@ public class GameScreen extends ScreenAdapter {
   private OrthographicCamera camera;
   private SpriteBatch batch;
 
-  public final Platform magnet;
+  public final Platform platform;
   private Vector3 touchPos = new Vector3();
 
   long lastDropTime;
@@ -49,7 +49,7 @@ public class GameScreen extends ScreenAdapter {
 
     this.score = new Score(0);
 
-    // load the images for the droplet and the magnet, 64x64 pixels each
+    // load the images for the droplet and the platform, 64x64 pixels each
     background = new Texture(Gdx.files.internal("background-1.png"));
     magnetImage = new Texture(Gdx.files.internal("collector.png"));
     assets = new Assets();
@@ -65,11 +65,11 @@ public class GameScreen extends ScreenAdapter {
 
     batch = new SpriteBatch();
 
-    magnet = new Platform(new TextureRegion(magnetImage), 4);
-    magnet.moveTo(Gdx.graphics.getWidth() / 2f);
+    platform = new Platform(new TextureRegion(magnetImage), 4);
+    platform.moveTo(Gdx.graphics.getWidth() / 2f);
 
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
-    stage.addActor(magnet);
+    stage.addActor(platform);
     stage.addActor(score);
 
     spawnJunk();
@@ -118,14 +118,14 @@ public class GameScreen extends ScreenAdapter {
     if (Gdx.input.isTouched()) {
       touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
       camera.unproject(touchPos);
-      magnet.moveTo(touchPos.x);
+      platform.moveTo(touchPos.x);
     }
 
     if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-      magnet.moveX(-200 * Gdx.graphics.getDeltaTime());
+      platform.moveX(-200 * Gdx.graphics.getDeltaTime());
     }
     if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-      magnet.moveX(200 * Gdx.graphics.getDeltaTime());
+      platform.moveX(200 * Gdx.graphics.getDeltaTime());
     }
 
   }
