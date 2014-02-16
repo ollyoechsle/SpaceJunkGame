@@ -1,4 +1,4 @@
-package com.ollysoft.spacejunk.objects;
+package com.ollysoft.spacejunk.objects.junk;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ollysoft.spacejunk.util.Assets;
@@ -8,19 +8,21 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-/**
- * com.ollysoft.spacejunk.objects
- */
 public enum JunkType {
 
   PLAIN_ROCK {
     @Override
     public TextureRegion getTexture(Assets assets) {
-      return assets.rock1;
+      return assets.plainRock;
     }
 
     @Override
-    public int getScore() {
+    public int getCollectionScore() {
+      return 10;
+    }
+
+    @Override
+    public int getMissCost() {
       return 10;
     }
   },
@@ -28,18 +30,42 @@ public enum JunkType {
   RED_ROCK {
     @Override
     public TextureRegion getTexture(Assets assets) {
-      return assets.rock2;
+      return assets.redRock;
     }
 
     @Override
-    public int getScore() {
-      return 50;
+    public int getCollectionScore() {
+      return -50;
+    }
+
+    @Override
+    public int getMissCost() {
+      return 0;
+    }
+  },
+
+  GOLD_ROCK {
+     @Override
+     public TextureRegion getTexture(Assets assets) {
+       return assets.goldRock;
+     }
+
+     @Override
+     public int getCollectionScore() {
+       return 30;
+     }
+
+    @Override
+    public int getMissCost() {
+      return 30;
     }
   };
 
   public abstract TextureRegion getTexture(Assets assets);
 
-  public abstract int getScore();
+  public abstract int getCollectionScore();
+
+  public abstract int getMissCost();
 
   private static final
   List<JunkType>

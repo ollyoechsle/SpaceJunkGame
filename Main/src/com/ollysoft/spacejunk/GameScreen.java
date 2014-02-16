@@ -10,13 +10,14 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.TimeUtils;
-import com.ollysoft.spacejunk.objects.Junk;
-import com.ollysoft.spacejunk.objects.JunkType;
-import com.ollysoft.spacejunk.objects.Magnet;
+import com.ollysoft.spacejunk.objects.junk.FallingJunk;
+import com.ollysoft.spacejunk.objects.junk.JunkType;
+import com.ollysoft.spacejunk.objects.Platform;
 import com.ollysoft.spacejunk.objects.Score;
 import com.ollysoft.spacejunk.util.Assets;
 import com.ollysoft.spacejunk.util.GoBackToMainMenu;
@@ -35,7 +36,7 @@ public class GameScreen extends ScreenAdapter {
   private OrthographicCamera camera;
   private SpriteBatch batch;
 
-  public final Magnet magnet;
+  public final Platform magnet;
   private Vector3 touchPos = new Vector3();
 
   long lastDropTime;
@@ -64,7 +65,7 @@ public class GameScreen extends ScreenAdapter {
 
     batch = new SpriteBatch();
 
-    magnet = new Magnet(magnetImage);
+    magnet = new Platform(new TextureRegion(magnetImage), 4);
     magnet.moveTo(Gdx.graphics.getWidth() / 2f);
 
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
@@ -134,14 +135,18 @@ public class GameScreen extends ScreenAdapter {
   }
 
   private void spawnJunk() {
-    Junk block = new Junk(JunkType.randomJunkType(), this);
+    FallingJunk block = new FallingJunk(JunkType.randomJunkType(), this);
     block.setPosition(MathUtils.random(0, 800 - 64), 768);
     lastDropTime = TimeUtils.nanoTime();
     stage.addActor(block);
   }
 
+  public static int width, height;
+
   @Override
   public void resize(int width, int height) {
+    GameScreen.width = width;
+    GameScreen.height = height;
     stage.setViewport(width, height, true);
   }
 

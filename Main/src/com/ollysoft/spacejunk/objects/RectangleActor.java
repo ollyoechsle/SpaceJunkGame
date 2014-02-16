@@ -1,12 +1,12 @@
 package com.ollysoft.spacejunk.objects;
 
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
 
 /**
  * com.ollysoft.spacejunk.objects
  */
-public class RectangleActor extends Actor {
+public class RectangleActor extends Group {
 
   private Rectangle rectangle;
 

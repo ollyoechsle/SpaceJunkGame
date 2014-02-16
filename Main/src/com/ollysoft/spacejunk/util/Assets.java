@@ -6,15 +6,19 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Assets {
 
-  public final TextureRegion rock1;
-  public final TextureRegion rock2;
+  public final TextureRegion plainRock;
+  public final TextureRegion redRock;
+  public final TextureRegion greenRock;
+  public final TextureRegion goldRock;
 
   private final Texture texture;
 
   public Assets() {
     texture = new Texture(Gdx.files.internal("rocks.png"));
-    rock1 = new TextureRegion(texture, 0, 0, 64, 64);
-    rock2 = new TextureRegion(texture, 64, 0, 64, 64);
+    plainRock = new TextureRegion(texture, 0, 0, 64, 64);
+    redRock = new TextureRegion(texture, 64, 0, 64, 64);
+    greenRock = new TextureRegion(texture, 128, 0, 64, 64);
+    goldRock = new TextureRegion(texture, 196, 0, 64, 64);
   }
 
   public void dispose() {
