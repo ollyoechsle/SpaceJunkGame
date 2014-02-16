@@ -13,6 +13,7 @@ import com.ollysoft.spacejunk.objects.util.PointsLabel;
 
 import java.util.Iterator;
 
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.alpha;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveTo;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.parallel;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
@@ -87,11 +88,11 @@ class JunkStack extends Group {
 
   private void hideBlocks() {
     Iterator<BasicJunk> iterator = sameType.iterator();
-    float score = 0;
+    int score = 0;
     while (iterator.hasNext()) {
       BasicJunk next = iterator.next();
       next.addAction(sequence(
-          Actions.alpha(0f, 2),
+          alpha(0f, 2),
           parallel(
               Actions.removeActor(),
               repositionRocksAction
@@ -99,7 +100,10 @@ class JunkStack extends Group {
       ));
       score += next.type.getCollectionScore();
     }
-    platform.addActor(new PointsLabel(platform.game.assets, platform.getX() + deltaX, platform.getY(), "" + score));
+    if (platform.game != null) {
+      platform.game.registerPoints(platform.getX() + deltaX, platform.getY(), score);
+    }
+
   }
 
   private Array<BasicJunk> sameType = new Array<BasicJunk>();

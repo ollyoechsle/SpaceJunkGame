@@ -20,6 +20,7 @@ import com.ollysoft.spacejunk.objects.junk.FallingJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
 import com.ollysoft.spacejunk.objects.platform.Platform;
 import com.ollysoft.spacejunk.objects.Score;
+import com.ollysoft.spacejunk.objects.util.PointsLabel;
 import com.ollysoft.spacejunk.util.Assets;
 import com.ollysoft.spacejunk.util.GoBackToMainMenu;
 
@@ -32,7 +33,7 @@ public class GameScreen extends ScreenAdapter {
   public final Texture magnetImage, background;
   public final Sound dropSound;
   public final Music music;
-  public final Sound crashSound;
+  public final Sound crashSound, scoreSound;
   public final Assets assets;
 
   private OrthographicCamera camera;
@@ -58,6 +59,7 @@ public class GameScreen extends ScreenAdapter {
 
     // load the drop sound effect and the rain background "music"
     dropSound = Gdx.audio.newSound(Gdx.files.internal("beep.wav"));
+    scoreSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
     crashSound = Gdx.audio.newSound(Gdx.files.internal("crash.wav"));
     music = Gdx.audio.newMusic(Gdx.files.internal("music-2.mp3"));
     music.setLooping(true);
@@ -162,4 +164,9 @@ public class GameScreen extends ScreenAdapter {
     stage.dispose();
   }
 
+  public void registerPoints(float x, float y, int points) {
+    stage.addActor(new PointsLabel(assets, x, y, "" + points));
+    scoreSound.play();
+    score.changeScore(points);
+  }
 }

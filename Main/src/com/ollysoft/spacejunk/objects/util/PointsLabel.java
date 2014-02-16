@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.ollysoft.spacejunk.util.Assets;
 
-import static com.badlogic.gdx.scenes.scene2d.actions.Actions.fadeOut;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.alpha;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveBy;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.parallel;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.removeActor;
@@ -27,8 +27,8 @@ public class PointsLabel extends Actor {
     this.setY(y);
     addAction(sequence(
         parallel(
-            moveBy(0, 100, 3f),
-            fadeOut(3f)
+            moveBy(0, 150, 2f),
+            alpha(0f, 2)
         ),
         removeActor()
     ));

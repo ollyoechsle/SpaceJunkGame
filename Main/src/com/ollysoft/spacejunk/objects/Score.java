@@ -20,6 +20,10 @@ public class Score extends Actor {
     this.score = initialScore;
   }
 
+  public void changeScore(int delta) {
+    score += delta;
+  }
+
   public void onCollectedBlock(FallingJunk block) {
     this.score += block.type.getCollectionScore();
   }
