@@ -2,6 +2,7 @@ package com.ollysoft.spacejunk.objects;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.ollysoft.spacejunk.GameScreen;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
@@ -9,6 +10,9 @@ import com.ollysoft.spacejunk.objects.util.RectangleGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.delay;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 
 /**
  * com.ollysoft.spacejunk.objects
@@ -68,24 +72,30 @@ public class Platform extends RectangleGroup {
   protected class JunkStack extends Group {
 
     private int deltaX;
-    private List<BasicJunk> stack;
 
     private JunkStack(int x) {
       this.deltaX = x * BasicJunk.SIZE;
-      this.stack = new ArrayList<BasicJunk>();
       this.setTransform(false);
     }
 
     public void addJunk(BasicJunk fallenJunk) {
       BasicJunk newJunk = new BasicJunk(fallenJunk.type, fallenJunk.texture);
       newJunk.setX(this.deltaX);
-      newJunk.setY((stack.size() + 1) * BasicJunk.SIZE);
-      stack.add(newJunk);
+      newJunk.setY((size() + 1) * BasicJunk.SIZE);
       addActor(newJunk);
+
+      newJunk.addAction(delay(
+          2,
+          sequence(
+              Actions.alpha(0f, 2),
+              Actions.removeActor()
+          )
+      ));
+
     }
 
     public int size() {
-      return stack.size();
+      return getChildren().size;
     }
 
   }

@@ -1,5 +1,6 @@
 package com.ollysoft.spacejunk.objects.junk;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ollysoft.spacejunk.objects.util.RectangleActor;
@@ -23,6 +24,7 @@ public class BasicJunk extends RectangleActor {
   }
 
   public void draw(SpriteBatch batch, float parentAlpha) {
+    batch.setColor(getColor());
     batch.draw(texture, this.getX(), this.getY());
   }
 
