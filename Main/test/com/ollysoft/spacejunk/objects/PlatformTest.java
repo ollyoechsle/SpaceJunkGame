@@ -6,6 +6,8 @@ import com.ollysoft.spacejunk.objects.junk.JunkType;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class PlatformTest {
 
@@ -29,6 +31,17 @@ public class PlatformTest {
     assertEquals(2, p.stacks[0].getChildren().size);
     assertEquals(1, p.stacks[1].getChildren().size);
 
+  }
+
+  @Test
+  public void testHidesWhenFindingThreeTheSame() throws Exception {
+
+    Platform p = new Platform(null, 4);
+    p.setX(100);
+
+    assertFalse(p.addJunk(someJunkAt(105)));
+    assertFalse(p.addJunk(someJunkAt(105)));
+    assertTrue(p.addJunk(someJunkAt(105)));
 
   }
 
