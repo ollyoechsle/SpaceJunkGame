@@ -1,17 +1,16 @@
 package com.ollysoft.spacejunk.objects.platform;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.ollysoft.spacejunk.GameScreen;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
-import com.ollysoft.spacejunk.objects.util.RectangleGroup;
-
-import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 
 /**
  * com.ollysoft.spacejunk.objects
  */
-public class Platform extends RectangleGroup {
+public class Platform extends Group {
 
   protected JunkStack[] stacks;
 
@@ -34,6 +33,23 @@ public class Platform extends RectangleGroup {
       addActor(this.stacks[x]);
     }
 
+  }
+
+  private Rectangle temporaryRectangle = new Rectangle();
+
+  public int overlaps(Rectangle other) {
+    // move the rectangle into the coordinate space of the platform
+    float width = (other.getWidth() - 1) / 2;
+    temporaryRectangle.setX(other.getX() - this.getX() + width);
+    temporaryRectangle.setY(other.getY() - this.getY());
+    temporaryRectangle.setWidth(1);
+    temporaryRectangle.setHeight(other.getHeight());
+    for (int i = 0; i < stacks.length; i++) {
+      if (stacks[i].rectangle.overlaps(temporaryRectangle)) {
+        return i;
+      }
+    }
+    return -1;
   }
 
   public void repositionAllRocks() {
@@ -64,8 +80,10 @@ public class Platform extends RectangleGroup {
   }
 
   public boolean addJunk(BasicJunk junk) {
-    float dx = junk.getX() - this.getX();
-    int stackIndex = (int) (dx / FallingJunk.SIZE);
+    return addJunk(junk, overlaps(junk.getRectangle()));
+  }
+
+  public boolean addJunk(BasicJunk junk, int stackIndex) {
     return stacks[stackIndex].addJunk(junk);
   }
 

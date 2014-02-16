@@ -1,8 +1,8 @@
 package com.ollysoft.spacejunk.objects.platform;
 
+import com.badlogic.gdx.math.Rectangle;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
-import com.ollysoft.spacejunk.objects.platform.Platform;
 
 import org.junit.Test;
 
@@ -43,6 +43,18 @@ public class PlatformTest {
     assertFalse(p.addJunk(someJunkAt(105)));
     assertFalse(p.addJunk(someJunkAt(105)));
     assertTrue(p.addJunk(someJunkAt(105)));
+
+  }
+
+  @Test
+  public void testOverlapping() {
+
+    Platform p = new Platform(null, 4);
+    p.setX(100);
+    p.setY(50);
+
+    assertFalse("This is above the platform", p.overlaps(new Rectangle(100, 150, 64, 64)) > -1);
+    assertTrue("This is touching the platform", p.overlaps(new Rectangle(100, 55, 64, 64)) > -1);
 
   }
 

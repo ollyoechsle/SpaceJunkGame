@@ -1,5 +1,6 @@
 package com.ollysoft.spacejunk.objects.platform;
 
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -21,15 +22,17 @@ class JunkStack extends Group {
 
   private final Platform platform;
   private final int x;
-  private int deltaX;
+  private final int deltaX;
 
-  private Action repositionRocksAction;
+  private final Action repositionRocksAction;
+  public final Rectangle rectangle;
 
   public JunkStack(final Platform platform, int x) {
     this.platform = platform;
     this.x = x;
     this.deltaX = x * BasicJunk.SIZE;
     this.setTransform(false);
+    this.rectangle = new Rectangle(this.deltaX, 0, BasicJunk.SIZE, platform.getHeight());
 
     repositionRocksAction = new Action() {
 
@@ -51,6 +54,7 @@ class JunkStack extends Group {
       next.addAction(moveTo(deltaX, y * BasicJunk.SIZE, 0.25f));
       y++;
     }
+    this.rectangle.setHeight((getChildren().size  * BasicJunk.SIZE) + platform.getHeight());
   }
 
   public boolean addJunk(BasicJunk fallenJunk) {

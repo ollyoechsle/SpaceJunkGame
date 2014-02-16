@@ -2,8 +2,6 @@ package com.ollysoft.spacejunk.objects.junk;
 
 import com.ollysoft.spacejunk.GameScreen;
 
-import static com.badlogic.gdx.math.Intersector.overlaps;
-
 /**
  * com.ollysoft.spacejunk.objects
  */
@@ -27,9 +25,10 @@ public class FallingJunk extends BasicJunk {
     } else {
       setY(y);
     }
-    if (overlaps(getRectangle(), game.platform.getRectangle())) {
+    int stackIndex = game.platform.overlaps(getRectangle());
+    if (stackIndex > -1) {
       this.remove();
-      game.platform.addJunk(this);
+      game.platform.addJunk(this, stackIndex);
       game.dropSound.play();
       game.score.onCollectedBlock(this);
     }

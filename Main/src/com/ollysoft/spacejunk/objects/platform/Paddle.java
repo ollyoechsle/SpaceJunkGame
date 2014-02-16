@@ -2,14 +2,13 @@ package com.ollysoft.spacejunk.objects.platform;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
-import com.ollysoft.spacejunk.objects.util.RectangleActor;
-import com.ollysoft.spacejunk.objects.util.RectangleGroup;
 
 /**
  * com.ollysoft.spacejunk.objects
  */
-public class Paddle extends RectangleGroup {
+public class Paddle extends Actor {
 
   protected TextureRegion texture;
 
