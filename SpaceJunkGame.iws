@@ -6,17 +6,9 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="">
+    <list default="true" id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="Adds stacks on platform that gather fallen junk&#10;">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Graphics/collector.psd" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Graphics/rocks.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Paddle.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/RectangleGroup.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/RectangleActor.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/RectangleActor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/BasicJunk.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/BasicJunk.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/FallingJunk.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/FallingJunk.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Platform.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Platform.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java" afterPath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/PlatformTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpaceJunkGame.iws" afterPath="$PROJECT_DIR$/SpaceJunkGame.iws" />
     </list>
     <ignored path="SpaceJunkGame.iws" />
@@ -785,7 +777,7 @@
       <workItem from="1392318861882" duration="11701000" />
       <workItem from="1392413158808" duration="62000" />
       <workItem from="1392413590278" duration="22935000" />
-      <workItem from="1392547150309" duration="1750000" />
+      <workItem from="1392547150309" duration="1784000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with demo from libgdx">
       <created>1392330997044</created>
@@ -827,11 +819,15 @@
       <created>1392542164251</created>
       <updated>1392542164251</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Stacks positioned relative to platform/paddle&#10;">
+      <created>1392549100355</created>
+      <updated>1392549100355</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36448000" />
+    <option name="totallyTimeSpent" value="36482000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1108" extended-state="6" />
@@ -888,7 +884,9 @@
     <MESSAGE value="Adds basic score keeping and collision detection" />
     <MESSAGE value="Adds different types of debris" />
     <MESSAGE value="Adds stacks on platform that gather fallen junk" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds stacks on platform that gather fallen junk" />
+    <MESSAGE value="Adds stacks on platform that gather fallen junk&#10;" />
+    <MESSAGE value="Stacks positioned relative to platform/paddle&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stacks positioned relative to platform/paddle&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
