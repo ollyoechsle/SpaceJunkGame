@@ -12,6 +12,8 @@ import static org.junit.Assert.assertTrue;
 
 public class PlatformTest {
 
+  private Platform p;
+
   @Test
   public void testAddJunk() throws Exception {
 
@@ -56,6 +58,27 @@ public class PlatformTest {
     assertFalse("This is above the platform", p.overlaps(new Rectangle(100, 150, 64, 64)) > -1);
     assertTrue("This is touching the platform", p.overlaps(new Rectangle(100, 55, 64, 64)) > -1);
 
+  }
+
+  @Test
+  public void repositionRocks() {
+
+    p = new Platform(null, 4);
+    p.stacks[0].addJunk(new BasicJunk(JunkType.PLAIN_ROCK, null));
+    p.stacks[0].addJunk(new BasicJunk(JunkType.PLAIN_ROCK, null));
+    assertStackHeight(2, p.stacks[0]);
+
+    p.stacks[0].addJunk(new BasicJunk(JunkType.PLAIN_ROCK, null));
+
+    p.act(2f);
+    p.act(1f);
+
+    assertStackHeight(0, p.stacks[0]);
+
+  }
+
+  private void assertStackHeight(int expectedNumberOfBlocks, JunkStack stack) {
+    assertEquals((BasicJunk.SIZE * expectedNumberOfBlocks) + p.getHeight(), stack.rectangle.getHeight(), 0.1);
   }
 
   private BasicJunk someJunkAt(int x) {

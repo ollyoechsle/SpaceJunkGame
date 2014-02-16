@@ -13,6 +13,7 @@ import com.ollysoft.spacejunk.objects.junk.JunkType;
 import java.util.Iterator;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveTo;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.parallel;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 
 /**
@@ -46,15 +47,22 @@ class JunkStack extends Group {
 
   }
 
+  @Override
+  public void act(float delta) {
+    super.act(delta);
+  }
+
   public void repositionRocks() {
     Iterator<Actor> iterator = getChildren().iterator();
     int y = 1;
     while (iterator.hasNext()) {
       Actor next = iterator.next();
-      next.addAction(moveTo(deltaX, y * BasicJunk.SIZE, 0.25f));
-      y++;
+      if (next.isVisible()) {
+        next.addAction(moveTo(deltaX, y * BasicJunk.SIZE, 0.25f));
+        y++;
+      }
     }
-    this.rectangle.setHeight((getChildren().size  * BasicJunk.SIZE) + platform.getHeight());
+    this.rectangle.setHeight((getChildren().size * BasicJunk.SIZE) + platform.getHeight());
   }
 
   public boolean addJunk(BasicJunk fallenJunk) {
@@ -82,9 +90,12 @@ class JunkStack extends Group {
       BasicJunk next = iterator.next();
       next.addAction(sequence(
           Actions.alpha(0f, 2),
-          Actions.removeActor(),
-          repositionRocksAction
+          parallel(
+              Actions.removeActor(),
+              repositionRocksAction
+          )
       ));
+      platform.repositionAllRocks();
     }
   }
 
