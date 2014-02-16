@@ -7,11 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Android/assets/jump.wav" afterPath="$PROJECT_DIR$/Android/assets/score.wav" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/PointsLabel.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/PointsLabel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Score.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Score.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpaceJunkGame.iws" afterPath="$PROJECT_DIR$/SpaceJunkGame.iws" />
     </list>
     <ignored path="SpaceJunkGame.iws" />
@@ -163,7 +159,7 @@
       <file leaf-file-name="PointsLabel.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/PointsLabel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="35" selection-start="1272" selection-end="1272" vertical-scroll-proportion="0.9907834" vertical-offset="0" max-vertical-offset="735">
+            <state line="41" column="3" selection-start="1304" selection-end="1304" vertical-scroll-proportion="0.9447005" vertical-offset="0" max-vertical-offset="750">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -980,7 +976,7 @@
       <workItem from="1392413158808" duration="62000" />
       <workItem from="1392413590278" duration="22935000" />
       <workItem from="1392547150309" duration="13424000" />
-      <workItem from="1392570813736" duration="5373000" />
+      <workItem from="1392570813736" duration="6114000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with demo from libgdx">
       <created>1392330997044</created>
@@ -1078,11 +1074,15 @@
       <created>1392579959786</created>
       <updated>1392579959786</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Score only when items dissapear">
+      <created>1392580569894</created>
+      <updated>1392580569894</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53495000" />
+    <option name="totallyTimeSpent" value="54236000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1108" extended-state="6" />
@@ -1128,7 +1128,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Adjusts some images" />
     <MESSAGE value="Adjusts some images; adds main menu screen" />
     <MESSAGE value="Moves magnet into its own class" />
     <MESSAGE value="Uses Scene2d for rendering" />
@@ -1153,7 +1152,8 @@
     <MESSAGE value="Adds test for refined collision detection" />
     <MESSAGE value="Display collected points" />
     <MESSAGE value="Fix bug finding continuous type regions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug finding continuous type regions" />
+    <MESSAGE value="Score only when items dissapear" />
+    <option name="LAST_COMMIT_MESSAGE" value="Score only when items dissapear" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1471,7 +1471,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/PointsLabel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="35" selection-start="1272" selection-end="1272" vertical-scroll-proportion="0.9907834" vertical-offset="0" max-vertical-offset="735">
+        <state line="41" column="3" selection-start="1304" selection-end="1304" vertical-scroll-proportion="0.9447005" vertical-offset="0" max-vertical-offset="750">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -36,8 +36,9 @@ public class PointsLabel extends Actor {
 
   @Override
   public void draw(SpriteBatch batch, float parentAlpha) {
-    batch.setColor(getColor());
+    bigFont.setColor(getColor());
     bigFont.draw(batch, message, getX(), getY());
+    bigFont.setColor(1, 1, 1, 1);
   }
 
 }
