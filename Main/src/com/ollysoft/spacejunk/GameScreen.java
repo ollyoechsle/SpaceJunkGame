@@ -49,12 +49,12 @@ public class GameScreen extends ScreenAdapter {
   public GameScreen(SpaceJunkGame game) {
     this.game = game;
 
-    this.score = new Score(0);
-
     // load the images for the droplet and the platform, 64x64 pixels each
     background = new Texture(Gdx.files.internal("background-1.png"));
     magnetImage = new Texture(Gdx.files.internal("collector.png"));
     assets = new Assets();
+
+    score = new Score(0, assets);
 
     // load the drop sound effect and the rain background "music"
     dropSound = Gdx.audio.newSound(Gdx.files.internal("beep.wav"));
@@ -67,7 +67,7 @@ public class GameScreen extends ScreenAdapter {
 
     batch = new SpriteBatch();
 
-    platform = new Platform(new TextureRegion(magnetImage), 4);
+    platform = new Platform(new TextureRegion(magnetImage), 4, this);
     platform.moveTo(Gdx.graphics.getWidth() / 2f);
 
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);

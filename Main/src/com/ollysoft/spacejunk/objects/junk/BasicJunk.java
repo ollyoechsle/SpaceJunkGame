@@ -1,6 +1,5 @@
 package com.ollysoft.spacejunk.objects.junk;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ollysoft.spacejunk.objects.util.RectangleActor;

@@ -18,7 +18,7 @@ public class PlatformTest {
   @Test
   public void testAddJunk() throws Exception {
 
-    Platform p = new Platform(null, 4);
+    Platform p = new Platform(null, 4, null);
     assertEquals(5, p.getChildren().size);
     p.setX(100);
     assertEquals(0, p.stacks[0].size());
@@ -40,7 +40,7 @@ public class PlatformTest {
   @Test
   public void testHidesWhenFindingThreeTheSame() throws Exception {
 
-    p = new Platform(null, 4);
+    p = new Platform(null, 4, null);
     p.setX(100);
 
     assertFalse(p.addJunk(someJunkAt(105)));
@@ -52,7 +52,7 @@ public class PlatformTest {
   @Test
   public void testOverlapping() {
 
-    p = new Platform(null, 4);
+    p = new Platform(null, 4, null);
 
     p.setX(x);
     p.setY(50);
@@ -70,9 +70,9 @@ public class PlatformTest {
   }
 
   @Test
-  public void repositionRocks() {
+  public void repositionsRocksAfterOnesBelowDisappear() {
 
-    p = new Platform(null, 4);
+    p = new Platform(null, 4, null);
     p.stacks[0].addJunk(new BasicJunk(JunkType.PLAIN_ROCK, null));
     p.stacks[0].addJunk(new BasicJunk(JunkType.PLAIN_ROCK, null));
     assertStackHeight(2, p.stacks[0]);

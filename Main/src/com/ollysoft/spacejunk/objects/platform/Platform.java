@@ -12,10 +12,13 @@ import com.ollysoft.spacejunk.objects.junk.FallingJunk;
  */
 public class Platform extends Group {
 
-  protected JunkStack[] stacks;
+  protected final JunkStack[] stacks;
+  protected final GameScreen game;
+  private final Rectangle temporaryRectangle = new Rectangle();
 
-  public Platform(TextureRegion texture, int width) {
+  public Platform(TextureRegion texture, int width, GameScreen game) {
     super();
+    this.game = game;
 
     this.setTransform(false);
 
@@ -34,8 +37,6 @@ public class Platform extends Group {
     }
 
   }
-
-  private Rectangle temporaryRectangle = new Rectangle();
 
   public int overlaps(Rectangle other) {
     // move the rectangle into the coordinate space of the platform

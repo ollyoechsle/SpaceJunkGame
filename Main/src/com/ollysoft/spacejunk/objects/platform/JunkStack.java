@@ -9,6 +9,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.SnapshotArray;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
+import com.ollysoft.spacejunk.objects.util.PointsLabel;
 
 import java.util.Iterator;
 
@@ -86,6 +87,7 @@ class JunkStack extends Group {
 
   private void hideBlocks() {
     Iterator<BasicJunk> iterator = sameType.iterator();
+    float score = 0;
     while (iterator.hasNext()) {
       BasicJunk next = iterator.next();
       next.addAction(sequence(
@@ -95,8 +97,9 @@ class JunkStack extends Group {
               repositionRocksAction
           )
       ));
-      platform.repositionAllRocks();
+      score += next.type.getCollectionScore();
     }
+    platform.addActor(new PointsLabel(platform.game.assets, platform.getX() + deltaX, platform.getY(), "" + score));
   }
 
   private Array<BasicJunk> sameType = new Array<BasicJunk>();

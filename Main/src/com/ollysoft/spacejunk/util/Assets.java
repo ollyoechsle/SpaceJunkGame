@@ -2,6 +2,7 @@ package com.ollysoft.spacejunk.util;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Assets {
@@ -11,6 +12,8 @@ public class Assets {
   public final TextureRegion greenRock;
   public final TextureRegion goldRock;
 
+  public final BitmapFont bigFont;
+
   private final Texture texture;
 
   public Assets() {
@@ -19,6 +22,8 @@ public class Assets {
     redRock = new TextureRegion(texture, 64, 0, 64, 64);
     greenRock = new TextureRegion(texture, 128, 0, 64, 64);
     goldRock = new TextureRegion(texture, 196, 0, 64, 64);
+
+    bigFont = new BitmapFont(Gdx.files.internal("acknowledge.fnt"));
   }
 
   public void dispose() {

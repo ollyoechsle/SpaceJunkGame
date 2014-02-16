@@ -1,11 +1,11 @@
 package com.ollysoft.spacejunk.objects;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.ollysoft.spacejunk.GameScreen;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
+import com.ollysoft.spacejunk.util.Assets;
 
 /**
  * com.ollysoft.spacejunk.objects
@@ -15,8 +15,8 @@ public class Score extends Actor {
   private final BitmapFont font;
   public int score = 0;
 
-  public Score(int initialScore) {
-    font = new BitmapFont(Gdx.files.internal("acknowledge.fnt"));
+  public Score(int initialScore, Assets assets) {
+    this.font = assets.bigFont;
     this.score = initialScore;
   }
 
