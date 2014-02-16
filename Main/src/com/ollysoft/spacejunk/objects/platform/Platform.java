@@ -36,6 +36,12 @@ public class Platform extends RectangleGroup {
 
   }
 
+  public void repositionAllRocks() {
+    for (int i = 0; i < stacks.length; i++) {
+      stacks[i].repositionRocks();
+    }
+  }
+
   public void moveX(float delta) {
     this.setX(this.getX() + delta);
     checkBounds();

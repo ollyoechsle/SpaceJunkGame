@@ -28,6 +28,7 @@ import com.ollysoft.spacejunk.util.GoBackToMainMenu;
  */
 public class GameScreen extends ScreenAdapter {
 
+  private static final int KEYBOARD_MOVE_SPEED = BasicJunk.SIZE * 8;
   public final Texture magnetImage, background;
   public final Sound dropSound;
   public final Music music;
@@ -123,10 +124,10 @@ public class GameScreen extends ScreenAdapter {
     }
 
     if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-      platform.moveX(-200 * Gdx.graphics.getDeltaTime());
+      platform.moveX(-KEYBOARD_MOVE_SPEED * Gdx.graphics.getDeltaTime());
     }
     if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-      platform.moveX(200 * Gdx.graphics.getDeltaTime());
+      platform.moveX(KEYBOARD_MOVE_SPEED * Gdx.graphics.getDeltaTime());
     }
 
   }

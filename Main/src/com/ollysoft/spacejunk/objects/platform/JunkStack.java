@@ -25,7 +25,7 @@ class JunkStack extends Group {
 
   private Action repositionRocksAction;
 
-  public JunkStack(Platform platform, int x) {
+  public JunkStack(final Platform platform, int x) {
     this.platform = platform;
     this.x = x;
     this.deltaX = x * BasicJunk.SIZE;
@@ -35,7 +35,7 @@ class JunkStack extends Group {
 
       @Override
       public boolean act(float v) {
-        repositionRocks();
+        platform.repositionAllRocks();
         return true;
       }
 
