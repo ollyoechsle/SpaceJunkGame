@@ -7,14 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/PointsLabel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/Assets.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/Assets.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/BasicJunk.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/junk/BasicJunk.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java" afterPath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Score.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/Score.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpaceJunkGame.iws" afterPath="$PROJECT_DIR$/SpaceJunkGame.iws" />
     </list>
     <ignored path="SpaceJunkGame.iws" />
@@ -123,10 +116,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JunkStack.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="JunkStack.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="116" selection-start="2971" selection-end="2971" vertical-scroll-proportion="0.0" vertical-offset="557" max-vertical-offset="2280">
+            <state line="130" column="55" selection-start="3764" selection-end="3764" vertical-scroll-proportion="1.2380953" vertical-offset="1069" max-vertical-offset="2295">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3020#3031#0" expanded="true" />
@@ -136,10 +129,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Platform.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Platform.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="0" selection-start="1088" selection-end="1088" vertical-scroll-proportion="-0.16897081" vertical-offset="620" max-vertical-offset="1665">
+            <state line="39" column="0" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="620" max-vertical-offset="1665">
               <folding />
             </state>
           </provider>
@@ -243,8 +236,8 @@
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/PointsLabel.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/GameScreen.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java" />
-        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" />
         <option value="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" />
       </list>
     </option>
   </component>
@@ -953,7 +946,7 @@
       <workItem from="1392413158808" duration="62000" />
       <workItem from="1392413590278" duration="22935000" />
       <workItem from="1392547150309" duration="13424000" />
-      <workItem from="1392570813736" duration="4739000" />
+      <workItem from="1392570813736" duration="4771000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with demo from libgdx">
       <created>1392330997044</created>
@@ -1043,11 +1036,15 @@
       <created>1392578916010</created>
       <updated>1392578916010</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Display collected points">
+      <created>1392579928651</created>
+      <updated>1392579928651</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52861000" />
+    <option name="totallyTimeSpent" value="52893000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1108" extended-state="6" />
@@ -1117,7 +1114,8 @@
     <MESSAGE value="Improved collision detection" />
     <MESSAGE value="Test for updating the blocks after they fade away" />
     <MESSAGE value="Adds test for refined collision detection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds test for refined collision detection" />
+    <MESSAGE value="Display collected points" />
+    <option name="LAST_COMMIT_MESSAGE" value="Display collected points" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1417,17 +1415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="116" selection-start="2971" selection-end="2971" vertical-scroll-proportion="0.0" vertical-offset="557" max-vertical-offset="2280">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3020#3031#0" expanded="true" />
-            <element signature="e#3088#3099#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="67" column="56" selection-start="1670" selection-end="1670" vertical-scroll-proportion="0.0" vertical-offset="470" max-vertical-offset="1455">
@@ -1437,8 +1424,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="1088" selection-end="1088" vertical-scroll-proportion="-0.16897081" vertical-offset="620" max-vertical-offset="1665">
+        <state line="39" column="0" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="620" max-vertical-offset="1665">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="55" selection-start="3764" selection-end="3764" vertical-scroll-proportion="1.2380953" vertical-offset="1069" max-vertical-offset="2295">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3020#3031#0" expanded="true" />
+            <element signature="e#3088#3099#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

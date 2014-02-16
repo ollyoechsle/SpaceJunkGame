@@ -128,6 +128,7 @@ class JunkStack extends Group {
     findBlocksOfSameType(x - 1, y, expectedType); // left
     findBlocksOfSameType(x + 1, y, expectedType); // right
     findBlocksOfSameType(x, y - 1, expectedType); // down
+    findBlocksOfSameType(x, y + 1, expectedType); // up
 
   }
 
