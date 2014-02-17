@@ -23,13 +23,13 @@ public class PlatformTest {
     p.setX(100);
     assertEquals(0, p.stacks[0].size());
 
-    p.addJunk(someJunkAt(105));
+    p.addJunk(someJunkAt(105), 0);
     assertEquals(1, p.stacks[0].size());
 
-    p.addJunk(someJunkAt(130));
+    p.addJunk(someJunkAt(130), 0);
     assertEquals(2, p.stacks[0].size());
 
-    p.addJunk(someJunkAt(180));
+    p.addJunk(someJunkAt(180), 1);
     assertEquals(1, p.stacks[1].size());
 
     assertEquals(2, p.stacks[0].getChildren().size);
@@ -43,9 +43,9 @@ public class PlatformTest {
     p = new Platform(null, 4, null);
     p.setX(100);
 
-    assertFalse(p.addJunk(someJunkAt(105)));
-    assertFalse(p.addJunk(someJunkAt(105)));
-    assertTrue(p.addJunk(someJunkAt(105)));
+    assertFalse(p.addJunk(someJunkAt(105), 0));
+    assertFalse(p.addJunk(someJunkAt(105), 0));
+    assertTrue(p.addJunk(someJunkAt(105), 0));
 
   }
 

@@ -9,7 +9,6 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.SnapshotArray;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
-import com.ollysoft.spacejunk.objects.util.PointsLabel;
 
 import java.util.Iterator;
 
@@ -23,6 +22,7 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
  */
 class JunkStack extends Group {
 
+  private static final int MIN_SAME_BLOCKS = 3;
   private final Platform platform;
   private final int x;
   private final int deltaX;
@@ -42,6 +42,7 @@ class JunkStack extends Group {
       @Override
       public boolean act(float v) {
         platform.repositionAllRocks();
+        // TODO: This might cause new groups of blocks to form, so recalculate the groupings and remove these
         return true;
       }
 
@@ -59,10 +60,8 @@ class JunkStack extends Group {
     int y = 1;
     while (iterator.hasNext()) {
       Actor next = iterator.next();
-      if (next.isVisible()) {
-        next.addAction(moveTo(deltaX, y * BasicJunk.SIZE, 0.25f));
-        y++;
-      }
+      next.addAction(moveTo(deltaX, y * BasicJunk.SIZE, 0.25f));
+      y++;
     }
     this.rectangle.setHeight((getChildren().size * BasicJunk.SIZE) + platform.getHeight());
   }
@@ -73,17 +72,20 @@ class JunkStack extends Group {
     newJunk.setPosition(fallenJunk.getX() - platform.getX(), fallenJunk.getY() - platform.getY());
     repositionRocks();
 
-    checkedAlready.clear();
-    sameType.clear();
-    int y = getChildren().indexOf(newJunk, true);
-    findBlocksOfSameType(x, y, newJunk.type);
-
-    if (sameType.size >= 3) {
+    if (countBlocksOfTheSameType(newJunk) >= MIN_SAME_BLOCKS) {
       hideBlocks();
       return true;
     }
 
     return false;
+  }
+
+  private int countBlocksOfTheSameType(BasicJunk newJunk) {
+    checkedAlready.clear();
+    sameType.clear();
+    int y = getChildren().indexOf(newJunk, true);
+    findBlocksOfSameType(x, y, newJunk.type);
+    return sameType.size;
   }
 
   private void hideBlocks() {
@@ -101,7 +103,8 @@ class JunkStack extends Group {
       score += next.type.getCollectionScore();
     }
     if (platform.game != null) {
-      platform.game.registerPoints(platform.getX() + deltaX, platform.getY(), score);
+      platform.game
+          .registerPoints(platform.getX() + deltaX, platform.getY() + platform.getHeight(), score);
     }
 
   }
