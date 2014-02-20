@@ -1,9 +1,9 @@
 package com.ollysoft.spacejunk.objects.platform;
 
-/**
- * com.ollysoft.spacejunk.objects.platform
- */
+import com.ollysoft.spacejunk.objects.junk.BasicJunk;
+
 public class Mound {
+
 
   private final MoundObject[][] grid;
   private final int halfWidth;
@@ -28,9 +28,25 @@ public class Mound {
     return grid[x + halfWidth][y + halfWidth];
   }
 
-  private class MoundObject {
+  public class MoundObject {
 
     public boolean empty = true;
+    public BasicJunk junk;
+
+    public void place(BasicJunk junk) {
+      this.junk = junk;
+      this.empty = false;
+    }
+
+    public boolean isSame(MoundObject other) {
+
+      if (this.empty || other.empty) {
+        return false;
+      }
+
+      return this.junk.type == other.junk.type;
+
+    }
 
   }
 

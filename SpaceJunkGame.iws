@@ -7,8 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java" afterPath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Mound.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Mound.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/MoundTest.java" afterPath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/MoundTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpaceJunkGame.iws" afterPath="$PROJECT_DIR$/SpaceJunkGame.iws" />
     </list>
     <ignored path="SpaceJunkGame.iws" />
@@ -101,10 +101,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JunkStack.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="JunkStack.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="19" selection-start="2797" selection-end="2797" vertical-scroll-proportion="1.313364" vertical-offset="450" max-vertical-offset="2400">
+            <state line="92" column="19" selection-start="2797" selection-end="2797" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="2400">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3306#3317#0" expanded="true" />
@@ -114,11 +114,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Platform.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Platform.java">
+      <file leaf-file-name="Mound.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Mound.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="0" selection-start="2480" selection-end="2480" vertical-scroll-proportion="0.0" vertical-offset="1009" max-vertical-offset="1665">
+            <state line="42" column="6" selection-start="955" selection-end="955" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MoundTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/MoundTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="25" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.85253453" vertical-offset="0" max-vertical-offset="855">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,17 +156,6 @@
         <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/PointsLabel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="41" column="3" selection-start="1304" selection-end="1304" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Assets.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/util/Assets.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -223,6 +223,8 @@
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/util/PointsLabel.java" />
         <option value="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/PlatformTest.java" />
         <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java" />
+        <option value="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Mound.java" />
+        <option value="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/MoundTest.java" />
       </list>
     </option>
   </component>
@@ -578,11 +580,12 @@
     <property name="SearchEverywhereHistory" value="" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.ollysoft.spacejunk.objects" />
-    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.ollysoft.spacejunk.objects.platform" />
+      <recent name="com.ollysoft.spacejunk.objects" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.ollysoft.spacejunk.objects.util" />
@@ -594,137 +597,7 @@
       <recent name="com.ollysoft.spacejunk.objects.platform" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlatformTest">
-    <configuration default="false" name="PlatformTest.testHidesWhenFindingThreeTheSame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.ollysoft.spacejunk.objects.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="Main" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.ollysoft.spacejunk.objects.platform" />
-      <option name="MAIN_CLASS_NAME" value="com.ollysoft.spacejunk.objects.platform.PlatformTest" />
-      <option name="METHOD_NAME" value="testHidesWhenFindingThreeTheSame" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PlatformTest.testOverlapping" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.ollysoft.spacejunk.objects.platform.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="Main" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.ollysoft.spacejunk.objects.platform" />
-      <option name="MAIN_CLASS_NAME" value="com.ollysoft.spacejunk.objects.platform.PlatformTest" />
-      <option name="METHOD_NAME" value="testOverlapping" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PlatformTest.repositionRocks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.ollysoft.spacejunk.objects.platform.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="Main" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.ollysoft.spacejunk.objects.platform" />
-      <option name="MAIN_CLASS_NAME" value="com.ollysoft.spacejunk.objects.platform.PlatformTest" />
-      <option name="METHOD_NAME" value="repositionRocks" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PlatformTest.repositionsRocksAfterOnesBelowDisappear" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.ollysoft.spacejunk.objects.platform.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="Main" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.ollysoft.spacejunk.objects.platform" />
-      <option name="MAIN_CLASS_NAME" value="com.ollysoft.spacejunk.objects.platform.PlatformTest" />
-      <option name="METHOD_NAME" value="repositionsRocksAfterOnesBelowDisappear" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.MoundTest.testMoundsTheSame">
     <configuration default="false" name="PlatformTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -739,6 +612,118 @@
       <option name="MAIN_CLASS_NAME" value="com.ollysoft.spacejunk.objects.platform.PlatformTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="MoundTest.testObjectAt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.ollysoft.spacejunk.objects.platform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Main" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.ollysoft.spacejunk.objects.platform" />
+      <option name="MAIN_CLASS_NAME" value="com.ollysoft.spacejunk.objects.platform.MoundTest" />
+      <option name="METHOD_NAME" value="testObjectAt" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="MoundTest.gridIsInitialised" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.ollysoft.spacejunk.objects.platform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Main" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.ollysoft.spacejunk.objects.platform" />
+      <option name="MAIN_CLASS_NAME" value="com.ollysoft.spacejunk.objects.platform.MoundTest" />
+      <option name="METHOD_NAME" value="gridIsInitialised" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="MoundTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.ollysoft.spacejunk.objects.platform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Main" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.ollysoft.spacejunk.objects.platform" />
+      <option name="MAIN_CLASS_NAME" value="com.ollysoft.spacejunk.objects.platform.MoundTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="MoundTest.testMoundsTheSame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.ollysoft.spacejunk.objects.platform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Main" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.ollysoft.spacejunk.objects.platform" />
+      <option name="MAIN_CLASS_NAME" value="com.ollysoft.spacejunk.objects.platform.MoundTest" />
+      <option name="METHOD_NAME" value="testMoundsTheSame" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -922,19 +907,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Android Application.Android" />
       <item index="1" class="java.lang.String" itemvalue="Application.Desktop" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.PlatformTest.testHidesWhenFindingThreeTheSame" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.PlatformTest.testOverlapping" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.PlatformTest.repositionRocks" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.PlatformTest.repositionsRocksAfterOnesBelowDisappear" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.PlatformTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.PlatformTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.MoundTest.testObjectAt" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.MoundTest.gridIsInitialised" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.MoundTest" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.MoundTest.testMoundsTheSame" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.PlatformTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.PlatformTest.repositionsRocksAfterOnesBelowDisappear" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.PlatformTest.testOverlapping" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.PlatformTest.repositionRocks" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.PlatformTest.testHidesWhenFindingThreeTheSame" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.MoundTest.testMoundsTheSame" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.MoundTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MoundTest.gridIsInitialised" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MoundTest.testObjectAt" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.PlatformTest" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -961,7 +946,7 @@
       <workItem from="1392413158808" duration="62000" />
       <workItem from="1392413590278" duration="22935000" />
       <workItem from="1392547150309" duration="13424000" />
-      <workItem from="1392570813736" duration="6521000" />
+      <workItem from="1392570813736" duration="12312000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with demo from libgdx">
       <created>1392330997044</created>
@@ -1067,11 +1052,23 @@
       <created>1392591034256</created>
       <updated>1392591034256</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Adds TODO">
+      <created>1392666523826</created>
+      <updated>1392666523826</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Improved graphics for collector">
+      <created>1392885141684</created>
+      <updated>1392885141684</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Building more suitable model for the mound of junk">
+      <created>1392885170856</created>
+      <updated>1392885170856</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54643000" />
+    <option name="totallyTimeSpent" value="60434000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1108" extended-state="6" />
@@ -1117,9 +1114,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Moves magnet into its own class" />
-    <MESSAGE value="Uses Scene2d for rendering" />
-    <MESSAGE value="Adds a main menu using screen2d.ui" />
     <MESSAGE value="Tweaks and efficiencies" />
     <MESSAGE value="Avoid double acting on the stage" />
     <MESSAGE value="Adds basic score keeping and collision detection" />
@@ -1142,7 +1136,10 @@
     <MESSAGE value="Fix bug finding continuous type regions" />
     <MESSAGE value="Score only when items dissapear" />
     <MESSAGE value="Alpha on text" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alpha on text" />
+    <MESSAGE value="Adds TODO" />
+    <MESSAGE value="Improved graphics for collector" />
+    <MESSAGE value="Building more suitable model for the mound of junk" />
+    <option name="LAST_COMMIT_MESSAGE" value="Building more suitable model for the mound of junk" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1152,18 +1149,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/SpaceJunkGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="597" selection-end="597" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/graphics/Texture.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="144" selection-start="1948" selection-end="1948" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1410" />
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/Main/libs/gdx.jar!/com/badlogic/gdx/math/Rectangle.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="9" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1230">
@@ -1458,11 +1443,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/JunkStack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="19" selection-start="2797" selection-end="2797" vertical-scroll-proportion="1.313364" vertical-offset="450" max-vertical-offset="2400">
+        <state line="92" column="19" selection-start="2797" selection-end="2797" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="2400">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3306#3317#0" expanded="true" />
             <element signature="e#3374#3385#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Mound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="6" selection-start="955" selection-end="955" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/MoundTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="25" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.85253453" vertical-offset="0" max-vertical-offset="855">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
