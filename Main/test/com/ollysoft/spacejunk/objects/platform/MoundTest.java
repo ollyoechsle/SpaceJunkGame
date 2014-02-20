@@ -2,17 +2,35 @@ package com.ollysoft.spacejunk.objects.platform;
 
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
-
+import junit.framework.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class MoundTest {
 
   private static final BasicJunk PLAIN_ROCK = new BasicJunk(JunkType.PLAIN_ROCK, null);
   private static final BasicJunk GOLD_ROCK = new BasicJunk(JunkType.GOLD_ROCK, null);
+
+  @Test
+  public void getGroups() {
+    Mound m = new Mound(2);
+    m.objectAt(0, 0).place(PLAIN_ROCK);
+    m.objectAt(1, 0).place(PLAIN_ROCK);
+    Assert.assertEquals(0, m.getGroups().size);
+
+    m.objectAt(2, 0).place(PLAIN_ROCK);
+    Assert.assertEquals(1, m.getGroups().size);
+
+    m.objectAt(0, 1).place(GOLD_ROCK);
+    m.objectAt(1, 1).place(GOLD_ROCK);
+    Assert.assertEquals(1, m.getGroups().size);
+
+    m.objectAt(2, 1).place(GOLD_ROCK);
+    System.out.println(m.getGroups().size);
+    Assert.assertEquals(2, m.getGroups().size);
+
+  }
 
   @Test
   public void gridIsInitialised() throws Exception {
