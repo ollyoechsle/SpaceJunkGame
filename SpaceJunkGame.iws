@@ -7,9 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8a0a5e8-29ff-44a9-8d4c-da057aea71cd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Mound.java" afterPath="$PROJECT_DIR$/Main/src/com/ollysoft/spacejunk/objects/platform/Mound.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/MoundTest.java" afterPath="$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/MoundTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpaceJunkGame.iws" afterPath="$PROJECT_DIR$/SpaceJunkGame.iws" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SpaceJunkGame.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SpaceJunkGame.ipr" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SpaceJunkGame.iws" afterPath="" />
     </list>
     <ignored path="SpaceJunkGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -126,7 +126,7 @@
       <file leaf-file-name="MoundTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/MoundTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="25" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.85253453" vertical-offset="0" max-vertical-offset="855">
+            <state line="51" column="80" selection-start="1430" selection-end="1430" vertical-scroll-proportion="1.1751152" vertical-offset="0" max-vertical-offset="855">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -946,7 +946,7 @@
       <workItem from="1392413158808" duration="62000" />
       <workItem from="1392413590278" duration="22935000" />
       <workItem from="1392547150309" duration="13424000" />
-      <workItem from="1392570813736" duration="12312000" />
+      <workItem from="1392570813736" duration="13620000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with demo from libgdx">
       <created>1392330997044</created>
@@ -1064,11 +1064,15 @@
       <created>1392885170856</created>
       <updated>1392885170856</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Additional functions and tests for mound">
+      <created>1392887351344</created>
+      <updated>1392887351344</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60434000" />
+    <option name="totallyTimeSpent" value="61742000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1108" extended-state="6" />
@@ -1114,7 +1118,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Tweaks and efficiencies" />
     <MESSAGE value="Avoid double acting on the stage" />
     <MESSAGE value="Adds basic score keeping and collision detection" />
     <MESSAGE value="Adds different types of debris" />
@@ -1139,7 +1142,8 @@
     <MESSAGE value="Adds TODO" />
     <MESSAGE value="Improved graphics for collector" />
     <MESSAGE value="Building more suitable model for the mound of junk" />
-    <option name="LAST_COMMIT_MESSAGE" value="Building more suitable model for the mound of junk" />
+    <MESSAGE value="Additional functions and tests for mound" />
+    <option name="LAST_COMMIT_MESSAGE" value="Additional functions and tests for mound" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1461,7 +1465,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/test/com/ollysoft/spacejunk/objects/platform/MoundTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="25" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.85253453" vertical-offset="0" max-vertical-offset="855">
+        <state line="51" column="80" selection-start="1430" selection-end="1430" vertical-scroll-proportion="1.1751152" vertical-offset="0" max-vertical-offset="855">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
