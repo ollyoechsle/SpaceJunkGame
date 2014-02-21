@@ -19,10 +19,6 @@ public class Mound {
     initialiseGrid();
   }
 
-  public void addFixedTile(int x, int y) {
-    objectAt(x, y).fixed = true;
-  }
-
   private void initialiseGrid() {
     for (int x = 0; x < arrayLength; x++) {
       grid[x] = new MoundObject[arrayLength];
@@ -175,9 +171,15 @@ public class Mound {
       this.dy = dy;
     }
 
-    public void place(BasicJunk junk) {
+    public MoundObject place(BasicJunk junk) {
       this.junk = junk;
       this.empty = false;
+      return this;
+    }
+
+    public MoundObject fix() {
+      this.fixed = true;
+      return this;
     }
 
     public boolean isSame(MoundObject other) {

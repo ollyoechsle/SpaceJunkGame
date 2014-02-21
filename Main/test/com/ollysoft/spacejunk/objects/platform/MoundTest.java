@@ -3,7 +3,6 @@ package com.ollysoft.spacejunk.objects.platform;
 import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
-import junit.framework.Assert;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
@@ -57,6 +56,54 @@ public class MoundTest {
     m.applyGravity();
 
     assertEquals(2, listener.fallenCount);
+
+  }
+
+  @Test
+  public void singleObjectFallsUnderGravity() {
+
+    givenMound(2);
+
+    m.objectAt(0, 2).place(PLAIN_ROCK);
+
+    m.applyGravity();
+
+    assertEquals(1, listener.fallenCount);
+
+    assertTrue(m.objectAt(0, 2).empty);
+
+  }
+
+  @Test
+  public void fixedObjectPreventsFallOfAnotherObject() {
+
+    givenMound(2);
+
+    m.objectAt(0, 2).place(PLAIN_ROCK);
+    m.objectAt(0, 1).place(PLAIN_ROCK).fix();
+
+    m.applyGravity();
+
+    assertEquals(0, listener.fallenCount);
+
+    assertFalse(m.objectAt(0, 2).empty);
+
+  }
+
+  @Test
+  public void fixedObjectDoesntFallButUnfixedOneDoes() {
+
+    givenMound(2);
+
+    m.objectAt(0, 2).place(PLAIN_ROCK);
+    m.objectAt(1, 2).place(PLAIN_ROCK).fix();
+
+    m.applyGravity();
+
+    assertEquals(1, listener.fallenCount);
+
+    assertTrue(m.objectAt(0, 2).empty);
+    assertFalse(m.objectAt(1, 2).empty);
 
   }
 
