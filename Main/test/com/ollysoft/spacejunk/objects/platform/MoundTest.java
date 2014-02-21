@@ -6,7 +6,9 @@ import com.ollysoft.spacejunk.objects.junk.JunkType;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
-import static org.junit.Assert.*;
+import static junit.framework.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class MoundTest {
 
@@ -15,6 +17,39 @@ public class MoundTest {
 
   private Mound m;
   private MoundTest.TestMoundListener listener;
+
+  @Test
+  public void canLandOnObjectDirectlyBeneath() {
+
+    givenMound(2);
+
+    assertFalse(m.canLandOn(0, 1));
+
+    m.objectAt(0, 0).place(PLAIN_ROCK);
+
+    assertTrue(m.canLandOn(0, 1));
+
+  }
+
+  @Test
+  public void cannotLandIfNothingBelow() {
+
+    givenMound(2);
+
+    m.objectAt(-1, 0).place(PLAIN_ROCK);
+    m.objectAt(+1, 0).place(PLAIN_ROCK);
+    assertFalse(m.canLandOn(0, 2));
+
+  }
+
+  @Test
+  public void cannotLandIfUnderneath() {
+    givenMound(2);
+
+    m.objectAt(0, 2).place(PLAIN_ROCK);
+    assertFalse(m.canLandOn(0, 1));
+
+  }
 
   @Test
   public void getGroups() {
@@ -159,12 +194,12 @@ public class MoundTest {
     private int removedCount = 0;
 
     @Override
-    public void onObjectFallenFromMound(BasicJunk junk, int x, int y) {
+    public void onObjectFallenFromMound(BasicJunk junk, int dx, int dy) {
       fallenCount++;
     }
 
     @Override
-    public void onObjectRemoved(BasicJunk junk, int x, int y) {
+    public void onObjectRemoved(BasicJunk junk, int dx, int dy) {
       removedCount++;
     }
   }

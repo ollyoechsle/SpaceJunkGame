@@ -4,8 +4,8 @@ import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 
 public interface MoundListener {
 
-  public void onObjectRemoved(BasicJunk junk, int x, int y);
+  public void onObjectRemoved(BasicJunk junk, int dx, int dy);
 
-  public void onObjectFallenFromMound(BasicJunk junk, int x, int y);
+  public void onObjectFallenFromMound(BasicJunk junk, int dx, int dy);
 
 }

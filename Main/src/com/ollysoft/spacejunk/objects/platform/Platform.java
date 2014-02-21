@@ -84,10 +84,6 @@ public class Platform extends Group {
     }
   }
 
-  public boolean addJunk(BasicJunk junk) {
-    return addJunk(junk, overlaps(junk.getRectangle()));
-  }
-
   public boolean addJunk(BasicJunk junk, int stackIndex) {
     return stacks[stackIndex].addJunk(junk);
   }

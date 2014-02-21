@@ -6,6 +6,8 @@ import com.ollysoft.spacejunk.objects.junk.JunkType;
 
 public class Mound {
 
+  private final int VOID = -1000;
+
   private final MoundListener listener;
   private final MoundObject[][] grid;
   private final int halfWidth;
@@ -17,6 +19,27 @@ public class Mound {
     this.arrayLength = halfWidth + halfWidth + 1;
     this.grid = new MoundObject[arrayLength][arrayLength];
     initialiseGrid();
+  }
+
+  /**
+   * Return the X coordinate
+   *
+   * @param dx
+   * @param dy
+   * @return
+   */
+  public boolean canLandOn(int dx, int dy) {
+    int highestPoint = getHighestPoint(dx, dy);
+    return highestPoint != VOID && dy <= highestPoint + 1;
+  }
+
+  public int getHighestPoint(int dx, int currentDy) {
+    for (int dy = Math.max(-halfWidth, currentDy); dy >= -halfWidth; dy--) {
+      if (!objectAt(dx, dy).empty) {
+        return dy;
+      }
+    }
+    return VOID;
   }
 
   private void initialiseGrid() {
