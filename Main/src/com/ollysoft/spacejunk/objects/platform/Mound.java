@@ -22,15 +22,30 @@ public class Mound {
   }
 
   /**
-   * Return the X coordinate
+   * Return whether the block can land at the given position.
    *
    * @param dx
    * @param dy
    * @return
    */
   public boolean canLandOn(int dx, int dy) {
+
+    if (isOutOfBounds(dx) || isOutOfBounds(dy)) return false;
+
     int highestPoint = getHighestPoint(dx, dy);
+
     return highestPoint != VOID && dy <= highestPoint + 1;
+  }
+
+  private boolean isOutOfBounds(int dx) {
+    if (dx > arrayLength - 1) {
+      return true;
+    }
+
+    if (dx < -(arrayLength - 1)) {
+      return true;
+    }
+    return false;
   }
 
   public int getHighestPoint(int dx, int currentDy) {

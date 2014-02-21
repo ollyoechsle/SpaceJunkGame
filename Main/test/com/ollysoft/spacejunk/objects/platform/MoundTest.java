@@ -43,11 +43,42 @@ public class MoundTest {
   }
 
   @Test
-  public void cannotLandIfUnderneath() {
+  public void cannotLandIfAlreadyUnderneath() {
     givenMound(2);
 
     m.objectAt(0, 2).place(PLAIN_ROCK);
     assertFalse(m.canLandOn(0, 1));
+
+  }
+
+  @Test
+  public void cannotLandIfTooFarAbove() {
+    givenMound(2);
+    m.objectAt(0, 0).place(PLAIN_ROCK);
+    assertFalse(m.canLandOn(0, 2));
+    assertTrue(m.canLandOn(0, 1));
+  }
+
+  @Test
+  public void cannotLandIfXOutOfBounds() {
+
+    givenMound(2);
+    assertFalse(m.canLandOn(5, 2));
+    assertFalse(m.canLandOn(-5, 2));
+
+    m.objectAt(-2, 0).place(PLAIN_ROCK);
+    m.objectAt(+2, 0).place(PLAIN_ROCK);
+    assertTrue(m.canLandOn(-2, 1));
+    assertTrue(m.canLandOn(+2, 1));
+
+  }
+
+  @Test
+  public void cannotLandIfYOutOfBounds() {
+
+    givenMound(2);
+    assertFalse(m.canLandOn(0, -5));
+    assertFalse(m.canLandOn(0, +5));
 
   }
 
