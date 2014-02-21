@@ -1,10 +1,12 @@
 package com.ollysoft.spacejunk.objects.platform;
 
+import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
 import junit.framework.Assert;
 import org.junit.Test;
 
+import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.*;
 
 public class MoundTest {
@@ -12,29 +14,62 @@ public class MoundTest {
   private static final BasicJunk PLAIN_ROCK = new BasicJunk(JunkType.PLAIN_ROCK, null);
   private static final BasicJunk GOLD_ROCK = new BasicJunk(JunkType.GOLD_ROCK, null);
 
+  private Mound m;
+  private MoundTest.TestMoundListener listener;
+
   @Test
   public void getGroups() {
-    Mound m = new Mound(2);
+    givenMound(2);
     m.objectAt(0, 0).place(PLAIN_ROCK);
     m.objectAt(1, 0).place(PLAIN_ROCK);
-    Assert.assertEquals(0, m.getGroups().size);
+    assertEquals(0, m.getGroups().size);
 
     m.objectAt(2, 0).place(PLAIN_ROCK);
-    Assert.assertEquals(1, m.getGroups().size);
+    assertEquals(1, m.getGroups().size);
 
     m.objectAt(0, 1).place(GOLD_ROCK);
     m.objectAt(1, 1).place(GOLD_ROCK);
-    Assert.assertEquals(1, m.getGroups().size);
+    assertEquals(1, m.getGroups().size);
 
     m.objectAt(2, 1).place(GOLD_ROCK);
-    System.out.println(m.getGroups().size);
-    Assert.assertEquals(2, m.getGroups().size);
+    assertEquals(2, m.getGroups().size);
 
   }
 
   @Test
+  public void removeGroups() {
+
+    givenMound(2);
+
+    // one 1x3 row of plain rocks
+    m.objectAt(0, 0).place(PLAIN_ROCK);
+    m.objectAt(1, 0).place(PLAIN_ROCK);
+    m.objectAt(2, 0).place(PLAIN_ROCK);
+
+    // above, 1x2 row of gold rocks
+    m.objectAt(0, 1).place(GOLD_ROCK);
+    m.objectAt(1, 1).place(GOLD_ROCK);
+
+    whenWeRemoveGroup(0);
+
+    assertEquals(3, listener.removedCount);
+
+    m.applyGravity();
+
+    assertEquals(2, listener.fallenCount);
+
+  }
+
+  private void whenWeRemoveGroup(int index) {
+    Array<Mound.ObjectGroup> groups = m.getGroups();
+    assertEquals(1, groups.size);
+    Mound.ObjectGroup group = groups.get(index);
+    m.remove(group);
+  }
+
+  @Test
   public void gridIsInitialised() throws Exception {
-    Mound m = new Mound(1);
+    givenMound(1);
     for (int x = -1; x <= 1; x++) {
       for (int y = -1; y <= 1; y++) {
         Mound.MoundObject moundObject = m.objectAt(x, y);
@@ -46,7 +81,7 @@ public class MoundTest {
 
   @Test
   public void placeJunkOnMound() throws Exception {
-    Mound m = new Mound(1);
+    givenMound(1);
     Mound.MoundObject moundObject = m.objectAt(0, 0);
     moundObject.place(PLAIN_ROCK);
     assertFalse(moundObject.empty);
@@ -54,7 +89,7 @@ public class MoundTest {
 
   @Test
   public void testMoundsTheSame() {
-    Mound m = new Mound(1);
+    givenMound(1);
     assertFalse(m.objectAt(0, 0).isSame(m.objectAt(1, 0)));
 
     m.objectAt(0, 0).place(PLAIN_ROCK);
@@ -64,6 +99,27 @@ public class MoundTest {
     m.objectAt(0, 1).place(GOLD_ROCK);
     assertFalse(m.objectAt(0, 0).isSame(m.objectAt(0, 1)));
 
+  }
+
+  private void givenMound(int size) {
+    listener = new TestMoundListener();
+    m = new Mound(size, listener);
+  }
+
+  class TestMoundListener implements MoundListener {
+
+    private int fallenCount = 0;
+    private int removedCount = 0;
+
+    @Override
+    public void onObjectFallenFromMound(BasicJunk junk, int x, int y) {
+      fallenCount++;
+    }
+
+    @Override
+    public void onObjectRemoved(BasicJunk junk, int x, int y) {
+      removedCount++;
+    }
   }
 
 }

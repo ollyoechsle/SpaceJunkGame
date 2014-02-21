@@ -6,29 +6,70 @@ import com.ollysoft.spacejunk.objects.junk.JunkType;
 
 public class Mound {
 
-
+  private final MoundListener listener;
   private final MoundObject[][] grid;
   private final int halfWidth;
   private final int arrayLength;
 
-  public Mound(int halfWidth) {
+  public Mound(int halfWidth, MoundListener listener) {
+    this.listener = listener;
     this.halfWidth = halfWidth;
     this.arrayLength = halfWidth + halfWidth + 1;
     this.grid = new MoundObject[arrayLength][arrayLength];
     initialiseGrid();
   }
 
+  public void addFixedTile(int x, int y) {
+    objectAt(x, y).fixed = true;
+  }
+
   private void initialiseGrid() {
     for (int x = 0; x < arrayLength; x++) {
       grid[x] = new MoundObject[arrayLength];
       for (int y = 0; y < arrayLength; y++) {
-        grid[x][y] = new MoundObject();
+        grid[x][y] = new MoundObject(x - halfWidth, y - halfWidth);
       }
     }
   }
 
-  public MoundObject objectAt(int x, int y) {
-    return grid[x + halfWidth][y + halfWidth];
+  public MoundObject objectAt(int dx, int dy) {
+    return grid[dx + halfWidth][dy + halfWidth];
+  }
+
+  /**
+   * Removes a group of objects
+   *
+   * @param group
+   */
+  public void remove(ObjectGroup group) {
+    for (MoundObject object : group.objects) {
+      listener.onObjectRemoved(object.junk, object.dx, object.dy);
+      object.clear();
+    }
+  }
+
+  /**
+   * Reassigns the set of objects to new positions
+   */
+  public void applyGravity() {
+    for (int y = 0; y < arrayLength; y++) {
+      for (int x = 0; x < arrayLength; x++) {
+        MoundObject object = grid[x][y];
+        if (!object.fixed && !object.empty) {
+          // look below the object
+          if (isNothingHoldingUp(x, y)) {
+
+            // if there is no surface to fall to
+            object.fallOff();
+
+          }
+        }
+      }
+    }
+  }
+
+  private boolean isNothingHoldingUp(int x, int y) {
+    return y == 0 || grid[x][y - 1].empty;
   }
 
   /**
@@ -114,9 +155,25 @@ public class Mound {
 
   public class MoundObject {
 
+    /**
+     * Distance from the center of the mound
+     */
+    private final int dx;
+
+    /**
+     * Distance from the center of the mound
+     */
+    private final int dy;
+
+    public boolean fixed = false;
     public boolean empty = true;
     public BasicJunk junk;
     public ObjectGroup group = null;
+
+    public MoundObject(int dx, int dy) {
+      this.dx = dx;
+      this.dy = dy;
+    }
 
     public void place(BasicJunk junk) {
       this.junk = junk;
@@ -131,6 +188,19 @@ public class Mound {
 
       return this.junk.type == other.junk.type;
 
+    }
+
+    public void fallOff() {
+      if (empty) {
+        throw new RuntimeException("Empty object cannot fall off");
+      }
+      listener.onObjectFallenFromMound(junk, dx, dy);
+      clear();
+    }
+
+    private void clear() {
+      empty = true;
+      junk = null;
     }
 
   }
