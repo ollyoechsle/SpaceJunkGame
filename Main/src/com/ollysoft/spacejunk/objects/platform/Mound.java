@@ -212,6 +212,7 @@ public class Mound {
     public MoundObject place(BasicJunk junk) {
       this.junk = junk;
       this.empty = false;
+      listener.onObjectAdded(junk, this.dx, this.dy);
       return this;
     }
 

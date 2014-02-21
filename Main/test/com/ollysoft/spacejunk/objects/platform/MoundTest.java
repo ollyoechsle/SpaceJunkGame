@@ -214,6 +214,16 @@ public class MoundTest {
 
   }
 
+
+  @Test
+  public void testCallsAddCallback() {
+    givenMound(1);
+    assertEquals(0, listener.addedCount);
+
+    m.objectAt(0, 0).place(PLAIN_ROCK);
+    assertEquals(1, listener.addedCount);
+  }
+
   private void givenMound(int size) {
     listener = new TestMoundListener();
     m = new Mound(size, listener);
@@ -223,6 +233,7 @@ public class MoundTest {
 
     private int fallenCount = 0;
     private int removedCount = 0;
+    private int addedCount = 0;
 
     @Override
     public void onObjectFallenFromMound(BasicJunk junk, int dx, int dy) {
@@ -232,6 +243,11 @@ public class MoundTest {
     @Override
     public void onObjectRemoved(BasicJunk junk, int dx, int dy) {
       removedCount++;
+    }
+
+    @Override
+    public void onObjectAdded(BasicJunk junk, int dx, int dy) {
+      addedCount++;
     }
   }
 
