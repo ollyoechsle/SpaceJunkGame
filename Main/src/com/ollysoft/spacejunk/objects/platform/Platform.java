@@ -63,10 +63,6 @@ public class Platform extends Group {
     return this.junkPileModel.canLandOn(relativePosition);
   }
 
-  public void applyGravity() {
-    junkPileModel.applyGravity();
-  }
-
   public void moveX(float delta) {
     this.addAction(Actions.moveTo(this.getX() + delta, 0.2f));
     checkBounds();
@@ -94,8 +90,12 @@ public class Platform extends Group {
     for (JunkPileModel.ObjectGroup group : groups) {
       this.junkPileModel.remove(group);
     }
-    this.junkPileModel.applyGravity();
   }
 
+  @Override
+  public void act(float delta) {
+    super.act(delta);
+    this.junkPileModel.applyGravity();
+  }
 }
 

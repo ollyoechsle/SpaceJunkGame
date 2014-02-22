@@ -140,7 +140,11 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener {
 
   private void spawnJunk() {
     FallingJunk block = new FallingJunk(JunkType.randomJunkType(), this);
-    block.setPosition(MathUtils.random(0, Gdx.graphics.getWidth() - BasicJunk.SIZE), Gdx.graphics.getHeight());
+    float x = MathUtils.random(0, Gdx.graphics.getWidth() - BasicJunk.SIZE);
+    x = (int) (x / BasicJunk.SIZE);
+    x *= BasicJunk.SIZE;
+
+    block.setPosition(x, Gdx.graphics.getHeight());
     lastDropTime = TimeUtils.nanoTime();
     stage.addActor(block);
   }

@@ -69,20 +69,4 @@ public class PlatformTest {
 
   }
 
-  @Test
-  public void repositionsRocksAfterOnesBelowDisappear() {
-
-
-  }
-
-  private void assertStackHeight(int expectedNumberOfBlocks, JunkStack stack) {
-    assertEquals((BasicJunk.SIZE * expectedNumberOfBlocks) + p.getHeight(),
-        stack.rectangle.getHeight(), 0.1);
-  }
-
-  private BasicJunk someJunkAt(int x) {
-    BasicJunk junk = new BasicJunk(JunkType.PLAIN_ROCK, null);
-    junk.setX(x);
-    return junk;
-  }
 }
