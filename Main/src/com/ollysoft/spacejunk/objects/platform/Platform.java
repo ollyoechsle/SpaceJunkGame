@@ -3,10 +3,10 @@ package com.ollysoft.spacejunk.objects.platform;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.GameScreen;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
-import com.ollysoft.spacejunk.objects.junk.JunkType;
 
 /**
  * com.ollysoft.spacejunk.objects
@@ -29,7 +29,7 @@ public class Platform extends Group {
     this.setHeight(FallingJunk.SIZE);
 
     this.setX(GameScreen.width - (this.getWidth() / 2));
-    this.setY(FallingJunk.SIZE * 5);
+    this.setY(FallingJunk.SIZE * 2);
 
     addActor(new Paddle(texture, width));
 
@@ -39,7 +39,7 @@ public class Platform extends Group {
     this.mound = new Mound(width, junkGroup);
 
     for (int x = 0; x < width; x++) {
-      this.mound.objectAt(x, 0).place(new BasicJunk(JunkType.GOLD_ROCK, texture)).fix();
+      this.mound.objectAt(x, 0).fix();
     }
 
     relativePosition = new RelativePosition();
@@ -87,8 +87,12 @@ public class Platform extends Group {
 
   public void addJunk(BasicJunk junk, RelativePosition position) {
     this.mound.objectAt(position).place(junk);
+    Array<Mound.ObjectGroup> groups = this.mound.getGroups();
+    for (Mound.ObjectGroup group : groups) {
+      this.mound.remove(group);
+    }
+    this.mound.applyGravity();
   }
-
 
 }
 

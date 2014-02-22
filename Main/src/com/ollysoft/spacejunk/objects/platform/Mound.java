@@ -127,7 +127,7 @@ public class Mound {
       for (int y = 0; y < arrayLength; y++) {
         MoundObject object = grid[x][y];
 
-        if (object.group == null && !object.empty) {
+        if (object.group == null && object.junk != null) {
           ObjectGroup group = new ObjectGroup();
           findBlocksOfSameType(x, y, object.junk.type, group);
           if (group.isBigEnough()) {
@@ -222,16 +222,17 @@ public class Mound {
         throw new RuntimeException("Cannot place object - it is already filled");
       }
 
-      this.junk = fallenJunk;
+      BasicJunk newJunk = new BasicJunk(fallenJunk.type, fallenJunk.texture);
+      this.junk = newJunk;
       this.empty = false;
 
-      BasicJunk newJunk = new BasicJunk(fallenJunk.type, fallenJunk.texture);
       listener.onObjectAdded(newJunk, fallenJunk, this.dx, this.dy);
       return this;
     }
 
     public MoundObject fix() {
       this.fixed = true;
+      this.empty = false;
       return this;
     }
 
@@ -254,6 +255,9 @@ public class Mound {
     }
 
     private void clear() {
+      if (fixed) {
+        throw new RuntimeException("Cannot clear fixed object");
+      }
       empty = true;
       junk = null;
     }
