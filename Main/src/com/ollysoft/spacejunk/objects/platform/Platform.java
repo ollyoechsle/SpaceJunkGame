@@ -3,6 +3,7 @@ package com.ollysoft.spacejunk.objects.platform;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.GameScreen;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
@@ -65,7 +66,7 @@ public class Platform extends Group {
   }
 
   public void moveX(float delta) {
-    this.setX(this.getX() + delta);
+    this.addAction(Actions.moveTo(this.getX() + delta, 0.2f));
     checkBounds();
   }
 

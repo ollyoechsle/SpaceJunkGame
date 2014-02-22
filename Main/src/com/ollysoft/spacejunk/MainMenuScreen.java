@@ -3,14 +3,13 @@ package com.ollysoft.spacejunk;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL10;
-import com.badlogic.gdx.scenes.scene2d.Event;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.utils.Logger;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 /**
  * com.ollysoft.spacejunk
@@ -28,22 +27,18 @@ public class MainMenuScreen extends ScreenAdapter {
     Label appName = new Label("Space Junk!", uiSkin);
 
     TextButton newGame = new TextButton("New Game", uiSkin);
-    newGame.addListener(new EventListener() {
+    newGame.addListener(new ClickListener() {
       @Override
-      public boolean handle(Event event) {
-        new Logger("SpaceJunk").debug("Display game screen");
+      public void clicked(InputEvent event, float x, float y) {
         game.displayGameScreen();
-        return true;
       }
     });
 
     TextButton exit = new TextButton("Exit", uiSkin);
-    exit.addListener(new EventListener() {
+    exit.addListener(new ClickListener() {
       @Override
-      public boolean handle(Event event) {
-        new Logger("SpaceJunk").debug("Exit game");
+      public void clicked(InputEvent event, float x, float y) {
         Gdx.app.exit();
-        return true;
       }
     });
 

@@ -31,7 +31,6 @@ public class FallingJunk extends BasicJunk {
       this.remove();
       game.platform.addJunk(this, position);
       game.dropSound.play();
-      game.score.onCollectedBlock(this);
     }
   }
 
