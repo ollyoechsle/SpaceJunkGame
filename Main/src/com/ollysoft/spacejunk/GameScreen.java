@@ -14,20 +14,20 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
 import com.ollysoft.spacejunk.objects.platform.Platform;
-import com.ollysoft.spacejunk.objects.Score;
-import com.ollysoft.spacejunk.objects.util.PointsLabel;
+import com.ollysoft.spacejunk.objects.scoring.*;
 import com.ollysoft.spacejunk.util.Assets;
-import com.ollysoft.spacejunk.util.GoBackToMainMenu;
+import com.ollysoft.spacejunk.util.GameInputHandler;
 
 /**
  * com.ollysoft.spacejunk
  */
-public class GameScreen extends ScreenAdapter {
+public class GameScreen extends ScreenAdapter implements PointsScoredListener {
 
   private static final int KEYBOARD_MOVE_SPEED = BasicJunk.SIZE * 8;
   public final Texture magnetImage, background;
@@ -44,8 +44,8 @@ public class GameScreen extends ScreenAdapter {
 
   long lastDropTime;
   private SpaceJunkGame game;
-  private Stage stage;
-  public final Score score;
+  public Stage stage;
+  public final ScoreModel score;
 
   public GameScreen(SpaceJunkGame game) {
     this.game = game;
@@ -55,10 +55,10 @@ public class GameScreen extends ScreenAdapter {
     magnetImage = new Texture(Gdx.files.internal("collector.png"));
     assets = new Assets();
 
-    score = new Score(0, assets);
+    score = new BasicScoreModel(0, this);
 
     // load the drop sound effect and the rain background "music"
-    dropSound = Gdx.audio.newSound(Gdx.files.internal("beep.wav"));
+    dropSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
     scoreSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
     crashSound = Gdx.audio.newSound(Gdx.files.internal("crash.wav"));
     music = Gdx.audio.newMusic(Gdx.files.internal("music-2.mp3"));
@@ -69,12 +69,12 @@ public class GameScreen extends ScreenAdapter {
 
     batch = new SpriteBatch();
 
-    platform = new Platform(new TextureRegion(magnetImage), 4, this);
+    platform = new Platform(new TextureRegion(magnetImage), 4, this, score);
     platform.moveTo(Gdx.graphics.getWidth() / 2f);
 
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     stage.addActor(platform);
-    stage.addActor(score);
+    stage.addActor(new ScoreView(assets, score));
 
     spawnJunk();
 
@@ -82,7 +82,7 @@ public class GameScreen extends ScreenAdapter {
 
   @Override
   public void show() {
-    Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GoBackToMainMenu(game)));
+    Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GameInputHandler(game, platform)));
     // start the playback of the background music
     // when the screen is shown
     music.play();
@@ -126,10 +126,10 @@ public class GameScreen extends ScreenAdapter {
     }
 
     if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-      platform.moveX(-KEYBOARD_MOVE_SPEED * Gdx.graphics.getDeltaTime());
+      //platform.moveX(-KEYBOARD_MOVE_SPEED * Gdx.graphics.getDeltaTime());
     }
     if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-      platform.moveX(KEYBOARD_MOVE_SPEED * Gdx.graphics.getDeltaTime());
+      //platform.moveX(KEYBOARD_MOVE_SPEED * Gdx.graphics.getDeltaTime());
     }
 
   }
@@ -164,9 +164,13 @@ public class GameScreen extends ScreenAdapter {
     stage.dispose();
   }
 
-  public void registerPoints(float x, float y, int points) {
-    stage.addActor(new PointsLabel(assets, x, y, "" + points));
+  public void onPointsScored(int points, Array<BasicJunk> items) {
+    float sumX = 0, sumY = 0;
+    for (BasicJunk item : items) {
+      sumX += item.getX();
+      sumY += item.getY();
+    }
+    stage.addActor(new PointsLabel(assets, platform.getX() + (sumX / items.size), platform.getY() + (sumY / items.size), "" + points));
     scoreSound.play();
-    score.changeScore(points);
   }
 }
