@@ -12,7 +12,7 @@ public class JunkGroup extends Group implements MoundListener {
   @Override
   public void onObjectAdded(BasicJunk newJunk, int dx, int dy) {
     addActor(newJunk);
-    newJunk.setPosition(newJunk.getX() * BasicJunk.SIZE, newJunk.getY() * BasicJunk.SIZE);
+    newJunk.setPosition(dx * BasicJunk.SIZE, dy * BasicJunk.SIZE);
   }
 
   @Override
