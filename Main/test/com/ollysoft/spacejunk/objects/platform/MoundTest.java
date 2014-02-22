@@ -52,6 +52,15 @@ public class MoundTest {
   }
 
   @Test
+  public void cannotLandIfSomethingAlreadyThere() {
+    givenMound(2);
+
+    m.objectAt(0, 0).place(PLAIN_ROCK);
+    assertFalse(m.canLandOn(0, 0));
+
+  }
+
+  @Test
   public void cannotLandIfTooFarAbove() {
     givenMound(2);
     m.objectAt(0, 0).place(PLAIN_ROCK);

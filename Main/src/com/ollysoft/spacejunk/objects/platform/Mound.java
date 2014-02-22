@@ -32,6 +32,8 @@ public class Mound {
 
     if (isOutOfBounds(dx) || isOutOfBounds(dy)) return false;
 
+    if (!objectAt(dx, dy).empty) return false;
+
     int highestPoint = getHighestPointBelow(dx, dy);
 
     return highestPoint != VOID && dy <= highestPoint + 1;
