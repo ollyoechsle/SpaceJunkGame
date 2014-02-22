@@ -8,6 +8,7 @@ import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.GameScreen;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
+import com.ollysoft.spacejunk.objects.scoring.ScoreModel;
 
 /**
  * com.ollysoft.spacejunk.objects
@@ -20,7 +21,7 @@ public class Platform extends Group {
 
   protected RelativePosition relativePosition;
 
-  public Platform(TextureRegion texture, int width, GameScreen game) {
+  public Platform(TextureRegion texture, int width, GameScreen game, ScoreModel scoreModel) {
     super();
     this.game = game;
 
@@ -37,7 +38,7 @@ public class Platform extends Group {
     junkGroup = new JunkGroup(this);
     addActor(junkGroup);
 
-    this.mound = new Mound(width, junkGroup);
+    this.mound = new Mound(width, junkGroup, scoreModel);
 
     for (int x = 0; x < width; x++) {
       this.mound.objectAt(x, 0).fix();

@@ -3,6 +3,7 @@ package com.ollysoft.spacejunk.objects.platform;
 import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
+import com.ollysoft.spacejunk.objects.scoring.ScoreModel;
 
 public class Mound {
 
@@ -11,11 +12,13 @@ public class Mound {
   private final MoundListener listener;
   private final MoundObject[][] grid;
   private final int halfWidth;
+  private final ScoreModel scoreModel;
   private final int arrayLength;
 
-  public Mound(int halfWidth, MoundListener listener) {
+  public Mound(int halfWidth, MoundListener listener, ScoreModel scoreModel) {
     this.listener = listener;
     this.halfWidth = halfWidth;
+    this.scoreModel = scoreModel;
     this.arrayLength = halfWidth + halfWidth + 1;
     this.grid = new MoundObject[arrayLength][arrayLength];
     initialiseGrid();
@@ -77,16 +80,21 @@ public class Mound {
     return grid[dx + halfWidth][dy + halfWidth];
   }
 
+  private Array<BasicJunk> junks = new Array<BasicJunk>(3);
+
   /**
    * Removes a group of objects
    *
    * @param group
    */
   public void remove(ObjectGroup group) {
+    junks.clear();
     for (MoundObject object : group.objects) {
       listener.onObjectRemoved(object.junk, object.dx, object.dy);
+      junks.add(object.junk);
       object.clear();
     }
+    scoreModel.onCollectedScore(junks);
   }
 
   /**

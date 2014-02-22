@@ -3,6 +3,7 @@ package com.ollysoft.spacejunk.objects.platform;
 import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
+import com.ollysoft.spacejunk.objects.scoring.ScoreModel;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
@@ -16,7 +17,8 @@ public class MoundTest {
   private static final BasicJunk GOLD_ROCK = new BasicJunk(JunkType.GOLD_ROCK, null);
 
   private Mound m;
-  private MoundTest.TestMoundListener listener;
+  private MoundTest.TestMoundListener moundListener;
+  private TestScoreModel score;
 
   @Test
   public void canLandOnObjectDirectlyBeneath() {
@@ -134,11 +136,12 @@ public class MoundTest {
 
     whenWeRemoveGroup(0);
 
-    assertEquals(3, listener.removedCount);
+    assertEquals(3, moundListener.removedCount);
+    assertEquals(3, score.score);
 
     m.applyGravity();
 
-    assertEquals(2, listener.fallenCount);
+    assertEquals(2, moundListener.fallenCount);
 
   }
 
@@ -151,7 +154,7 @@ public class MoundTest {
 
     m.applyGravity();
 
-    assertEquals(1, listener.fallenCount);
+    assertEquals(1, moundListener.fallenCount);
 
     assertTrue(m.objectAt(0, 2).empty);
 
@@ -167,7 +170,7 @@ public class MoundTest {
 
     m.applyGravity();
 
-    assertEquals(0, listener.fallenCount);
+    assertEquals(0, moundListener.fallenCount);
 
     assertFalse(m.objectAt(0, 2).empty);
 
@@ -183,7 +186,7 @@ public class MoundTest {
 
     m.applyGravity();
 
-    assertEquals(1, listener.fallenCount);
+    assertEquals(1, moundListener.fallenCount);
 
     assertTrue(m.objectAt(0, 2).empty);
     assertFalse(m.objectAt(1, 2).empty);
@@ -234,10 +237,10 @@ public class MoundTest {
   @Test
   public void testCallsAddCallback() {
     givenMound(1);
-    assertEquals(0, listener.addedCount);
+    assertEquals(0, moundListener.addedCount);
 
     m.objectAt(0, 0).place(PLAIN_ROCK);
-    assertEquals(1, listener.addedCount);
+    assertEquals(1, moundListener.addedCount);
   }
 
   @Test
@@ -251,8 +254,24 @@ public class MoundTest {
   }
 
   private void givenMound(int size) {
-    listener = new TestMoundListener();
-    m = new Mound(size, listener);
+    moundListener = new TestMoundListener();
+    score = new TestScoreModel();
+    m = new Mound(size, moundListener, score);
+  }
+
+  class TestScoreModel implements ScoreModel {
+
+    int score = 0;
+
+    @Override
+    public void onCollectedScore(Array<BasicJunk> items) {
+      score += items.size;
+    }
+
+    @Override
+    public int getScore() {
+      return score;
+    }
   }
 
   class TestMoundListener implements MoundListener {

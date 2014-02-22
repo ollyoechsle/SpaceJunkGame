@@ -15,14 +15,14 @@ public class PlatformTest {
 
   @Test
   public void hasCorrectActors() {
-    Platform p = new Platform(null, 4, null);
+    Platform p = new Platform(null, 4, null, null);
     assertEquals("Should consist of the paddle and the junk group", 2, p.getChildren().size);
   }
 
   @Test
   public void testAddJunk() throws Exception {
 
-    p = new Platform(null, 4, null);
+    p = new Platform(null, 4, null, null);
     p.setX(100);
     int previousPileSize = pileSize();
 
@@ -59,7 +59,7 @@ public class PlatformTest {
   @Test
   public void testHidesWhenFindingThreeTheSame() throws Exception {
 
-    p = new Platform(null, 4, null);
+    p = new Platform(null, 4, null, null);
     p.setX(100);
 
    /* assertFalse(p.addJunk(someJunkAt(105), 0));

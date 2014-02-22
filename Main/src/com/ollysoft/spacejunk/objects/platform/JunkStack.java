@@ -103,8 +103,8 @@ class JunkStack extends Group {
       score += next.type.getCollectionScore();
     }
     if (platform.game != null) {
-      platform.game
-          .registerPoints(platform.getX() + deltaX, platform.getY() + platform.getHeight(), score);
+      //platform.game
+      //    .onPointsScored(platform.getX() + deltaX, platform.getY() + platform.getHeight(), score);
     }
 
   }
