@@ -1,6 +1,7 @@
 package com.ollysoft.spacejunk.objects.junk;
 
 import com.ollysoft.spacejunk.GameScreen;
+import com.ollysoft.spacejunk.objects.platform.RelativePosition;
 
 /**
  * com.ollysoft.spacejunk.objects
@@ -25,10 +26,10 @@ public class FallingJunk extends BasicJunk {
     } else {
       setY(y);
     }
-    int stackIndex = game.platform.overlaps(getRectangle());
-    if (stackIndex > -1) {
+    RelativePosition position = game.platform.getRelativePosition(this.getBoundingBox());
+    if (game.platform.canLandOn(position)) {
       this.remove();
-      game.platform.addJunk(this, stackIndex);
+      game.platform.addJunk(this, position);
       game.dropSound.play();
       game.score.onCollectedBlock(this);
     }

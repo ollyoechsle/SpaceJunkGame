@@ -41,7 +41,7 @@ class JunkStack extends Group {
 
       @Override
       public boolean act(float v) {
-        platform.repositionAllRocks();
+        platform.applyGravity();
         // TODO: This might cause new groups of blocks to form, so recalculate the groupings and remove these
         return true;
       }
@@ -114,7 +114,7 @@ class JunkStack extends Group {
 
   private void findBlocksOfSameType(int x, int y, JunkType expectedType) {
 
-    BasicJunk newJunk = platform.junkAt(x, y);
+    BasicJunk newJunk = null;//platform.junkAt(x, y);
 
     if (newJunk == null || newJunk.type != expectedType) {
       return;

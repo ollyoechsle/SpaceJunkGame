@@ -83,6 +83,14 @@ public class MoundTest {
   }
 
   @Test
+  public void cannotLandIfYOutOfBoundsInBothDirections() {
+
+    givenMound(2);
+    assertFalse(m.canLandOn(12, 12));
+
+  }
+
+  @Test
   public void getGroups() {
     givenMound(2);
     m.objectAt(0, 0).place(PLAIN_ROCK);
@@ -214,7 +222,6 @@ public class MoundTest {
 
   }
 
-
   @Test
   public void testCallsAddCallback() {
     givenMound(1);
@@ -222,6 +229,16 @@ public class MoundTest {
 
     m.objectAt(0, 0).place(PLAIN_ROCK);
     assertEquals(1, listener.addedCount);
+  }
+
+  @Test
+  public void fixedBlocksDoNotGroup() {
+    givenMound(2);
+
+    m.objectAt(0, 0).place(PLAIN_ROCK).fix();
+    m.objectAt(1, 0).place(PLAIN_ROCK).fix();
+    m.objectAt(2, 0).place(PLAIN_ROCK).fix();
+    assertEquals(0, m.getGroups().size);
   }
 
   private void givenMound(int size) {

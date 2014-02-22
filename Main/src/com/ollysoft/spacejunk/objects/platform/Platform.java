@@ -6,15 +6,18 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.ollysoft.spacejunk.GameScreen;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
+import com.ollysoft.spacejunk.objects.junk.JunkType;
 
 /**
  * com.ollysoft.spacejunk.objects
  */
 public class Platform extends Group {
 
-  protected final JunkStack[] stacks;
+  protected final Mound mound;
   protected final GameScreen game;
-  private final Rectangle temporaryRectangle = new Rectangle();
+  protected final JunkGroup junkGroup;
+
+  protected RelativePosition relativePosition;
 
   public Platform(TextureRegion texture, int width, GameScreen game) {
     super();
@@ -30,37 +33,35 @@ public class Platform extends Group {
 
     addActor(new Paddle(texture, width));
 
-    this.stacks = new JunkStack[width];
+    junkGroup = new JunkGroup();
+    addActor(junkGroup);
+
+    this.mound = new Mound(width, junkGroup);
+
     for (int x = 0; x < width; x++) {
-      this.stacks[x] = new JunkStack(this, x);
-      addActor(this.stacks[x]);
+      this.mound.objectAt(x, 0).place(new BasicJunk(JunkType.GOLD_ROCK, texture)).fix();
     }
+
+    relativePosition = new RelativePosition();
 
   }
 
-  public int overlaps(Rectangle other) {
-    // move the rectangle into the coordinate space of the platform
-    float width = (other.getWidth() - 1) / 2;
-    temporaryRectangle.setX(other.getX() - this.getX() + width);
-    temporaryRectangle.setY(other.getY() - this.getY());
-    temporaryRectangle.setWidth(1);
-    temporaryRectangle.setHeight(other.getHeight());
-    for (int i = 0; i < stacks.length; i++) {
-      if (stacks[i].rectangle.overlaps(temporaryRectangle)) {
-        if (temporaryRectangle.y < stacks[i].rectangle.height - (BasicJunk.SIZE / 2)) {
-          // already passed the top of the stack
-          continue;
-        }
-        return i;
-      }
-    }
-    return -1;
+  public RelativePosition getRelativePosition(Rectangle objectBoundingBox) {
+    float halfWidth = (objectBoundingBox.getWidth() - 1) / 2;
+    float x = (objectBoundingBox.getX() - this.getX() + halfWidth);
+    float y = (objectBoundingBox.getY() - this.getY());
+
+    relativePosition.dx = (int) x / BasicJunk.SIZE;
+    relativePosition.dy = (int) y / BasicJunk.SIZE;
+    return relativePosition;
   }
 
-  public void repositionAllRocks() {
-    for (int i = 0; i < stacks.length; i++) {
-      stacks[i].repositionRocks();
-    }
+  public boolean canLandOn(RelativePosition relativePosition) {
+    return this.mound.canLandOn(relativePosition);
+  }
+
+  public void applyGravity() {
+    mound.applyGravity();
   }
 
   public void moveX(float delta) {
@@ -84,23 +85,10 @@ public class Platform extends Group {
     }
   }
 
-  public boolean addJunk(BasicJunk junk, int stackIndex) {
-    return stacks[stackIndex].addJunk(junk);
+  public void addJunk(BasicJunk junk, RelativePosition position) {
+    this.mound.objectAt(position).place(junk);
   }
 
-  public BasicJunk junkAt(int x, int y) {
-
-    if (x >= stacks.length) {
-      return null;
-    }
-
-    if (x < 0) {
-      return null;
-    }
-
-    return stacks[x].junkAt(y);
-
-  }
 
 }
 

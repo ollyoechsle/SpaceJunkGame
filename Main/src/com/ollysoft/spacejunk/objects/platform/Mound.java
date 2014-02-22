@@ -22,36 +22,37 @@ public class Mound {
   }
 
   /**
-   * Return whether the block can land at the given position.
-   *
-   * @param dx
-   * @param dy
-   * @return
+   * Return whether the block could land at the given position.
    */
-  public boolean canLandOn(int dx, int dy) {
+  public boolean canLandOn(RelativePosition relativePosition) {
+    return canLandOn(relativePosition.dx, relativePosition.dy);
+  }
+
+  protected boolean canLandOn(int dx, int dy) {
 
     if (isOutOfBounds(dx) || isOutOfBounds(dy)) return false;
 
-    int highestPoint = getHighestPoint(dx, dy);
+    int highestPoint = getHighestPointBelow(dx, dy);
 
     return highestPoint != VOID && dy <= highestPoint + 1;
   }
 
   private boolean isOutOfBounds(int dx) {
-    if (dx > arrayLength - 1) {
+    if ((dx + halfWidth) > arrayLength - 1) {
       return true;
     }
 
-    if (dx < -(arrayLength - 1)) {
+    if ((dx - halfWidth) < -(arrayLength - 1)) {
       return true;
     }
     return false;
   }
 
-  public int getHighestPoint(int dx, int currentDy) {
-    for (int dy = Math.max(-halfWidth, currentDy); dy >= -halfWidth; dy--) {
-      if (!objectAt(dx, dy).empty) {
-        return dy;
+  private int getHighestPointBelow(int dx, int currentDy) {
+    int ay = currentDy + halfWidth;
+    for (int y = Math.min(ay, arrayLength - 1); y >= 0; y--) {
+      if (!grid[dx + halfWidth][y].empty) {
+        return y - halfWidth;
       }
     }
     return VOID;
@@ -66,7 +67,11 @@ public class Mound {
     }
   }
 
-  public MoundObject objectAt(int dx, int dy) {
+  public MoundObject objectAt(RelativePosition position) {
+    return objectAt(position.dx, position.dy);
+  }
+
+  protected MoundObject objectAt(int dx, int dy) {
     return grid[dx + halfWidth][dy + halfWidth];
   }
 
@@ -147,7 +152,7 @@ public class Mound {
 
     MoundObject object = grid[x][y];
 
-    if (object.empty || object.junk.type != expectedType || object.group != null) {
+    if (object.empty || object.fixed || object.junk.type != expectedType || object.group != null) {
       return;
     }
 
@@ -209,10 +214,17 @@ public class Mound {
       this.dy = dy;
     }
 
-    public MoundObject place(BasicJunk junk) {
-      this.junk = junk;
+    public MoundObject place(BasicJunk fallenJunk) {
+
+      if (!this.empty) {
+        throw new RuntimeException("Cannot place object - it is already filled");
+      }
+
+      this.junk = fallenJunk;
       this.empty = false;
-      listener.onObjectAdded(junk, this.dx, this.dy);
+
+      BasicJunk newJunk = new BasicJunk(fallenJunk.type, fallenJunk.texture);
+      listener.onObjectAdded(newJunk, this.dx, this.dy);
       return this;
     }
 
