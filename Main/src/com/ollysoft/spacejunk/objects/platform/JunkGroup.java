@@ -2,7 +2,9 @@ package com.ollysoft.spacejunk.objects.platform;
 
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.ollysoft.spacejunk.GameScreen;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
+import com.ollysoft.spacejunk.objects.junk.FallingJunk;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveTo;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
@@ -37,7 +39,11 @@ public class JunkGroup extends Group implements MoundListener {
 
   @Override
   public void onObjectFallenFromMound(BasicJunk junk, int dx, int dy) {
-    // TODO: Return to the game as falling junk
+    GameScreen game = platform.game;
+    FallingJunk fallingJunk = new FallingJunk(junk.type, game);
+    // position relative to the game
+    fallingJunk.setPosition(junk.getX() + platform.getX(), junk.getY() + platform.getY());
+    game.stage.addActor(fallingJunk);
     removeActor(junk);
   }
 
