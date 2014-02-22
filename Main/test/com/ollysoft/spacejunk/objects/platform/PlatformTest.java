@@ -43,7 +43,7 @@ public class PlatformTest {
 
     assertEquals(previousPileSize + 1, pileSize());
     assertEquals(0, lastObjectAddedToPile().getX(), 0.1d);
-    assertEquals(0, lastObjectAddedToPile().getY(), 0.1d);
+    assertEquals(BasicJunk.SIZE, lastObjectAddedToPile().getY(), 0.1d);
 
   }
 

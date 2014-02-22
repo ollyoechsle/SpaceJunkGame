@@ -33,7 +33,7 @@ public class Platform extends Group {
 
     addActor(new Paddle(texture, width));
 
-    junkGroup = new JunkGroup();
+    junkGroup = new JunkGroup(this);
     addActor(junkGroup);
 
     this.mound = new Mound(width, junkGroup);

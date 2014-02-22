@@ -226,7 +226,7 @@ public class Mound {
       this.empty = false;
 
       BasicJunk newJunk = new BasicJunk(fallenJunk.type, fallenJunk.texture);
-      listener.onObjectAdded(newJunk, this.dx, this.dy);
+      listener.onObjectAdded(newJunk, fallenJunk, this.dx, this.dy);
       return this;
     }
 

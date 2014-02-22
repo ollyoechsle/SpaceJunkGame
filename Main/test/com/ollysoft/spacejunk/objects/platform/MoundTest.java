@@ -262,6 +262,11 @@ public class MoundTest {
     private int addedCount = 0;
 
     @Override
+    public void onObjectAdded(BasicJunk junk, BasicJunk fallenJunk, int dx, int dy) {
+      addedCount++;
+    }
+
+    @Override
     public void onObjectFallenFromMound(BasicJunk junk, int dx, int dy) {
       fallenCount++;
     }
@@ -271,10 +276,6 @@ public class MoundTest {
       removedCount++;
     }
 
-    @Override
-    public void onObjectAdded(BasicJunk junk, int dx, int dy) {
-      addedCount++;
-    }
   }
 
 }
