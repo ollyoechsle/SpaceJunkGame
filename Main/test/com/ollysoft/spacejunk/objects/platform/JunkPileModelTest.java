@@ -11,13 +11,13 @@ import static junit.framework.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-public class MoundTest {
+public class JunkPileModelTest {
 
   private static final BasicJunk PLAIN_ROCK = new BasicJunk(JunkType.PLAIN_ROCK, null);
   private static final BasicJunk GOLD_ROCK = new BasicJunk(JunkType.GOLD_ROCK, null);
 
-  private Mound m;
-  private MoundTest.TestMoundListener moundListener;
+  private JunkPileModel m;
+  private TestJunkPileListener moundListener;
   private TestScoreModel score;
 
   @Test
@@ -194,9 +194,9 @@ public class MoundTest {
   }
 
   private void whenWeRemoveGroup(int index) {
-    Array<Mound.ObjectGroup> groups = m.getGroups();
+    Array<JunkPileModel.ObjectGroup> groups = m.getGroups();
     assertEquals(1, groups.size);
-    Mound.ObjectGroup group = groups.get(index);
+    JunkPileModel.ObjectGroup group = groups.get(index);
     m.remove(group);
   }
 
@@ -205,7 +205,7 @@ public class MoundTest {
     givenMound(1);
     for (int x = -1; x <= 1; x++) {
       for (int y = -1; y <= 1; y++) {
-        Mound.MoundObject moundObject = m.objectAt(x, y);
+        JunkPileModel.MoundObject moundObject = m.objectAt(x, y);
         assertNotNull(moundObject);
         assertTrue(moundObject.empty);
       }
@@ -215,7 +215,7 @@ public class MoundTest {
   @Test
   public void placeJunkOnMound() throws Exception {
     givenMound(1);
-    Mound.MoundObject moundObject = m.objectAt(0, 0);
+    JunkPileModel.MoundObject moundObject = m.objectAt(0, 0);
     moundObject.place(PLAIN_ROCK);
     assertFalse(moundObject.empty);
   }
@@ -254,9 +254,9 @@ public class MoundTest {
   }
 
   private void givenMound(int size) {
-    moundListener = new TestMoundListener();
+    moundListener = new TestJunkPileListener();
     score = new TestScoreModel();
-    m = new Mound(size, moundListener, score);
+    m = new JunkPileModel(size, moundListener, score);
   }
 
   class TestScoreModel implements ScoreModel {
@@ -274,7 +274,7 @@ public class MoundTest {
     }
   }
 
-  class TestMoundListener implements MoundListener {
+  class TestJunkPileListener implements JunkPileListener {
 
     private int fallenCount = 0;
     private int removedCount = 0;

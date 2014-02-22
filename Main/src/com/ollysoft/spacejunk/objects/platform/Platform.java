@@ -9,15 +9,16 @@ import com.ollysoft.spacejunk.GameScreen;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
 import com.ollysoft.spacejunk.objects.scoring.ScoreModel;
+import com.ollysoft.spacejunk.util.RelativePosition;
 
 /**
  * com.ollysoft.spacejunk.objects
  */
 public class Platform extends Group {
 
-  protected final Mound mound;
+  protected final JunkPileModel junkPileModel;
   protected final GameScreen game;
-  protected final JunkGroup junkGroup;
+  protected final JunkPileView junkPileView;
 
   protected RelativePosition relativePosition;
 
@@ -35,13 +36,13 @@ public class Platform extends Group {
 
     addActor(new Paddle(texture, width));
 
-    junkGroup = new JunkGroup(this);
-    addActor(junkGroup);
+    junkPileView = new JunkPileView(this);
+    addActor(junkPileView);
 
-    this.mound = new Mound(width, junkGroup, scoreModel);
+    this.junkPileModel = new JunkPileModel(width, junkPileView, scoreModel);
 
     for (int x = 0; x < width; x++) {
-      this.mound.objectAt(x, 0).fix();
+      this.junkPileModel.objectAt(x, 0).fix();
     }
 
     relativePosition = new RelativePosition();
@@ -59,11 +60,11 @@ public class Platform extends Group {
   }
 
   public boolean canLandOn(RelativePosition relativePosition) {
-    return this.mound.canLandOn(relativePosition);
+    return this.junkPileModel.canLandOn(relativePosition);
   }
 
   public void applyGravity() {
-    mound.applyGravity();
+    junkPileModel.applyGravity();
   }
 
   public void moveX(float delta) {
@@ -88,12 +89,12 @@ public class Platform extends Group {
   }
 
   public void addJunk(BasicJunk junk, RelativePosition position) {
-    this.mound.objectAt(position).place(junk);
-    Array<Mound.ObjectGroup> groups = this.mound.getGroups();
-    for (Mound.ObjectGroup group : groups) {
-      this.mound.remove(group);
+    this.junkPileModel.objectAt(position).place(junk);
+    Array<JunkPileModel.ObjectGroup> groups = this.junkPileModel.getGroups();
+    for (JunkPileModel.ObjectGroup group : groups) {
+      this.junkPileModel.remove(group);
     }
-    this.mound.applyGravity();
+    this.junkPileModel.applyGravity();
   }
 
 }

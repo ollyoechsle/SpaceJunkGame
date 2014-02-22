@@ -1,7 +1,7 @@
 package com.ollysoft.spacejunk.objects.junk;
 
 import com.ollysoft.spacejunk.GameScreen;
-import com.ollysoft.spacejunk.objects.platform.RelativePosition;
+import com.ollysoft.spacejunk.util.RelativePosition;
 
 /**
  * com.ollysoft.spacejunk.objects

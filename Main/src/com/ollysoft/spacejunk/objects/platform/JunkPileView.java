@@ -9,11 +9,11 @@ import com.ollysoft.spacejunk.objects.junk.FallingJunk;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveTo;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 
-public class JunkGroup extends Group implements MoundListener {
+public class JunkPileView extends Group implements JunkPileListener {
 
   private Platform platform;
 
-  public JunkGroup(Platform platform) {
+  public JunkPileView(Platform platform) {
     this.platform = platform;
     this.setTransform(false);
   }

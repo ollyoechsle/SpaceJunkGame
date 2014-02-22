@@ -1,4 +1,4 @@
-package com.ollysoft.spacejunk.objects.platform;
+package com.ollysoft.spacejunk.util;
 
 public class RelativePosition {
 

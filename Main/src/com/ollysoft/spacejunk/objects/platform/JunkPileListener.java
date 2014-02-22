@@ -2,7 +2,7 @@ package com.ollysoft.spacejunk.objects.platform;
 
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 
-public interface MoundListener {
+public interface JunkPileListener {
 
   public void onObjectAdded(BasicJunk junk, BasicJunk fallenJunk, int dx, int dy);
 

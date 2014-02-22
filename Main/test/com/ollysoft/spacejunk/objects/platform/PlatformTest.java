@@ -4,6 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.SnapshotArray;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
+import com.ollysoft.spacejunk.util.RelativePosition;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -48,11 +49,11 @@ public class PlatformTest {
   }
 
   private int pileSize() {
-    return p.junkGroup.getChildren().size;
+    return p.junkPileView.getChildren().size;
   }
 
   private Actor lastObjectAddedToPile() {
-    SnapshotArray<Actor> children = p.junkGroup.getChildren();
+    SnapshotArray<Actor> children = p.junkPileView.getChildren();
     return children.get(children.size - 1);
   }
 

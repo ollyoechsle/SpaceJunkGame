@@ -4,18 +4,19 @@ import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
 import com.ollysoft.spacejunk.objects.scoring.ScoreModel;
+import com.ollysoft.spacejunk.util.RelativePosition;
 
-public class Mound {
+public class JunkPileModel {
 
   private final int VOID = -1000;
 
-  private final MoundListener listener;
+  private final JunkPileListener listener;
   private final MoundObject[][] grid;
   private final int halfWidth;
   private final ScoreModel scoreModel;
   private final int arrayLength;
 
-  public Mound(int halfWidth, MoundListener listener, ScoreModel scoreModel) {
+  public JunkPileModel(int halfWidth, JunkPileListener listener, ScoreModel scoreModel) {
     this.listener = listener;
     this.halfWidth = halfWidth;
     this.scoreModel = scoreModel;
