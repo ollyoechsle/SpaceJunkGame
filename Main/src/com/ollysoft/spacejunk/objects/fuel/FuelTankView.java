@@ -3,7 +3,6 @@ package com.ollysoft.spacejunk.objects.fuel;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.ollysoft.spacejunk.GameScreen;
 import com.ollysoft.spacejunk.util.Assets;
 
 public class FuelTankView extends Actor {
@@ -28,10 +27,9 @@ public class FuelTankView extends Actor {
   public void draw(SpriteBatch batch, float parentAlpha) {
     String fontText = "" + (int) displayLevel;
     BitmapFont.TextBounds bounds = font.getBounds(fontText);
-    float fontX = GameScreen.width - font.getBounds(fontText).width;
-    float fontY = GameScreen.height - bounds.height - 100;
-    int margin = 10;
-    font.draw(batch, fontText, fontX - margin, fontY - margin);
+    float fontX = getParent().getWidth() - bounds.width;
+    float fontY = getY();
+    font.draw(batch, fontText, fontX, fontY);
   }
 
 }

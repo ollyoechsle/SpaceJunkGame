@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -26,7 +27,6 @@ public abstract class MenuScreen extends ScreenAdapter {
     stage.addActor(new Stars(assets));
     stage.addActor(table);
     table.setFillParent(true);
-
   }
 
   protected void transitionOutThen(Action thenAction) {
@@ -45,6 +45,11 @@ public abstract class MenuScreen extends ScreenAdapter {
     TextButton button = new TextButton(text, assets.uiSkin);
     button.addListener(listener);
     addButton(button);
+  }
+
+  protected void add(Actor actor) {
+    table.add(actor).width(actor.getWidth()).height(actor.getHeight()).spaceBottom(10);
+    table.row();
   }
 
   protected void addButton(TextButton button) {

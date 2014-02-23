@@ -4,6 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.ollysoft.spacejunk.objects.score.ScoreModel;
+import com.ollysoft.spacejunk.objects.score.ScoreView;
 import com.ollysoft.spacejunk.util.Assets;
 import com.ollysoft.spacejunk.util.MenuScreen;
 
@@ -13,7 +14,7 @@ public class GameOverScreen extends MenuScreen {
     super(assets);
 
     addLabel("Game Over");
-    addLabel("Final Score: " + score.getScore());
+    add(new ScoreView(assets, score));
     addButton("Play Again", new ClickListener() {
       @Override
       public void clicked(InputEvent event, float x, float y) {

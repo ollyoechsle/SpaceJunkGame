@@ -3,7 +3,6 @@ package com.ollysoft.spacejunk.objects.score;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.ollysoft.spacejunk.GameScreen;
 import com.ollysoft.spacejunk.util.Assets;
 
 public class ScoreView extends Actor {
@@ -35,10 +34,9 @@ public class ScoreView extends Actor {
   public void draw(SpriteBatch batch, float parentAlpha) {
     String fontText = "" + (int) displayScore;
     BitmapFont.TextBounds bounds = font.getBounds(fontText);
-    float fontX = GameScreen.width - font.getBounds(fontText).width;
-    float fontY = GameScreen.height - bounds.height;
-    int margin = 10;
-    font.draw(batch, fontText, fontX - margin, fontY - margin);
+    float fontX = getParent().getWidth() - bounds.width;
+    float fontY = getY();//getParent().getHeight() - bounds.height;
+    font.draw(batch, fontText, fontX, fontY);
   }
 
 }

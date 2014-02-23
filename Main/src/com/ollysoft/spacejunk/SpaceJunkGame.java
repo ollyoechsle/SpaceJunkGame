@@ -33,7 +33,6 @@ public class SpaceJunkGame extends Game {
   }
 
   public void displayMainMenu() {
-    System.out.println("Setting display main menu");
     this.setScreen(mainMenuScreen);
   }
 
@@ -43,7 +42,6 @@ public class SpaceJunkGame extends Game {
   }
 
   public void displayGameScreen() {
-    System.out.println("Setting display game screen");
     this.setScreen(gameScreen);
   }
 

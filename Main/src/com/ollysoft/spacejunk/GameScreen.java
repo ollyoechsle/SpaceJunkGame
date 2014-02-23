@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
@@ -49,6 +50,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   private final SpaceJunkGame game;
   public final Stage stage;
   public final ScoreModel score;
+  private final Group hud;
 
   public GameScreen(SpaceJunkGame game, Assets assets) {
     this.game = game;
@@ -77,9 +79,26 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     stage.addActor(new Stars(assets));
     stage.addActor(platform);
-    stage.addActor(new ScoreView(assets, score));
-    stage.addActor(new FuelTankView(assets, fuelTank));
 
+    hud = new Group();
+    hud.setWidth(120);
+    hud.setHeight(120);
+    repositionHUD(hud);
+
+    ScoreView scoreView = new ScoreView(assets, score);
+    scoreView.setY(60);
+    hud.addActor(scoreView);
+
+    FuelTankView fuelTankView = new FuelTankView(assets, fuelTank);
+    fuelTankView.setY(0);
+    hud.addActor(fuelTankView);
+
+    stage.addActor(hud);
+
+  }
+
+  private void repositionHUD(Group hud) {
+    hud.setPosition(Gdx.graphics.getWidth() - hud.getWidth(), Gdx.graphics.getHeight() - hud.getHeight());
   }
 
   @Override
@@ -187,6 +206,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     GameScreen.width = width;
     GameScreen.height = height;
     stage.setViewport(width, height, true);
+    repositionHUD(hud);
   }
 
   @Override
