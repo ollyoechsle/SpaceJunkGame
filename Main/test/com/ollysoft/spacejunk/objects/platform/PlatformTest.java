@@ -13,6 +13,8 @@ public class PlatformTest {
 
   private Platform p;
   private int x = 100;
+  private BasicJunk fallingJunk;
+  private RelativePosition position;
 
   @Test
   public void hasCorrectActors() {
@@ -23,22 +25,14 @@ public class PlatformTest {
   @Test
   public void testAddJunk() throws Exception {
 
-    p = new Platform(null, 4, null, null);
-    p.setX(100);
+    givenPlatformAt(100);
+    givenFallingJunkAt(100);
+
     int previousPileSize = pileSize();
 
-    BasicJunk fallingJunk = new BasicJunk(JunkType.randomJunkType(), null);
-    fallingJunk.setX(100);
+    assertFalse("Doesn't overlap", landed(fallingJunk, BasicJunk.SIZE));
 
-    RelativePosition position;
-
-    fallingJunk.setY(p.getY() + p.getHeight() + BasicJunk.SIZE);
-    position = p.getRelativePosition(fallingJunk.getBoundingBox());
-    assertFalse("Doesn't overlap", p.canLandOn(position));
-
-    fallingJunk.setY(p.getY() + p.getHeight());
-    position = p.getRelativePosition(fallingJunk.getBoundingBox());
-    assertTrue("Does overlap", p.canLandOn(position));
+    assertTrue("Does overlap", landed(fallingJunk, 0));
 
     p.addJunk(fallingJunk, position);
 
@@ -46,6 +40,35 @@ public class PlatformTest {
     assertEquals(0, lastObjectAddedToPile().getX(), 0.1d);
     assertEquals(BasicJunk.SIZE, lastObjectAddedToPile().getY(), 0.1d);
 
+  }
+
+  @Test
+  public void itemsPassingByJustToTheSideDoNotLand() throws Exception {
+
+    givenPlatformAt(100);
+
+    givenFallingJunkAt(100);
+    assertTrue("Can land", landed(fallingJunk, 0));
+
+    givenFallingJunkAt(100-BasicJunk.SIZE);
+    assertFalse("Should pass by on the left side", landed(fallingJunk, 0));
+
+  }
+
+  private void givenPlatformAt(int x1) {
+    p = new Platform(null, 4, null, null);
+    p.setX(x1);
+  }
+
+  private void givenFallingJunkAt(int x1) {
+    fallingJunk = new BasicJunk(JunkType.randomJunkType(), null);
+    fallingJunk.setX(x1);
+  }
+
+  private boolean landed(BasicJunk fallingJunk, int heightAbovePlatform) {
+    fallingJunk.setY(p.getY() + p.getHeight() + heightAbovePlatform);
+    position = p.getRelativePosition(fallingJunk.getBoundingBox());
+    return p.canLandOn(position);
   }
 
   private int pileSize() {

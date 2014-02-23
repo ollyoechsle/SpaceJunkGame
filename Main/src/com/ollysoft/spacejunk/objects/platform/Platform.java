@@ -50,8 +50,7 @@ public class Platform extends Group {
   }
 
   public RelativePosition getRelativePosition(Rectangle objectBoundingBox) {
-    float halfWidth = (objectBoundingBox.getWidth() - 1) / 2;
-    float x = (objectBoundingBox.getX() - this.getX() + halfWidth);
+    float x = (objectBoundingBox.getX() - this.getX());
     float y = (objectBoundingBox.getY() - this.getY());
 
     relativePosition.dx = (int) x / BasicJunk.SIZE;

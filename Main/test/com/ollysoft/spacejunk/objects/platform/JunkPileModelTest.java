@@ -94,6 +94,15 @@ public class JunkPileModelTest {
   }
 
   @Test
+  public void doesNotLandOnAdjacent() {
+
+    givenMound(2);
+    m.objectAt(0, 0);
+    assertFalse(m.canLandOn(-1, 1));
+
+  }
+
+  @Test
   public void cannotLandIfYOutOfBoundsInBothDirections() {
 
     givenMound(2);
