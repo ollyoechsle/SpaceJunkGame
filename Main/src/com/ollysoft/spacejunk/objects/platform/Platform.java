@@ -6,9 +6,10 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.GameScreen;
+import com.ollysoft.spacejunk.objects.fuel.FuelTankModel;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
-import com.ollysoft.spacejunk.objects.scoring.ScoreModel;
+import com.ollysoft.spacejunk.objects.score.ScoreModel;
 import com.ollysoft.spacejunk.util.RelativePosition;
 
 /**
@@ -18,13 +19,15 @@ public class Platform extends Group {
 
   protected final JunkPileModel junkPileModel;
   protected final GameScreen game;
+  protected final FuelTankModel fuelTank;
   protected final JunkPileView junkPileView;
 
   protected RelativePosition relativePosition;
 
-  public Platform(TextureRegion texture, int width, GameScreen game, ScoreModel scoreModel) {
+  public Platform(TextureRegion texture, int width, GameScreen game, ScoreModel scoreModel, FuelTankModel fuelTank) {
     super();
     this.game = game;
+    this.fuelTank = fuelTank;
 
     this.setTransform(false);
 
@@ -63,6 +66,7 @@ public class Platform extends Group {
   }
 
   public void moveX(float delta) {
+    fuelTank.onFuelSpent();
     this.addAction(Actions.moveTo(this.getX() + delta, 0.2f));
     checkBounds();
   }

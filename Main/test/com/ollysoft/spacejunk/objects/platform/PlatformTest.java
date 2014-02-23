@@ -18,7 +18,7 @@ public class PlatformTest {
 
   @Test
   public void hasCorrectActors() {
-    Platform p = new Platform(null, 4, null, null);
+    givenPlatform();
     assertEquals("Should consist of the paddle and the junk group", 2, p.getChildren().size);
   }
 
@@ -50,13 +50,13 @@ public class PlatformTest {
     givenFallingJunkAt(100);
     assertTrue("Can land", landed(fallingJunk, 0));
 
-    givenFallingJunkAt(100-BasicJunk.SIZE);
+    givenFallingJunkAt(100 - BasicJunk.SIZE);
     assertFalse("Should pass by on the left side", landed(fallingJunk, 0));
 
   }
 
   private void givenPlatformAt(int x1) {
-    p = new Platform(null, 4, null, null);
+    givenPlatform();
     p.setX(x1);
   }
 
@@ -83,13 +83,17 @@ public class PlatformTest {
   @Test
   public void testHidesWhenFindingThreeTheSame() throws Exception {
 
-    p = new Platform(null, 4, null, null);
+    givenPlatform();
     p.setX(100);
 
    /* assertFalse(p.addJunk(someJunkAt(105), 0));
     assertFalse(p.addJunk(someJunkAt(105), 0));
     assertTrue(p.addJunk(someJunkAt(105), 0));*/
 
+  }
+
+  private void givenPlatform() {
+    p = new Platform(null, 4, null, null, null);
   }
 
 }

@@ -1,4 +1,4 @@
-package com.ollysoft.spacejunk.util;
+package com.ollysoft.spacejunk.input;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;

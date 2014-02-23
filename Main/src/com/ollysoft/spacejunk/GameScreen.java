@@ -16,18 +16,22 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
+import com.ollysoft.spacejunk.input.GameInputHandler;
+import com.ollysoft.spacejunk.objects.fuel.BasicFuelTankModel;
+import com.ollysoft.spacejunk.objects.fuel.FuelTankListener;
+import com.ollysoft.spacejunk.objects.fuel.FuelTankModel;
+import com.ollysoft.spacejunk.objects.fuel.FuelTankView;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
 import com.ollysoft.spacejunk.objects.platform.Platform;
-import com.ollysoft.spacejunk.objects.scoring.*;
+import com.ollysoft.spacejunk.objects.score.*;
 import com.ollysoft.spacejunk.util.Assets;
-import com.ollysoft.spacejunk.util.GameInputHandler;
 
 /**
  * com.ollysoft.spacejunk
  */
-public class GameScreen extends ScreenAdapter implements PointsScoredListener {
+public class GameScreen extends ScreenAdapter implements PointsScoredListener, FuelTankListener {
 
   private static final int KEYBOARD_MOVE_SPEED = BasicJunk.SIZE * 8;
   public final Texture magnetImage, background;
@@ -35,6 +39,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener {
   public final Music music;
   public final Sound crashSound, scoreSound;
   public final Assets assets;
+  private final FuelTankModel fuelTank;
 
   private OrthographicCamera camera;
   private SpriteBatch batch;
@@ -56,6 +61,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener {
     assets = new Assets();
 
     score = new BasicScoreModel(0, this);
+    fuelTank = new BasicFuelTankModel(1000, this);
 
     // load the drop sound effect and the rain background "music"
     dropSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
@@ -69,12 +75,13 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener {
 
     batch = new SpriteBatch();
 
-    platform = new Platform(new TextureRegion(magnetImage), 4, this, score);
+    platform = new Platform(new TextureRegion(magnetImage), 4, this, score, fuelTank);
     platform.moveTo(Gdx.graphics.getWidth() / 2f);
 
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     stage.addActor(platform);
     stage.addActor(new ScoreView(assets, score));
+    stage.addActor(new FuelTankView(assets, fuelTank));
 
     spawnJunk();
 
@@ -92,6 +99,12 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener {
   public void hide() {
     music.pause();
     Gdx.input.setInputProcessor(null);
+  }
+
+  @Override
+  public void onFuelTankEmpty() {
+    music.pause();
+    crashSound.play();
   }
 
   @Override

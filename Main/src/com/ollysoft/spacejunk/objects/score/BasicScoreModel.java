@@ -1,4 +1,4 @@
-package com.ollysoft.spacejunk.objects.scoring;
+package com.ollysoft.spacejunk.objects.score;
 
 import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;

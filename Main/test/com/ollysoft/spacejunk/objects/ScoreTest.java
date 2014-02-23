@@ -1,6 +1,6 @@
 package com.ollysoft.spacejunk.objects;
 
-import com.ollysoft.spacejunk.objects.scoring.BasicScoreModel;
+import com.ollysoft.spacejunk.objects.score.BasicScoreModel;
 import junit.framework.Assert;
 import org.junit.Ignore;
 

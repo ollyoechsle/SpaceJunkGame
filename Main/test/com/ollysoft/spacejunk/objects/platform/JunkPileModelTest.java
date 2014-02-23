@@ -3,7 +3,7 @@ package com.ollysoft.spacejunk.objects.platform;
 import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
-import com.ollysoft.spacejunk.objects.scoring.ScoreModel;
+import com.ollysoft.spacejunk.objects.score.ScoreModel;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
