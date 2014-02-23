@@ -1,9 +1,10 @@
 package com.ollysoft.spacejunk.input;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.ollysoft.spacejunk.SpaceJunkGame;
+
+import static com.badlogic.gdx.Input.Keys;
 
 /**
  * com.ollysoft.spacejunk.util
@@ -23,17 +24,22 @@ public class GameInputHandler extends InputAdapter {
   public boolean keyDown(int keycode) {
     if (game.currentScreen == game.gameScreen) {
 
-      if ((keycode == Input.Keys.ESCAPE) || (keycode == Input.Keys.BACK)) {
+      if ((keycode == Keys.ESCAPE) || (keycode == Keys.BACK)) {
         game.displayMainMenu();
         return true;
       }
 
-      if (keycode == Input.Keys.LEFT) {
+      if (keycode == Keys.P) {
+        listener.togglePaused();
+        return true;
+      }
+
+      if (keycode == Keys.LEFT) {
         listener.moveLeft();
         return true;
       }
 
-      if (keycode == Input.Keys.RIGHT) {
+      if (keycode == Keys.RIGHT) {
         listener.moveRight();
         return true;
       }

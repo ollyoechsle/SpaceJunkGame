@@ -28,19 +28,17 @@ import com.ollysoft.spacejunk.objects.junk.JunkType;
 import com.ollysoft.spacejunk.objects.platform.Platform;
 import com.ollysoft.spacejunk.objects.score.*;
 import com.ollysoft.spacejunk.util.Assets;
+import com.ollysoft.spacejunk.util.GameState;
 
-/**
- * com.ollysoft.spacejunk
- */
 public class GameScreen extends ScreenAdapter implements PointsScoredListener, FuelTankListener, MovementListener {
 
-  private static final int KEYBOARD_MOVE_SPEED = BasicJunk.SIZE * 8;
   public final Texture magnetImage, background;
   public final Sound dropSound;
   public final Music music;
   public final Sound crashSound, scoreSound;
   public final Assets assets;
-  private final FuelTankModel fuelTank;
+
+  private GameState state;
 
   private OrthographicCamera camera;
   private SpriteBatch batch;
@@ -55,6 +53,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
 
   public GameScreen(SpaceJunkGame game) {
     this.game = game;
+    this.state = GameState.LOADING;
 
     // load the images for the droplet and the platform, 64x64 pixels each
     background = new Texture(Gdx.files.internal("background-1.png"));
@@ -62,7 +61,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     assets = new Assets();
 
     score = new BasicScoreModel(0, this);
-    fuelTank = new BasicFuelTankModel(1000, this);
+    FuelTankModel fuelTank = new BasicFuelTankModel(1000, this);
 
     // load the drop sound effect and the rain background "music"
     dropSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
@@ -83,8 +82,6 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     stage.addActor(new ScoreView(assets, score));
     stage.addActor(new FuelTankView(assets, fuelTank));
 
-    spawnJunk();
-
   }
 
   @Override
@@ -93,11 +90,13 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     // start the playback of the background music
     // when the screen is shown
     music.play();
+    state = GameState.PLAYING;
   }
 
   @Override
   public void hide() {
     music.pause();
+    state = GameState.PAUSED;
     Gdx.input.setInputProcessor(null);
   }
 
@@ -105,6 +104,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   public void onFuelTankEmpty() {
     music.pause();
     crashSound.play();
+    state = GameState.OVER;
   }
 
   @Override
@@ -116,7 +116,9 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     drawBackground();
     batch.end();
 
-    stage.act(Gdx.graphics.getDeltaTime());
+    if (state.canMove()) {
+      stage.act(Gdx.graphics.getDeltaTime());
+    }
     stage.draw();
 
     handleInputs();
@@ -125,14 +127,26 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
 
   }
 
+  public void togglePaused() {
+    if (state == GameState.PAUSED) {
+      state = GameState.PLAYING;
+    } else if (state == GameState.PLAYING) {
+      state = GameState.PAUSED;
+    }
+  }
+
   @Override
   public void moveLeft() {
-    platform.moveX(-BasicJunk.SIZE);
+    if (state.canMove()) {
+      platform.moveX(-BasicJunk.SIZE);
+    }
   }
 
   @Override
   public void moveRight() {
-    platform.moveX(BasicJunk.SIZE);
+    if (state.canMove()) {
+      platform.moveX(BasicJunk.SIZE);
+    }
   }
 
   private void animate() {
@@ -162,6 +176,10 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   }
 
   private void spawnJunk() {
+    if (!state.canMove()) {
+      return;
+    }
+
     FallingJunk block = new FallingJunk(JunkType.randomJunkType(), this);
     float x = MathUtils.random(0, Gdx.graphics.getWidth() - BasicJunk.SIZE);
     x = (int) (x / BasicJunk.SIZE);

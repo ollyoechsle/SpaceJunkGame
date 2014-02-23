@@ -6,4 +6,6 @@ public interface MovementListener {
 
   void moveRight();
 
+  void togglePaused();
+
 }
