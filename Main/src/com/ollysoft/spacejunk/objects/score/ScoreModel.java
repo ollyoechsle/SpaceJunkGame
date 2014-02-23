@@ -7,6 +7,6 @@ public interface ScoreModel {
 
   int getScore();
 
-  void onCollectedScore(Array<BasicJunk> items);
+  void onCollectedScore(Array<BasicJunk> itemsRemoved, int itemsRemaining);
 
 }

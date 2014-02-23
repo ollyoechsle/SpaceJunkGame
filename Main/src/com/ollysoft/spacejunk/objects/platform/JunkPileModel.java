@@ -95,7 +95,19 @@ public class JunkPileModel {
       junks.add(object.junk);
       object.clear();
     }
-    scoreModel.onCollectedScore(junks);
+    scoreModel.onCollectedScore(junks, countJunk());
+  }
+
+  public int countJunk() {
+    int count = 0;
+    for (int y = 0; y < arrayLength; y++) {
+      for (int x = 0; x < arrayLength; x++) {
+        if (grid[x][y].junk != null) {
+          count++;
+        }
+      }
+    }
+    return count;
   }
 
   /**

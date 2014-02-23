@@ -155,6 +155,20 @@ public class JunkPileModelTest {
   }
 
   @Test
+  public void countBlocks() {
+
+    givenMound(2);
+
+    // one 1x3 row of plain rocks
+    m.objectAt(0, 0).place(PLAIN_ROCK);
+    m.objectAt(1, 0).place(PLAIN_ROCK);
+    m.objectAt(2, 0).place(PLAIN_ROCK);
+
+    assertEquals(3, m.countJunk());
+
+  }
+
+  @Test
   public void singleObjectFallsUnderGravity() {
 
     givenMound(2);
@@ -273,7 +287,7 @@ public class JunkPileModelTest {
     int score = 0;
 
     @Override
-    public void onCollectedScore(Array<BasicJunk> items) {
+    public void onCollectedScore(Array<BasicJunk> items, int junkRemaining) {
       score += items.size;
     }
 

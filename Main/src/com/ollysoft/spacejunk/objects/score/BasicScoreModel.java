@@ -2,7 +2,6 @@ package com.ollysoft.spacejunk.objects.score;
 
 import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
-import com.ollysoft.spacejunk.objects.junk.FallingJunk;
 
 /**
  * com.ollysoft.spacejunk.objects
@@ -23,26 +22,22 @@ public class BasicScoreModel implements ScoreModel {
     return score;
   }
 
-  public void changeScore(int delta) {
-    score += delta;
-  }
-
   @Override
-  public void onCollectedScore(Array<BasicJunk> items) {
+  public void onCollectedScore(Array<BasicJunk> items, int remainingItemCount) {
     float multiplier = 1.0f;
     if (items.size > 3) {
-      multiplier += (items.size - 3) * 0.1f;
+      multiplier += (items.size - 3) * 0.5f;
     }
     int pointsScored = 0;
     for (BasicJunk item : items) {
       pointsScored += (int) (multiplier * item.type.getCollectionScore());
     }
+    if (remainingItemCount == 0) {
+      pointsScored *= 2;
+    }
     pointsScoredListener.onPointsScored(pointsScored, items);
     score += pointsScored;
   }
 
-  public void onMissedBlock(FallingJunk block) {
-    this.score -= block.type.getMissCost();
-  }
 
 }
