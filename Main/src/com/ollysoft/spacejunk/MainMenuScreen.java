@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -15,8 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.ollysoft.spacejunk.objects.props.Stars;
 import com.ollysoft.spacejunk.util.Assets;
 
-import static com.badlogic.gdx.scenes.scene2d.actions.Actions.fadeOut;
-import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
 
 /**
  * com.ollysoft.spacejunk
@@ -35,6 +33,7 @@ public class MainMenuScreen extends ScreenAdapter {
     uiSkin = new Skin(Gdx.files.internal("uiskin.json"));
 
     table = new Table();
+
     Label appName = new Label("Space Junk!", uiSkin);
 
     TextButton newGame = new TextButton("New Game", uiSkin);
@@ -43,7 +42,10 @@ public class MainMenuScreen extends ScreenAdapter {
       public void clicked(InputEvent event, float x, float y) {
         table.addAction(
             sequence(
-                fadeOut(0.5f),
+                parallel(
+                    fadeOut(0.5f),
+                    moveTo(-Gdx.graphics.getWidth()/2, 0, 0.5f)
+                ),
                 displayGameScreen(game)
             )
         );
@@ -61,7 +63,6 @@ public class MainMenuScreen extends ScreenAdapter {
 
     stage.addActor(new Stars(assets));
     stage.addActor(table);
-
     table.setFillParent(true);
 
     table.add(appName).width(100f).spaceBottom(100);
@@ -90,7 +91,10 @@ public class MainMenuScreen extends ScreenAdapter {
 
   @Override
   public void show() {
-    table.addAction(Actions.fadeIn(0.5f));
+    table.addAction(parallel(
+        fadeIn(0.5f),
+        moveTo(0, 0, 0.5f)
+    ));
     Gdx.input.setInputProcessor(stage);
 
   }
