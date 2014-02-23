@@ -3,8 +3,10 @@ package com.ollysoft.spacejunk;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -13,26 +15,38 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.ollysoft.spacejunk.objects.props.Stars;
 import com.ollysoft.spacejunk.util.Assets;
 
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.fadeOut;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
+
 /**
  * com.ollysoft.spacejunk
  */
 public class MainMenuScreen extends ScreenAdapter {
 
-  private Stage stage;
+  private final Stage stage;
   private final Skin uiSkin;
+  private final SpaceJunkGame game;
+  private final Table table;
 
   public MainMenuScreen(final SpaceJunkGame game, Assets assets) {
+    this.game = game;
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
 
     uiSkin = new Skin(Gdx.files.internal("uiskin.json"));
 
+    table = new Table();
     Label appName = new Label("Space Junk!", uiSkin);
 
     TextButton newGame = new TextButton("New Game", uiSkin);
     newGame.addListener(new ClickListener() {
       @Override
       public void clicked(InputEvent event, float x, float y) {
-        game.displayGameScreen();
+        table.addAction(
+            sequence(
+                fadeOut(0.5f),
+                displayGameScreen(game)
+            )
+        );
       }
     });
 
@@ -44,7 +58,7 @@ public class MainMenuScreen extends ScreenAdapter {
       }
     });
 
-    Table table = new Table();
+
     stage.addActor(new Stars(assets));
     stage.addActor(table);
 
@@ -63,9 +77,22 @@ public class MainMenuScreen extends ScreenAdapter {
 
   }
 
+  private Action displayGameScreen(final SpaceJunkGame game) {
+    return new Action() {
+      @Override
+      public boolean act(float v) {
+
+        game.displayGameScreen();
+        return true;
+      }
+    };
+  }
+
   @Override
   public void show() {
+    table.addAction(Actions.fadeIn(0.5f));
     Gdx.input.setInputProcessor(stage);
+
   }
 
   @Override
