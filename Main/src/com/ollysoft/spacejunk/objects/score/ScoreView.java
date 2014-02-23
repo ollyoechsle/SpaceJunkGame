@@ -8,7 +8,7 @@ import com.ollysoft.spacejunk.util.Assets;
 
 public class ScoreView extends Actor {
 
-  private static final float POINTS_PER_SECOND = 60;
+  private static final float POINTS_PER_SECOND = 100;
   private final BitmapFont font;
   private final ScoreModel model;
   private float displayScore;
@@ -23,10 +23,11 @@ public class ScoreView extends Actor {
   public void act(float delta) {
     super.act(delta);
     int actualScore = model.getScore();
-    if (actualScore >= displayScore) {
-      displayScore += POINTS_PER_SECOND * delta;
+    if (Math.abs(actualScore - displayScore) > 0.1) {
+      int sign = actualScore > displayScore ? 1 : -1;
+      displayScore += sign * POINTS_PER_SECOND * delta;
     } else {
-      displayScore = (float) Math.ceil(actualScore);
+      displayScore = actualScore;
     }
   }
 
