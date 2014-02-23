@@ -8,7 +8,6 @@ import com.ollysoft.spacejunk.util.Assets;
 
 public class FuelTankView extends Actor {
 
-  private static final float POINTS_PER_SECOND = 20;
   private final BitmapFont font;
   private final FuelTankModel model;
   private float displayLevel;
@@ -16,18 +15,13 @@ public class FuelTankView extends Actor {
   public FuelTankView(Assets assets, FuelTankModel model) {
     this.model = model;
     this.font = assets.bigFont;
-    this.displayLevel = 0f;
+    this.displayLevel = model.getLevel();
   }
 
   @Override
   public void act(float delta) {
     super.act(delta);
-    float actualScore = model.getLevel();
-    if (actualScore <= displayLevel) {
-      displayLevel -= POINTS_PER_SECOND * delta;
-    } else {
-      displayLevel = (float) Math.floor(actualScore);
-    }
+    displayLevel = model.getLevel();
   }
 
   @Override
