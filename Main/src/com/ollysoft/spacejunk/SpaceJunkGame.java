@@ -37,6 +37,11 @@ public class SpaceJunkGame extends Game {
     this.setScreen(mainMenuScreen);
   }
 
+  public void startNewGame() {
+    gameScreen = new GameScreen(this, assets);
+    displayGameScreen();
+  }
+
   public void displayGameScreen() {
     System.out.println("Setting display game screen");
     this.setScreen(gameScreen);

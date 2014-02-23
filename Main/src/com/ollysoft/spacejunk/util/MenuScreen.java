@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.scenes.scene2d.Action;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -27,11 +26,8 @@ public abstract class MenuScreen extends ScreenAdapter {
     stage.addActor(new Stars(assets));
     stage.addActor(table);
     table.setFillParent(true);
-    initUI(assets);
-    table.layout();
-  }
 
-  public abstract void initUI(Assets assets);
+  }
 
   protected void transitionOutThen(Action thenAction) {
     table.addAction(
@@ -57,7 +53,7 @@ public abstract class MenuScreen extends ScreenAdapter {
   }
 
   protected void addLabel(String text) {
-    Label label = new Label("Space Junk!", assets.uiSkin);
+    Label label = new Label(text, assets.uiSkin);
     table.add(label).width(100f).spaceBottom(100);
     table.row();
   }

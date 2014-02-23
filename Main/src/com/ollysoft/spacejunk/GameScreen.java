@@ -9,7 +9,6 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
@@ -42,14 +41,13 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   private GameState state;
 
   private OrthographicCamera camera;
-  private SpriteBatch batch;
 
   public final Platform platform;
   private Vector3 touchPos = new Vector3();
 
-  long lastDropTime;
-  private SpaceJunkGame game;
-  public Stage stage;
+  private long lastDropTime;
+  private final SpaceJunkGame game;
+  public final Stage stage;
   public final ScoreModel score;
 
   public GameScreen(SpaceJunkGame game, Assets assets) {
@@ -62,7 +60,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     magnetImage = new Texture(Gdx.files.internal("collector.png"));
 
     score = new BasicScoreModel(0, this);
-    FuelTankModel fuelTank = new BasicFuelTankModel(1000, this);
+    FuelTankModel fuelTank = new BasicFuelTankModel(100, this);
 
     // load the drop sound effect and the rain starsBackground "music"
     dropSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
@@ -73,8 +71,6 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
 
     camera = new OrthographicCamera();
     camera.setToOrtho(false, 768, 1280);
-
-    batch = new SpriteBatch();
 
     platform = new Platform(new TextureRegion(magnetImage), 4, this, score, fuelTank);
 
@@ -106,7 +102,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   public void onFuelTankEmpty() {
     music.pause();
     crashSound.play();
-    state = GameState.OVER;
+    game.setScreen(new GameOverScreen(game, assets, score));
   }
 
   @Override
@@ -198,7 +194,6 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     magnetImage.dispose();
     dropSound.dispose();
     music.dispose();
-    batch.dispose();
     stage.dispose();
   }
 
