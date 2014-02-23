@@ -34,8 +34,7 @@ public class Platform extends Group {
     this.setWidth(FallingJunk.SIZE * width);
     this.setHeight(FallingJunk.SIZE);
 
-    this.setX(GameScreen.width - (this.getWidth() / 2));
-    this.setY(FallingJunk.SIZE * 2);
+    this.setX(0);
 
     addActor(new Paddle(texture, width));
 

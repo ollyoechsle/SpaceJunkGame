@@ -76,7 +76,6 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     batch = new SpriteBatch();
 
     platform = new Platform(new TextureRegion(magnetImage), 4, this, score, fuelTank);
-    platform.moveTo(Gdx.graphics.getWidth() / 2f);
 
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     stage.addActor(platform);
