@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.ollysoft.spacejunk.input.GameInputHandler;
+import com.ollysoft.spacejunk.input.MovementListener;
 import com.ollysoft.spacejunk.objects.fuel.BasicFuelTankModel;
 import com.ollysoft.spacejunk.objects.fuel.FuelTankListener;
 import com.ollysoft.spacejunk.objects.fuel.FuelTankModel;
@@ -31,7 +32,7 @@ import com.ollysoft.spacejunk.util.Assets;
 /**
  * com.ollysoft.spacejunk
  */
-public class GameScreen extends ScreenAdapter implements PointsScoredListener, FuelTankListener {
+public class GameScreen extends ScreenAdapter implements PointsScoredListener, FuelTankListener, MovementListener {
 
   private static final int KEYBOARD_MOVE_SPEED = BasicJunk.SIZE * 8;
   public final Texture magnetImage, background;
@@ -88,7 +89,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
 
   @Override
   public void show() {
-    Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GameInputHandler(game, platform)));
+    Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GameInputHandler(game, this)));
     // start the playback of the background music
     // when the screen is shown
     music.play();
@@ -122,6 +123,16 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
 
     animate();
 
+  }
+
+  @Override
+  public void moveLeft() {
+    platform.moveX(-BasicJunk.SIZE);
+  }
+
+  @Override
+  public void moveRight() {
+    platform.moveX(BasicJunk.SIZE);
   }
 
   private void animate() {

@@ -4,8 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.ollysoft.spacejunk.SpaceJunkGame;
-import com.ollysoft.spacejunk.objects.junk.BasicJunk;
-import com.ollysoft.spacejunk.objects.platform.Platform;
 
 /**
  * com.ollysoft.spacejunk.util
@@ -13,11 +11,11 @@ import com.ollysoft.spacejunk.objects.platform.Platform;
 public class GameInputHandler extends InputAdapter {
 
   private final SpaceJunkGame game;
-  private final Platform platform;
+  private final MovementListener listener;
 
-  public GameInputHandler(SpaceJunkGame game, Platform platform) {
+  public GameInputHandler(SpaceJunkGame game, MovementListener listener) {
     this.game = game;
-    this.platform = platform;
+    this.listener = listener;
     Gdx.input.setCatchBackKey(true);
   }
 
@@ -31,12 +29,12 @@ public class GameInputHandler extends InputAdapter {
       }
 
       if (keycode == Input.Keys.LEFT) {
-        platform.moveX(-BasicJunk.SIZE);
+        listener.moveLeft();
         return true;
       }
 
       if (keycode == Input.Keys.RIGHT) {
-        platform.moveX(+BasicJunk.SIZE);
+        listener.moveRight();
         return true;
       }
 
