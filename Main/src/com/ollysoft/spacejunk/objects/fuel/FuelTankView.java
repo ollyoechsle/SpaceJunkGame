@@ -1,19 +1,16 @@
 package com.ollysoft.spacejunk.objects.fuel;
 
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.ollysoft.spacejunk.objects.util.LabelView;
 import com.ollysoft.spacejunk.util.Assets;
 
-public class FuelTankView extends Actor {
+public class FuelTankView extends LabelView {
 
-  private final BitmapFont font;
   private final FuelTankModel model;
   private float displayLevel;
 
   public FuelTankView(Assets assets, FuelTankModel model) {
+    super(assets);
     this.model = model;
-    this.font = assets.bigFont;
     this.displayLevel = model.getLevel();
   }
 
@@ -24,12 +21,8 @@ public class FuelTankView extends Actor {
   }
 
   @Override
-  public void draw(SpriteBatch batch, float parentAlpha) {
-    String fontText = "" + (int) displayLevel;
-    BitmapFont.TextBounds bounds = font.getBounds(fontText);
-    float fontX = getParent().getWidth() - bounds.width;
-    float fontY = getY();
-    font.draw(batch, fontText, fontX, fontY);
+  public String getText() {
+    return "" + (int) displayLevel;
   }
 
 }

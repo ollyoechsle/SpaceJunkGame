@@ -24,6 +24,7 @@ public abstract class MenuScreen extends ScreenAdapter {
     this.assets = assets;
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     table = new Table();
+    table.setX(-Gdx.graphics.getWidth() / 2);
     stage.addActor(new Stars(assets));
     stage.addActor(table);
     table.setFillParent(true);
@@ -81,7 +82,6 @@ public abstract class MenuScreen extends ScreenAdapter {
         moveTo(0, 0, 0.5f)
     ));
     Gdx.input.setInputProcessor(stage);
-
   }
 
   @Override

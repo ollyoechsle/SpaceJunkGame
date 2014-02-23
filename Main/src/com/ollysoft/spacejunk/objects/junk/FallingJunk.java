@@ -3,9 +3,6 @@ package com.ollysoft.spacejunk.objects.junk;
 import com.ollysoft.spacejunk.GameScreen;
 import com.ollysoft.spacejunk.util.RelativePosition;
 
-/**
- * com.ollysoft.spacejunk.objects
- */
 public class FallingJunk extends BasicJunk {
 
   public static int SIZE = BasicJunk.SIZE;
@@ -30,7 +27,7 @@ public class FallingJunk extends BasicJunk {
     if (game.platform.canLandOn(position)) {
       this.remove();
       game.platform.addJunk(this, position);
-      game.dropSound.play();
+      game.assets.dropSound.play();
     }
   }
 

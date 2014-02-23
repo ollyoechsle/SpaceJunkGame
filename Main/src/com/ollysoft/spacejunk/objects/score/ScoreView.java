@@ -1,20 +1,17 @@
 package com.ollysoft.spacejunk.objects.score;
 
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.ollysoft.spacejunk.objects.util.LabelView;
 import com.ollysoft.spacejunk.util.Assets;
 
-public class ScoreView extends Actor {
+public class ScoreView extends LabelView {
 
   private static final float POINTS_PER_SECOND = 100;
-  private final BitmapFont font;
   private final ScoreModel model;
   private float displayScore;
 
   public ScoreView(Assets assets, ScoreModel model) {
+    super(assets);
     this.model = model;
-    this.font = assets.bigFont;
     this.displayScore = 0f;
   }
 
@@ -31,12 +28,8 @@ public class ScoreView extends Actor {
   }
 
   @Override
-  public void draw(SpriteBatch batch, float parentAlpha) {
-    String fontText = "" + (int) displayScore;
-    BitmapFont.TextBounds bounds = font.getBounds(fontText);
-    float fontX = getParent().getWidth() - bounds.width;
-    float fontY = getY();//getParent().getHeight() - bounds.height;
-    font.draw(batch, fontText, fontX, fontY);
+  public String getText() {
+    return "" + (int) displayScore;
   }
 
 }

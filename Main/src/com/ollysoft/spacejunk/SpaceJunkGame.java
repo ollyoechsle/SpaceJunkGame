@@ -37,6 +37,7 @@ public class SpaceJunkGame extends Game {
   }
 
   public void startNewGame() {
+    gameScreen.dispose();
     gameScreen = new GameScreen(this, assets);
     displayGameScreen();
   }

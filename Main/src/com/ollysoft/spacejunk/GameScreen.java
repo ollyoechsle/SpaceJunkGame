@@ -12,8 +12,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.ollysoft.spacejunk.input.GameInputHandler;
@@ -33,10 +33,6 @@ import com.ollysoft.spacejunk.util.GameState;
 
 public class GameScreen extends ScreenAdapter implements PointsScoredListener, FuelTankListener, MovementListener {
 
-  public final Texture magnetImage;
-  public final Sound dropSound;
-  public final Music music;
-  public final Sound crashSound, scoreSound;
   public final Assets assets;
 
   private GameState state;
@@ -50,7 +46,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   private final SpaceJunkGame game;
   public final Stage stage;
   public final ScoreModel score;
-  private final Group hud;
+  private final Table hud;
 
   public GameScreen(SpaceJunkGame game, Assets assets) {
     this.game = game;
@@ -59,46 +55,35 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
 
     // load the images for the droplet and the platform, 64x64 pixels each
 
-    magnetImage = new Texture(Gdx.files.internal("collector.png"));
 
     score = new BasicScoreModel(0, this);
-    FuelTankModel fuelTank = new BasicFuelTankModel(100, this);
+    FuelTankModel fuelTank = new BasicFuelTankModel(750, this);
 
     // load the drop sound effect and the rain starsBackground "music"
-    dropSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
-    scoreSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
-    crashSound = Gdx.audio.newSound(Gdx.files.internal("crash.wav"));
-    music = Gdx.audio.newMusic(Gdx.files.internal("music-2.mp3"));
-    music.setLooping(true);
+
 
     camera = new OrthographicCamera();
     camera.setToOrtho(false, 768, 1280);
 
-    platform = new Platform(new TextureRegion(magnetImage), 4, this, score, fuelTank);
+    platform = new Platform(new TextureRegion(assets.magnetImage), 4, this, score, fuelTank);
 
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     stage.addActor(new Stars(assets));
     stage.addActor(platform);
 
-    hud = new Group();
-    hud.setWidth(120);
-    hud.setHeight(120);
-    repositionHUD(hud);
+    hud = new Table().top().right();
+    hud.setFillParent(true);
 
     ScoreView scoreView = new ScoreView(assets, score);
-    scoreView.setY(60);
-    hud.addActor(scoreView);
+    hud.add(scoreView).width(150).right().height(50).spaceBottom(10);
+    hud.row();
 
     FuelTankView fuelTankView = new FuelTankView(assets, fuelTank);
-    fuelTankView.setY(0);
-    hud.addActor(fuelTankView);
+    hud.add(fuelTankView).width(150).right().height(50).spaceBottom(10);
+    hud.row();
 
     stage.addActor(hud);
 
-  }
-
-  private void repositionHUD(Group hud) {
-    hud.setPosition(Gdx.graphics.getWidth() - hud.getWidth(), Gdx.graphics.getHeight() - hud.getHeight());
   }
 
   @Override
@@ -106,21 +91,21 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GameInputHandler(game, this)));
     // start the playback of the starsBackground music
     // when the screen is shown
-    music.play();
+    assets.music.play();
     state = GameState.PLAYING;
   }
 
   @Override
   public void hide() {
-    music.pause();
+    assets.music.pause();
     state = GameState.PAUSED;
     Gdx.input.setInputProcessor(null);
   }
 
   @Override
   public void onFuelTankEmpty() {
-    music.pause();
-    crashSound.play();
+    assets.music.pause();
+    assets.crashSound.play();
     game.setScreen(new GameOverScreen(game, assets, score));
   }
 
@@ -206,14 +191,10 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     GameScreen.width = width;
     GameScreen.height = height;
     stage.setViewport(width, height, true);
-    repositionHUD(hud);
   }
 
   @Override
   public void dispose() {
-    magnetImage.dispose();
-    dropSound.dispose();
-    music.dispose();
     stage.dispose();
   }
 
@@ -224,6 +205,6 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
       sumY += item.getY();
     }
     stage.addActor(new PointsLabel(assets, platform.getX() + (sumX / items.size), platform.getY() + (sumY / items.size), "" + points));
-    scoreSound.play();
+    assets.scoreSound.play();
   }
 }
