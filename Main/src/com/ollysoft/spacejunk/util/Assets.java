@@ -11,6 +11,7 @@ public class Assets {
   public final TextureRegion redRock;
   public final TextureRegion greenRock;
   public final TextureRegion goldRock;
+  public final Texture starsBackground;
 
   public final BitmapFont bigFont;
 
@@ -23,11 +24,15 @@ public class Assets {
     greenRock = new TextureRegion(texture, 128, 0, 64, 64);
     goldRock = new TextureRegion(texture, 196, 0, 64, 64);
 
+    starsBackground = new Texture(Gdx.files.internal("stars_background.png"));
+
     bigFont = new BitmapFont(Gdx.files.internal("acknowledge.fnt"));
   }
 
   public void dispose() {
     texture.dispose();
+    bigFont.dispose();
+    starsBackground.dispose();
   }
 
 }

@@ -26,13 +26,14 @@ import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
 import com.ollysoft.spacejunk.objects.platform.Platform;
+import com.ollysoft.spacejunk.objects.props.Stars;
 import com.ollysoft.spacejunk.objects.score.*;
 import com.ollysoft.spacejunk.util.Assets;
 import com.ollysoft.spacejunk.util.GameState;
 
 public class GameScreen extends ScreenAdapter implements PointsScoredListener, FuelTankListener, MovementListener {
 
-  public final Texture magnetImage, background;
+  public final Texture magnetImage;
   public final Sound dropSound;
   public final Music music;
   public final Sound crashSound, scoreSound;
@@ -51,19 +52,19 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   public Stage stage;
   public final ScoreModel score;
 
-  public GameScreen(SpaceJunkGame game) {
+  public GameScreen(SpaceJunkGame game, Assets assets) {
     this.game = game;
     this.state = GameState.LOADING;
+    this.assets = assets;
 
     // load the images for the droplet and the platform, 64x64 pixels each
-    background = new Texture(Gdx.files.internal("background-1.png"));
+
     magnetImage = new Texture(Gdx.files.internal("collector.png"));
-    assets = new Assets();
 
     score = new BasicScoreModel(0, this);
     FuelTankModel fuelTank = new BasicFuelTankModel(1000, this);
 
-    // load the drop sound effect and the rain background "music"
+    // load the drop sound effect and the rain starsBackground "music"
     dropSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
     scoreSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
     crashSound = Gdx.audio.newSound(Gdx.files.internal("crash.wav"));
@@ -78,6 +79,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     platform = new Platform(new TextureRegion(magnetImage), 4, this, score, fuelTank);
 
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
+    stage.addActor(new Stars(assets));
     stage.addActor(platform);
     stage.addActor(new ScoreView(assets, score));
     stage.addActor(new FuelTankView(assets, fuelTank));
@@ -87,7 +89,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   @Override
   public void show() {
     Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GameInputHandler(game, this)));
-    // start the playback of the background music
+    // start the playback of the starsBackground music
     // when the screen is shown
     music.play();
     state = GameState.PLAYING;
@@ -111,10 +113,6 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   public void render(float delta) {
 
     Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-
-    batch.begin();
-    drawBackground();
-    batch.end();
 
     if (state.canMove()) {
       stage.act(Gdx.graphics.getDeltaTime());
@@ -171,10 +169,6 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
 
   }
 
-  private void drawBackground() {
-    batch.draw(background, 0, 0);
-  }
-
   private void spawnJunk() {
     if (!state.canMove()) {
       return;
@@ -201,7 +195,6 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
 
   @Override
   public void dispose() {
-    assets.dispose();
     magnetImage.dispose();
     dropSound.dispose();
     music.dispose();

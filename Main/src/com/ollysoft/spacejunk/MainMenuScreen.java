@@ -10,6 +10,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.ollysoft.spacejunk.objects.props.Stars;
+import com.ollysoft.spacejunk.util.Assets;
 
 /**
  * com.ollysoft.spacejunk
@@ -19,7 +21,7 @@ public class MainMenuScreen extends ScreenAdapter {
   private Stage stage;
   private final Skin uiSkin;
 
-  public MainMenuScreen(final SpaceJunkGame game) {
+  public MainMenuScreen(final SpaceJunkGame game, Assets assets) {
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
 
     uiSkin = new Skin(Gdx.files.internal("uiskin.json"));
@@ -43,6 +45,7 @@ public class MainMenuScreen extends ScreenAdapter {
     });
 
     Table table = new Table();
+    stage.addActor(new Stars(assets));
     stage.addActor(table);
 
     table.setFillParent(true);

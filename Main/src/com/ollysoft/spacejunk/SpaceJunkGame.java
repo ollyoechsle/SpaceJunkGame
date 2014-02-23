@@ -4,18 +4,26 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.ollysoft.spacejunk.util.Assets;
 
 public class SpaceJunkGame extends Game {
 
   public MainMenuScreen mainMenuScreen;
   public GameScreen gameScreen;
   public Screen currentScreen;
+  private Assets assets;
 
   public void create() {
-    mainMenuScreen = new MainMenuScreen(this);
-    gameScreen = new GameScreen(this);
+    assets = new Assets();
+    mainMenuScreen = new MainMenuScreen(this, assets);
+    gameScreen = new GameScreen(this, assets);
 
     displayMainMenu();
+  }
+
+  @Override
+  public void dispose() {
+    assets.dispose();
   }
 
   @Override
