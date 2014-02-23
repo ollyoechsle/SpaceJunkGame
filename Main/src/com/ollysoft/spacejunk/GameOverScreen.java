@@ -14,7 +14,7 @@ public class GameOverScreen extends MenuScreen {
     super(assets);
 
     addLabel("Game Over");
-    add(new ScoreView(assets, score));
+    addLabel("" + score.getScore());
     addButton("Play Again", new ClickListener() {
       @Override
       public void clicked(InputEvent event, float x, float y) {

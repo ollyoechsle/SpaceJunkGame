@@ -2,6 +2,7 @@ package com.ollysoft.spacejunk.util;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -25,6 +26,7 @@ public abstract class MenuScreen extends ScreenAdapter {
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     table = new Table();
     table.setX(-Gdx.graphics.getWidth() / 2);
+    table.setColor(1, 1, 1, 0);
     stage.addActor(new Stars(assets));
     stage.addActor(table);
     table.setFillParent(true);
@@ -59,8 +61,8 @@ public abstract class MenuScreen extends ScreenAdapter {
   }
 
   protected void addLabel(String text) {
-    Label label = new Label(text, assets.uiSkin);
-    table.add(label).width(100f).spaceBottom(100);
+    Label label = new Label(text, new Label.LabelStyle(assets.bigFont, new Color(1, 1, 1, 1)));
+    table.add(label).spaceBottom(100);
     table.row();
   }
 

@@ -75,11 +75,11 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     hud.setFillParent(true);
 
     ScoreView scoreView = new ScoreView(assets, score);
-    hud.add(scoreView).width(150).right().height(50).spaceBottom(10);
+    hud.add(scoreView).width(250).right().height(50).spaceBottom(10).spaceRight(10);
     hud.row();
 
     FuelTankView fuelTankView = new FuelTankView(assets, fuelTank);
-    hud.add(fuelTankView).width(150).right().height(50).spaceBottom(10);
+    hud.add(fuelTankView).width(250).right().height(50).spaceBottom(10).spaceRight(10);
     hud.row();
 
     stage.addActor(hud);
