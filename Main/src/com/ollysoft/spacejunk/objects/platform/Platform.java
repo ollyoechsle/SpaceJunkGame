@@ -18,14 +18,17 @@ import com.ollysoft.spacejunk.util.RelativePosition;
 public class Platform extends Group {
 
   protected final JunkPileModel junkPileModel;
+  private final Assets assets;
   protected final GameScreen game;
   protected final FuelTankModel fuelTank;
   protected final JunkPileView junkPileView;
+  private final Ship ship;
 
   protected RelativePosition relativePosition;
 
   public Platform(Assets assets, GameScreen game, ScoreModel scoreModel, FuelTankModel fuelTank) {
     super();
+    this.assets = assets;
     this.game = game;
     this.fuelTank = fuelTank;
 
@@ -36,7 +39,8 @@ public class Platform extends Group {
 
     this.setX(0);
 
-    addActor(new Ship(assets));
+    ship = new Ship(assets);
+    addActor(ship);
 
     junkPileView = new JunkPileView(this);
     addActor(junkPileView);
@@ -65,7 +69,13 @@ public class Platform extends Group {
 
   public void moveX(float delta) {
     fuelTank.onFuelSpent();
-    this.addAction(Actions.moveTo(this.getX() + delta, 0.2f));
+    if (delta < 0) {
+      this.ship.prepareToTurnLeft();
+    } else {
+      this.ship.prepareToTurnRight();
+    }
+    assets.whoosh.play();
+    this.addAction(Actions.moveTo(this.getX() + delta, 0.5f));
     checkBounds();
   }
 

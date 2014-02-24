@@ -15,6 +15,8 @@ public class Assets {
   public final TextureRegion greenRock;
   public final TextureRegion goldRock;
   public final Texture starsBackground;
+  public final Texture thruster;
+
   public final Skin uiSkin;
 
   public final BitmapFont bigFont;
@@ -26,6 +28,7 @@ public class Assets {
   public final Sound scoreSound;
   public final Sound crashSound;
   public final Music music;
+  public final Sound whoosh;
 
   public Assets() {
     rocksTexture = new Texture(Gdx.files.internal("rocks.png"));
@@ -35,8 +38,10 @@ public class Assets {
     goldRock = new TextureRegion(rocksTexture, 196, 0, 64, 64);
 
     ship = new Texture(Gdx.files.internal("ship.png"));
+    thruster = new Texture(Gdx.files.internal("thruster.png"));
     boulder = new Texture(Gdx.files.internal("boulder.png"));
 
+    whoosh = Gdx.audio.newSound(Gdx.files.internal("whoosh.wav"));
     dropSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
     scoreSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
     crashSound = Gdx.audio.newSound(Gdx.files.internal("crash.wav"));
@@ -57,6 +62,9 @@ public class Assets {
     boulder.dispose();
 
     ship.dispose();
+    thruster.dispose();
+
+    whoosh.dispose();
     dropSound.dispose();
     crashSound.dispose();
     music.dispose();
