@@ -2,7 +2,6 @@ package com.ollysoft.spacejunk.objects.platform;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.GameScreen;
 import com.ollysoft.spacejunk.objects.fuel.FuelTankModel;
@@ -67,6 +66,8 @@ public class Platform extends Group {
     return this.junkPileModel.canLandOn(relativePosition);
   }
 
+  private float forceX = 0;
+
   public void moveX(float delta) {
     fuelTank.onFuelSpent();
     if (delta < 0) {
@@ -74,8 +75,8 @@ public class Platform extends Group {
     } else {
       this.ship.prepareToTurnRight();
     }
+    this.forceX += delta;
     assets.whoosh.play();
-    this.addAction(Actions.moveTo(this.getX() + delta, 0.5f));
     checkBounds();
   }
 
@@ -106,6 +107,7 @@ public class Platform extends Group {
   @Override
   public void act(float delta) {
     super.act(delta);
+    this.setX(this.getX() + (this.forceX * delta));
     this.junkPileModel.applyGravity();
   }
 }
