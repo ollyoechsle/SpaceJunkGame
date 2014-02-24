@@ -3,68 +3,70 @@ package com.ollysoft.spacejunk.objects.platform;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.GameScreen;
+import com.ollysoft.spacejunk.objects.fuel.FuelTankModel;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
+import com.ollysoft.spacejunk.objects.score.ScoreModel;
+import com.ollysoft.spacejunk.util.RelativePosition;
 
 /**
  * com.ollysoft.spacejunk.objects
  */
 public class Platform extends Group {
 
-  protected final JunkStack[] stacks;
+  protected final JunkPileModel junkPileModel;
   protected final GameScreen game;
-  private final Rectangle temporaryRectangle = new Rectangle();
+  protected final FuelTankModel fuelTank;
+  protected final JunkPileView junkPileView;
 
-  public Platform(TextureRegion texture, int width, GameScreen game) {
+  protected RelativePosition relativePosition;
+
+  public Platform(TextureRegion texture, int width, GameScreen game, ScoreModel scoreModel, FuelTankModel fuelTank) {
     super();
     this.game = game;
+    this.fuelTank = fuelTank;
 
     this.setTransform(false);
 
     this.setWidth(FallingJunk.SIZE * width);
     this.setHeight(FallingJunk.SIZE);
 
-    this.setX(GameScreen.width - (this.getWidth() / 2));
-    this.setY(FallingJunk.SIZE * 5);
+    this.setX(0);
 
     addActor(new Paddle(texture, width));
 
-    this.stacks = new JunkStack[width];
+    junkPileView = new JunkPileView(this);
+    addActor(junkPileView);
+
+    this.junkPileModel = new JunkPileModel(width, junkPileView, scoreModel);
+
     for (int x = 0; x < width; x++) {
-      this.stacks[x] = new JunkStack(this, x);
-      addActor(this.stacks[x]);
+      this.junkPileModel.objectAt(x, 0).fix();
     }
+
+    relativePosition = new RelativePosition();
 
   }
 
-  public int overlaps(Rectangle other) {
-    // move the rectangle into the coordinate space of the platform
-    float width = (other.getWidth() - 1) / 2;
-    temporaryRectangle.setX(other.getX() - this.getX() + width);
-    temporaryRectangle.setY(other.getY() - this.getY());
-    temporaryRectangle.setWidth(1);
-    temporaryRectangle.setHeight(other.getHeight());
-    for (int i = 0; i < stacks.length; i++) {
-      if (stacks[i].rectangle.overlaps(temporaryRectangle)) {
-        if (temporaryRectangle.y < stacks[i].rectangle.height - (BasicJunk.SIZE / 2)) {
-          // already passed the top of the stack
-          continue;
-        }
-        return i;
-      }
-    }
-    return -1;
+  public RelativePosition getRelativePosition(Rectangle objectBoundingBox) {
+    float x = (objectBoundingBox.getX() - this.getX());
+    float y = (objectBoundingBox.getY() - this.getY());
+
+    relativePosition.dx = (int) x / BasicJunk.SIZE;
+    relativePosition.dy = (int) y / BasicJunk.SIZE;
+    return relativePosition;
   }
 
-  public void repositionAllRocks() {
-    for (int i = 0; i < stacks.length; i++) {
-      stacks[i].repositionRocks();
-    }
+  public boolean canLandOn(RelativePosition relativePosition) {
+    return this.junkPileModel.canLandOn(relativePosition);
   }
 
   public void moveX(float delta) {
-    this.setX(this.getX() + delta);
+    fuelTank.onFuelSpent();
+    this.addAction(Actions.moveTo(this.getX() + delta, 0.2f));
     checkBounds();
   }
 
@@ -84,27 +86,18 @@ public class Platform extends Group {
     }
   }
 
-  public boolean addJunk(BasicJunk junk) {
-    return addJunk(junk, overlaps(junk.getRectangle()));
-  }
-
-  public boolean addJunk(BasicJunk junk, int stackIndex) {
-    return stacks[stackIndex].addJunk(junk);
-  }
-
-  public BasicJunk junkAt(int x, int y) {
-
-    if (x >= stacks.length) {
-      return null;
+  public void addJunk(BasicJunk junk, RelativePosition position) {
+    this.junkPileModel.objectAt(position).place(junk);
+    Array<JunkPileModel.ObjectGroup> groups = this.junkPileModel.getGroups();
+    for (JunkPileModel.ObjectGroup group : groups) {
+      this.junkPileModel.remove(group);
     }
-
-    if (x < 0) {
-      return null;
-    }
-
-    return stacks[x].junkAt(y);
-
   }
 
+  @Override
+  public void act(float delta) {
+    super.act(delta);
+    this.junkPileModel.applyGravity();
+  }
 }
 

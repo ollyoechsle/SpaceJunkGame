@@ -14,7 +14,7 @@ public class RectangleActor extends Actor {
     this.rectangle = new Rectangle(0, 0, 0, 0);
   }
 
-  public Rectangle getRectangle() {
+  public Rectangle getBoundingBox() {
     rectangle.setX(getX());
     rectangle.setY(getY());
     rectangle.setWidth(getWidth());

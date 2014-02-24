@@ -9,89 +9,104 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
+import com.ollysoft.spacejunk.input.GameInputHandler;
+import com.ollysoft.spacejunk.input.MovementListener;
+import com.ollysoft.spacejunk.objects.fuel.BasicFuelTankModel;
+import com.ollysoft.spacejunk.objects.fuel.FuelTankListener;
+import com.ollysoft.spacejunk.objects.fuel.FuelTankModel;
+import com.ollysoft.spacejunk.objects.fuel.FuelTankView;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
 import com.ollysoft.spacejunk.objects.platform.Platform;
-import com.ollysoft.spacejunk.objects.Score;
-import com.ollysoft.spacejunk.objects.util.PointsLabel;
+import com.ollysoft.spacejunk.objects.props.Stars;
+import com.ollysoft.spacejunk.objects.score.*;
 import com.ollysoft.spacejunk.util.Assets;
-import com.ollysoft.spacejunk.util.GoBackToMainMenu;
+import com.ollysoft.spacejunk.util.GameState;
 
-/**
- * com.ollysoft.spacejunk
- */
-public class GameScreen extends ScreenAdapter {
+public class GameScreen extends ScreenAdapter implements PointsScoredListener, FuelTankListener, MovementListener {
 
-  private static final int KEYBOARD_MOVE_SPEED = BasicJunk.SIZE * 8;
-  public final Texture magnetImage, background;
-  public final Sound dropSound;
-  public final Music music;
-  public final Sound crashSound, scoreSound;
   public final Assets assets;
 
+  private GameState state;
+
   private OrthographicCamera camera;
-  private SpriteBatch batch;
 
   public final Platform platform;
   private Vector3 touchPos = new Vector3();
 
-  long lastDropTime;
-  private SpaceJunkGame game;
-  private Stage stage;
-  public final Score score;
+  private long lastDropTime;
+  private final SpaceJunkGame game;
+  public final Stage stage;
+  public final ScoreModel score;
+  private final Table hud;
 
-  public GameScreen(SpaceJunkGame game) {
+  public GameScreen(SpaceJunkGame game, Assets assets) {
     this.game = game;
+    this.state = GameState.LOADING;
+    this.assets = assets;
 
     // load the images for the droplet and the platform, 64x64 pixels each
-    background = new Texture(Gdx.files.internal("background-1.png"));
-    magnetImage = new Texture(Gdx.files.internal("collector.png"));
-    assets = new Assets();
 
-    score = new Score(0, assets);
 
-    // load the drop sound effect and the rain background "music"
-    dropSound = Gdx.audio.newSound(Gdx.files.internal("beep.wav"));
-    scoreSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
-    crashSound = Gdx.audio.newSound(Gdx.files.internal("crash.wav"));
-    music = Gdx.audio.newMusic(Gdx.files.internal("music-2.mp3"));
-    music.setLooping(true);
+    score = new BasicScoreModel(0, this);
+    FuelTankModel fuelTank = new BasicFuelTankModel(750, this);
+
+    // load the drop sound effect and the rain starsBackground "music"
+
 
     camera = new OrthographicCamera();
     camera.setToOrtho(false, 768, 1280);
 
-    batch = new SpriteBatch();
-
-    platform = new Platform(new TextureRegion(magnetImage), 4, this);
-    platform.moveTo(Gdx.graphics.getWidth() / 2f);
+    platform = new Platform(new TextureRegion(assets.magnetImage), 4, this, score, fuelTank);
 
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
+    stage.addActor(new Stars(assets));
     stage.addActor(platform);
-    stage.addActor(score);
 
-    spawnJunk();
+    hud = new Table().top().right();
+    hud.setFillParent(true);
+
+    ScoreView scoreView = new ScoreView(assets, score);
+    hud.add(scoreView).width(250).right().height(50).spaceBottom(10).spaceRight(10);
+    hud.row();
+
+    FuelTankView fuelTankView = new FuelTankView(assets, fuelTank);
+    hud.add(fuelTankView).width(250).right().height(50).spaceBottom(10).spaceRight(10);
+    hud.row();
+
+    stage.addActor(hud);
 
   }
 
   @Override
   public void show() {
-    Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GoBackToMainMenu(game)));
-    // start the playback of the background music
+    Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GameInputHandler(game, this)));
+    // start the playback of the starsBackground music
     // when the screen is shown
-    music.play();
+    assets.music.play();
+    state = GameState.PLAYING;
   }
 
   @Override
   public void hide() {
-    music.pause();
+    assets.music.pause();
+    state = GameState.PAUSED;
     Gdx.input.setInputProcessor(null);
+  }
+
+  @Override
+  public void onFuelTankEmpty() {
+    assets.music.pause();
+    assets.crashSound.play();
+    game.setScreen(new GameOverScreen(game, assets, score));
   }
 
   @Override
@@ -99,17 +114,37 @@ public class GameScreen extends ScreenAdapter {
 
     Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
-    batch.begin();
-    drawBackground();
-    batch.end();
-
-    stage.act(Gdx.graphics.getDeltaTime());
+    if (state.canMove()) {
+      stage.act(Gdx.graphics.getDeltaTime());
+    }
     stage.draw();
 
     handleInputs();
 
     animate();
 
+  }
+
+  public void togglePaused() {
+    if (state == GameState.PAUSED) {
+      state = GameState.PLAYING;
+    } else if (state == GameState.PLAYING) {
+      state = GameState.PAUSED;
+    }
+  }
+
+  @Override
+  public void moveLeft() {
+    if (state.canMove()) {
+      platform.moveX(-BasicJunk.SIZE);
+    }
+  }
+
+  @Override
+  public void moveRight() {
+    if (state.canMove()) {
+      platform.moveX(BasicJunk.SIZE);
+    }
   }
 
   private void animate() {
@@ -126,21 +161,25 @@ public class GameScreen extends ScreenAdapter {
     }
 
     if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-      platform.moveX(-KEYBOARD_MOVE_SPEED * Gdx.graphics.getDeltaTime());
+      //platform.moveX(-KEYBOARD_MOVE_SPEED * Gdx.graphics.getDeltaTime());
     }
     if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-      platform.moveX(KEYBOARD_MOVE_SPEED * Gdx.graphics.getDeltaTime());
+      //platform.moveX(KEYBOARD_MOVE_SPEED * Gdx.graphics.getDeltaTime());
     }
 
-  }
-
-  private void drawBackground() {
-    batch.draw(background, 0, 0);
   }
 
   private void spawnJunk() {
+    if (!state.canMove()) {
+      return;
+    }
+
     FallingJunk block = new FallingJunk(JunkType.randomJunkType(), this);
-    block.setPosition(MathUtils.random(0, Gdx.graphics.getWidth() - BasicJunk.SIZE), Gdx.graphics.getHeight());
+    float x = MathUtils.random(0, Gdx.graphics.getWidth() - BasicJunk.SIZE);
+    x = (int) (x / BasicJunk.SIZE);
+    x *= BasicJunk.SIZE;
+
+    block.setPosition(x, Gdx.graphics.getHeight());
     lastDropTime = TimeUtils.nanoTime();
     stage.addActor(block);
   }
@@ -156,17 +195,16 @@ public class GameScreen extends ScreenAdapter {
 
   @Override
   public void dispose() {
-    assets.dispose();
-    magnetImage.dispose();
-    dropSound.dispose();
-    music.dispose();
-    batch.dispose();
     stage.dispose();
   }
 
-  public void registerPoints(float x, float y, int points) {
-    stage.addActor(new PointsLabel(assets, x, y, "" + points));
-    scoreSound.play();
-    score.changeScore(points);
+  public void onPointsScored(int points, Array<BasicJunk> items) {
+    float sumX = 0, sumY = 0;
+    for (BasicJunk item : items) {
+      sumX += item.getX();
+      sumY += item.getY();
+    }
+    stage.addActor(new PointsLabel(assets, platform.getX() + (sumX / items.size), platform.getY() + (sumY / items.size), "" + points));
+    assets.scoreSound.play();
   }
 }

@@ -1,99 +1,99 @@
 package com.ollysoft.spacejunk.objects.platform;
 
-import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.utils.SnapshotArray;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
-
+import com.ollysoft.spacejunk.util.RelativePosition;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class PlatformTest {
 
   private Platform p;
   private int x = 100;
+  private BasicJunk fallingJunk;
+  private RelativePosition position;
+
+  @Test
+  public void hasCorrectActors() {
+    givenPlatform();
+    assertEquals("Should consist of the paddle and the junk group", 2, p.getChildren().size);
+  }
 
   @Test
   public void testAddJunk() throws Exception {
 
-    Platform p = new Platform(null, 4, null);
-    assertEquals(5, p.getChildren().size);
-    p.setX(100);
-    assertEquals(0, p.stacks[0].size());
+    givenPlatformAt(100);
+    givenFallingJunkAt(100);
 
-    p.addJunk(someJunkAt(105), 0);
-    assertEquals(1, p.stacks[0].size());
+    int previousPileSize = pileSize();
 
-    p.addJunk(someJunkAt(130), 0);
-    assertEquals(2, p.stacks[0].size());
+    assertFalse("Doesn't overlap", landed(fallingJunk, BasicJunk.SIZE));
 
-    p.addJunk(someJunkAt(180), 1);
-    assertEquals(1, p.stacks[1].size());
+    assertTrue("Does overlap", landed(fallingJunk, 0));
 
-    assertEquals(2, p.stacks[0].getChildren().size);
-    assertEquals(1, p.stacks[1].getChildren().size);
+    p.addJunk(fallingJunk, position);
 
+    assertEquals(previousPileSize + 1, pileSize());
+    assertEquals(0, lastObjectAddedToPile().getX(), 0.1d);
+    assertEquals(BasicJunk.SIZE, lastObjectAddedToPile().getY(), 0.1d);
+
+  }
+
+  @Test
+  public void itemsPassingByJustToTheSideDoNotLand() throws Exception {
+
+    givenPlatformAt(100);
+
+    givenFallingJunkAt(100);
+    assertTrue("Can land", landed(fallingJunk, 0));
+
+    givenFallingJunkAt(100 - BasicJunk.SIZE);
+    assertFalse("Should pass by on the left side", landed(fallingJunk, 0));
+
+  }
+
+  private void givenPlatformAt(int x1) {
+    givenPlatform();
+    p.setX(x1);
+  }
+
+  private void givenFallingJunkAt(int x1) {
+    fallingJunk = new BasicJunk(JunkType.randomJunkType(), null);
+    fallingJunk.setX(x1);
+  }
+
+  private boolean landed(BasicJunk fallingJunk, int heightAbovePlatform) {
+    fallingJunk.setY(p.getY() + p.getHeight() + heightAbovePlatform);
+    position = p.getRelativePosition(fallingJunk.getBoundingBox());
+    return p.canLandOn(position);
+  }
+
+  private int pileSize() {
+    return p.junkPileView.getChildren().size;
+  }
+
+  private Actor lastObjectAddedToPile() {
+    SnapshotArray<Actor> children = p.junkPileView.getChildren();
+    return children.get(children.size - 1);
   }
 
   @Test
   public void testHidesWhenFindingThreeTheSame() throws Exception {
 
-    p = new Platform(null, 4, null);
+    givenPlatform();
     p.setX(100);
 
+   /* assertFalse(p.addJunk(someJunkAt(105), 0));
     assertFalse(p.addJunk(someJunkAt(105), 0));
-    assertFalse(p.addJunk(someJunkAt(105), 0));
-    assertTrue(p.addJunk(someJunkAt(105), 0));
+    assertTrue(p.addJunk(someJunkAt(105), 0));*/
 
   }
 
-  @Test
-  public void testOverlapping() {
-
-    p = new Platform(null, 4, null);
-
-    p.setX(x);
-    p.setY(50);
-
-    assertFalse("This is above the platform", overlaps(50 + p.getHeight() + 10));
-
-    assertTrue("This is just touching the platform", overlaps(50 + p.getHeight() - 1));
-
-    assertFalse("This is too far below the platform", overlaps(50 + p.getHeight() - BasicJunk.SIZE));
-
+  private void givenPlatform() {
+    p = new Platform(null, 4, null, null, null);
   }
 
-  private boolean overlaps(float y) {
-    return p.overlaps(new Rectangle(x, y, 64, 64)) > -1;
-  }
-
-  @Test
-  public void repositionsRocksAfterOnesBelowDisappear() {
-
-    p = new Platform(null, 4, null);
-    p.stacks[0].addJunk(new BasicJunk(JunkType.PLAIN_ROCK, null));
-    p.stacks[0].addJunk(new BasicJunk(JunkType.PLAIN_ROCK, null));
-    assertStackHeight(2, p.stacks[0]);
-
-    p.stacks[0].addJunk(new BasicJunk(JunkType.PLAIN_ROCK, null));
-
-    p.act(2f);
-    p.act(1f);
-
-    assertStackHeight(0, p.stacks[0]);
-
-  }
-
-  private void assertStackHeight(int expectedNumberOfBlocks, JunkStack stack) {
-    assertEquals((BasicJunk.SIZE * expectedNumberOfBlocks) + p.getHeight(),
-                 stack.rectangle.getHeight(), 0.1);
-  }
-
-  private BasicJunk someJunkAt(int x) {
-    BasicJunk junk = new BasicJunk(JunkType.PLAIN_ROCK, null);
-    junk.setX(x);
-    return junk;
-  }
 }

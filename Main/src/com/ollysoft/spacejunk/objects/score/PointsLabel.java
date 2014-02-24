@@ -1,4 +1,4 @@
-package com.ollysoft.spacejunk.objects.util;
+package com.ollysoft.spacejunk.objects.score;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;

@@ -2,8 +2,7 @@ package com.ollysoft.spacejunk;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.ollysoft.spacejunk.util.Assets;
 
 public class SpaceJunkGame extends Game {
 
@@ -11,11 +10,20 @@ public class SpaceJunkGame extends Game {
   public GameScreen gameScreen;
   public Screen currentScreen;
 
-  public void create() {
-    mainMenuScreen = new MainMenuScreen(this);
-    gameScreen = new GameScreen(this);
+  private Assets assets;
 
+  public void create() {
+    assets = new Assets();
+    mainMenuScreen = new MainMenuScreen(this, assets);
+    gameScreen = new GameScreen(this, assets);
     displayMainMenu();
+  }
+
+  @Override
+  public void dispose() {
+    assets.dispose();
+    mainMenuScreen.dispose();
+    gameScreen.dispose();
   }
 
   @Override
@@ -26,6 +34,12 @@ public class SpaceJunkGame extends Game {
 
   public void displayMainMenu() {
     this.setScreen(mainMenuScreen);
+  }
+
+  public void startNewGame() {
+    gameScreen.dispose();
+    gameScreen = new GameScreen(this, assets);
+    displayGameScreen();
   }
 
   public void displayGameScreen() {
