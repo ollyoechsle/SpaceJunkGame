@@ -5,8 +5,9 @@ import com.ollysoft.spacejunk.util.RelativePosition;
 
 public class FallingJunk extends BasicJunk {
 
+  public static final int FALL_SPEED = 100;
   public static int SIZE = BasicJunk.SIZE;
-  private GameScreen game;
+  private final GameScreen game;
 
   public FallingJunk(JunkType type, GameScreen game) {
     super(type, type.getTexture(game.assets));
@@ -15,9 +16,8 @@ public class FallingJunk extends BasicJunk {
 
   @Override
   public void act(float delta) {
-    float y = getY() - (200 * delta);
+    float y = getY() - (FALL_SPEED * delta);
     if (y + SIZE < 0) {
-      //game.crashSound.play();
       //game.score.onMissedBlock(this);
       remove();
     } else {
@@ -27,7 +27,7 @@ public class FallingJunk extends BasicJunk {
     if (game.platform.canLandOn(position)) {
       this.remove();
       game.platform.addJunk(this, position);
-      game.assets.dropSound.play();
+      //game.assets.dropSound.play();
     }
   }
 

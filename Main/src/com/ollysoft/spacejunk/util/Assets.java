@@ -20,7 +20,8 @@ public class Assets {
   public final BitmapFont bigFont;
 
   public final Texture rocksTexture;
-  public final Texture magnetImage;
+  public final Texture ship;
+  public final Texture boulder;
   public final Sound dropSound;
   public final Sound scoreSound;
   public final Sound crashSound;
@@ -33,7 +34,9 @@ public class Assets {
     greenRock = new TextureRegion(rocksTexture, 128, 0, 64, 64);
     goldRock = new TextureRegion(rocksTexture, 196, 0, 64, 64);
 
-    magnetImage = new Texture(Gdx.files.internal("collector.png"));
+    ship = new Texture(Gdx.files.internal("ship.png"));
+    boulder = new Texture(Gdx.files.internal("boulder.png"));
+
     dropSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
     scoreSound = Gdx.audio.newSound(Gdx.files.internal("score.wav"));
     crashSound = Gdx.audio.newSound(Gdx.files.internal("crash.wav"));
@@ -51,8 +54,9 @@ public class Assets {
     rocksTexture.dispose();
     bigFont.dispose();
     starsBackground.dispose();
+    boulder.dispose();
 
-    magnetImage.dispose();
+    ship.dispose();
     dropSound.dispose();
     crashSound.dispose();
     music.dispose();

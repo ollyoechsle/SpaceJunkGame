@@ -4,11 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
@@ -26,6 +23,7 @@ import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
 import com.ollysoft.spacejunk.objects.platform.Platform;
+import com.ollysoft.spacejunk.objects.props.Boulder;
 import com.ollysoft.spacejunk.objects.props.Stars;
 import com.ollysoft.spacejunk.objects.score.*;
 import com.ollysoft.spacejunk.util.Assets;
@@ -33,6 +31,7 @@ import com.ollysoft.spacejunk.util.GameState;
 
 public class GameScreen extends ScreenAdapter implements PointsScoredListener, FuelTankListener, MovementListener {
 
+  private static final boolean BOULDERS_ENABLED = false;
   public final Assets assets;
 
   private GameState state;
@@ -53,22 +52,19 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     this.state = GameState.LOADING;
     this.assets = assets;
 
-    // load the images for the droplet and the platform, 64x64 pixels each
-
+    camera = new OrthographicCamera();
+    camera.setToOrtho(false, 768, 1280);
 
     score = new BasicScoreModel(0, this);
     FuelTankModel fuelTank = new BasicFuelTankModel(750, this);
 
-    // load the drop sound effect and the rain starsBackground "music"
-
-
-    camera = new OrthographicCamera();
-    camera.setToOrtho(false, 768, 1280);
-
-    platform = new Platform(new TextureRegion(assets.magnetImage), 4, this, score, fuelTank);
+    platform = new Platform(assets, this, score, fuelTank);
 
     stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     stage.addActor(new Stars(assets));
+    if (BOULDERS_ENABLED) {
+      addBoulders(assets);
+    }
     stage.addActor(platform);
 
     hud = new Table().top().right();
@@ -84,6 +80,14 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
 
     stage.addActor(hud);
 
+  }
+
+  private void addBoulders(Assets assets) {
+    for (int i = 0; i < 10; i++) {
+      int x = (MathUtils.random(-100, Gdx.graphics.getWidth()));
+      int speed = i * 5;
+      stage.addActor(new Boulder(assets, x, speed));
+    }
   }
 
   @Override

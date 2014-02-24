@@ -1,6 +1,5 @@
 package com.ollysoft.spacejunk.objects.platform;
 
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -10,6 +9,7 @@ import com.ollysoft.spacejunk.objects.fuel.FuelTankModel;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
 import com.ollysoft.spacejunk.objects.score.ScoreModel;
+import com.ollysoft.spacejunk.util.Assets;
 import com.ollysoft.spacejunk.util.RelativePosition;
 
 /**
@@ -24,28 +24,27 @@ public class Platform extends Group {
 
   protected RelativePosition relativePosition;
 
-  public Platform(TextureRegion texture, int width, GameScreen game, ScoreModel scoreModel, FuelTankModel fuelTank) {
+  public Platform(Assets assets, GameScreen game, ScoreModel scoreModel, FuelTankModel fuelTank) {
     super();
     this.game = game;
     this.fuelTank = fuelTank;
 
     this.setTransform(false);
 
-    this.setWidth(FallingJunk.SIZE * width);
-    this.setHeight(FallingJunk.SIZE);
+    this.setWidth(FallingJunk.SIZE * 3);
+    this.setHeight(FallingJunk.SIZE * 3);
 
     this.setX(0);
 
-    addActor(new Paddle(texture, width));
+    addActor(new Ship(assets));
 
     junkPileView = new JunkPileView(this);
     addActor(junkPileView);
 
-    this.junkPileModel = new JunkPileModel(width, junkPileView, scoreModel);
-
-    for (int x = 0; x < width; x++) {
-      this.junkPileModel.objectAt(x, 0).fix();
-    }
+    this.junkPileModel = new JunkPileModel(5, junkPileView, scoreModel);
+    this.junkPileModel.objectAt(0, 2).fix();
+    this.junkPileModel.objectAt(1, 2).fix();
+    this.junkPileModel.objectAt(2, 2).fix();
 
     relativePosition = new RelativePosition();
 

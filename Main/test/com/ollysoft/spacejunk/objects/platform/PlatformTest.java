@@ -93,7 +93,7 @@ public class PlatformTest {
   }
 
   private void givenPlatform() {
-    p = new Platform(null, 4, null, null, null);
+    p = new Platform(null, null, null, null);
   }
 
 }
