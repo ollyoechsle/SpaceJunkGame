@@ -8,12 +8,13 @@ import com.ollysoft.spacejunk.util.Assets;
 
 public class Ship extends Group {
 
-  private final Thruster thruster2;
-  protected TextureRegion texture;
-  private final Thruster thruster1;
+  private final TextureRegion texture;
+  private final Thruster thruster1, thruster2;
+  private final Assets assets;
 
   public Ship(Assets assets) {
     super();
+    this.assets = assets;
     this.texture = new TextureRegion(assets.ship);
     this.setX(0);
     this.setY(0);
@@ -27,12 +28,20 @@ public class Ship extends Group {
 
   }
 
-  public void prepareToTurnRight() {
+  public void moveThrusters(float deltaX) {
+    if (deltaX < 0) {
+      this.prepareToTurnLeft();
+    } else {
+      this.prepareToTurnRight();
+    }
+  }
+
+  private void prepareToTurnRight() {
     thruster1.pointLeft();
     thruster2.pointDown();
   }
 
-  public void prepareToTurnLeft() {
+  private void prepareToTurnLeft() {
     thruster1.pointDown();
     thruster2.pointRight();
   }

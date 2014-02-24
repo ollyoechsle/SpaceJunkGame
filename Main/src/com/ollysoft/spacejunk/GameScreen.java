@@ -6,7 +6,6 @@ import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -140,14 +139,14 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   @Override
   public void moveLeft() {
     if (state.canMove()) {
-      platform.moveX(-BasicJunk.SIZE);
+      platform.moveX(-BasicJunk.SIZE * 2);
     }
   }
 
   @Override
   public void moveRight() {
     if (state.canMove()) {
-      platform.moveX(BasicJunk.SIZE);
+      platform.moveX(BasicJunk.SIZE * 2);
     }
   }
 

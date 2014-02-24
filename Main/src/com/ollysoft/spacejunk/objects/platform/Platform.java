@@ -44,7 +44,7 @@ public class Platform extends Group {
     junkPileView = new JunkPileView(this);
     addActor(junkPileView);
 
-    this.junkPileModel = new JunkPileModel(5, junkPileView, scoreModel);
+    this.junkPileModel = new JunkPileModel(8, junkPileView, scoreModel);
     this.junkPileModel.objectAt(0, 2).fix();
     this.junkPileModel.objectAt(1, 2).fix();
     this.junkPileModel.objectAt(2, 2).fix();
@@ -54,7 +54,8 @@ public class Platform extends Group {
   }
 
   public RelativePosition getRelativePosition(Rectangle objectBoundingBox) {
-    float x = (objectBoundingBox.getX() - this.getX());
+
+    float x = (objectBoundingBox.getX() + (objectBoundingBox.getWidth() / 2) - this.getX());
     float y = (objectBoundingBox.getY() - this.getY());
 
     relativePosition.dx = (int) x / BasicJunk.SIZE;
@@ -68,15 +69,11 @@ public class Platform extends Group {
 
   private float forceX = 0;
 
-  public void moveX(float delta) {
+  public void moveX(float deltaX) {
     fuelTank.onFuelSpent();
-    if (delta < 0) {
-      this.ship.prepareToTurnLeft();
-    } else {
-      this.ship.prepareToTurnRight();
-    }
-    this.forceX += delta;
+    ship.moveThrusters(deltaX);
     assets.whoosh.play();
+    forceX += deltaX;
     checkBounds();
   }
 
@@ -87,13 +84,16 @@ public class Platform extends Group {
     checkBounds();
   }
 
-  private void checkBounds() {
+  private boolean checkBounds() {
     if (this.getX() < 0) {
       this.setX(0);
+      return false;
     }
     if (this.getX() > GameScreen.width - getWidth()) {
       this.setX(GameScreen.width - getWidth());
+      return false;
     }
+    return true;
   }
 
   public void addJunk(BasicJunk junk, RelativePosition position) {
@@ -108,6 +108,9 @@ public class Platform extends Group {
   public void act(float delta) {
     super.act(delta);
     this.setX(this.getX() + (this.forceX * delta));
+    if (!this.checkBounds()) {
+      moveX(this.forceX * -1);
+    }
     this.junkPileModel.applyGravity();
   }
 }
