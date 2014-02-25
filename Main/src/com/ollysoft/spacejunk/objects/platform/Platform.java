@@ -85,15 +85,23 @@ public class Platform extends Group {
   }
 
   private boolean checkBounds() {
-    if (this.getX() < 0) {
-      this.setX(0);
+    if (this.getX() < minX()) {
+      this.setX(minX());
       return false;
     }
-    if (this.getX() > GameScreen.width - getWidth()) {
-      this.setX(GameScreen.width - getWidth());
+    if (this.getX() > maxX()) {
+      this.setX(maxX());
       return false;
     }
     return true;
+  }
+
+  private float minX() {
+    return -1 * BasicJunk.SIZE;
+  }
+
+  private float maxX() {
+    return GameScreen.width - getWidth() + BasicJunk.SIZE;
   }
 
   public void addJunk(BasicJunk junk, RelativePosition position) {

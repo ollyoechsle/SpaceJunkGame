@@ -5,7 +5,7 @@ import com.ollysoft.spacejunk.util.RelativePosition;
 
 public class FallingJunk extends BasicJunk {
 
-  public static final int FALL_SPEED = 64;
+  public static final int FALL_SPEED = 128;
   public static int SIZE = BasicJunk.SIZE;
   private final GameScreen game;
 

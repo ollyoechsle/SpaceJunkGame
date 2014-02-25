@@ -140,14 +140,14 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   @Override
   public void moveLeft() {
     if (state.canMove()) {
-      platform.moveX(-BasicJunk.SIZE * 2);
+      platform.moveX(-BasicJunk.SIZE * 3);
     }
   }
 
   @Override
   public void moveRight() {
     if (state.canMove()) {
-      platform.moveX(BasicJunk.SIZE * 2);
+      platform.moveX(BasicJunk.SIZE * 3);
     }
   }
 
