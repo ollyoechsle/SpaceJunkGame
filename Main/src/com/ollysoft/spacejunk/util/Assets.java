@@ -31,11 +31,11 @@ public class Assets {
   public final Sound whoosh;
 
   public Assets() {
-    rocksTexture = new Texture(Gdx.files.internal("rocks.png"));
+    rocksTexture = new Texture(Gdx.files.internal("rocks2.png"));
     plainRock = new TextureRegion(rocksTexture, 0, 0, 64, 64);
     redRock = new TextureRegion(rocksTexture, 64, 0, 64, 64);
     greenRock = new TextureRegion(rocksTexture, 128, 0, 64, 64);
-    goldRock = new TextureRegion(rocksTexture, 196, 0, 64, 64);
+    goldRock = new TextureRegion(rocksTexture, 128, 0, 64, 64);
 
     ship = new Texture(Gdx.files.internal("ship.png"));
     thruster = new Texture(Gdx.files.internal("thruster.png"));

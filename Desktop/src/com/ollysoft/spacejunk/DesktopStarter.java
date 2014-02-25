@@ -10,7 +10,7 @@ public class DesktopStarter {
 
   public static void main(String[] args) {
     LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
-    cfg.title = "Space Junk!";
+    cfg.title = "Sat 9";
     cfg.useGL20 = true;
     cfg.width = 768;
     cfg.height = 1280;

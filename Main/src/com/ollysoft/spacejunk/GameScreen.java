@@ -31,6 +31,7 @@ import com.ollysoft.spacejunk.util.GameState;
 public class GameScreen extends ScreenAdapter implements PointsScoredListener, FuelTankListener, MovementListener {
 
   private static final boolean BOULDERS_ENABLED = false;
+  public static final int FASTEST = 1000000000*2;
   public final Assets assets;
 
   private GameState state;
@@ -151,9 +152,13 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   }
 
   private void animate() {
-    if (TimeUtils.nanoTime() - lastDropTime > 1000000000) {
+    if (TimeUtils.nanoTime() - lastDropTime > interarrivalTime()) {
       spawnJunk();
     }
+  }
+
+  private int interarrivalTime() {
+    return FASTEST;
   }
 
   private void handleInputs() {
@@ -177,13 +182,22 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
       return;
     }
 
-    FallingJunk block = new FallingJunk(JunkType.randomJunkType(), this);
     float x = MathUtils.random(0, Gdx.graphics.getWidth() - BasicJunk.SIZE);
     x = (int) (x / BasicJunk.SIZE);
-    x *= BasicJunk.SIZE;
 
-    block.setPosition(x, Gdx.graphics.getHeight());
+    addJunk(x);
+
+    float doubleBlock = MathUtils.random(0, 1);
+    if (doubleBlock > 0.8) {
+      addJunk(x + 1);
+    }
+
     lastDropTime = TimeUtils.nanoTime();
+  }
+
+  private void addJunk(float x) {
+    FallingJunk block = new FallingJunk(JunkType.randomJunkType(), this);
+    block.setPosition(x * BasicJunk.SIZE, Gdx.graphics.getHeight());
     stage.addActor(block);
   }
 

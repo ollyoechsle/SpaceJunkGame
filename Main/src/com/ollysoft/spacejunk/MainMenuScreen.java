@@ -12,7 +12,7 @@ public class MainMenuScreen extends MenuScreen {
   public MainMenuScreen(final SpaceJunkGame game, Assets assets) {
     super(assets);
 
-    addLabel("Space Junk!");
+    addLabel("Sat 9");
     addButton("New Game", new ClickListener() {
       @Override
       public void clicked(InputEvent event, float x, float y) {
