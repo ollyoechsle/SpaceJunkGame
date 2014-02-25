@@ -31,7 +31,7 @@ import com.ollysoft.spacejunk.util.GameState;
 public class GameScreen extends ScreenAdapter implements PointsScoredListener, FuelTankListener, MovementListener {
 
   private static final boolean BOULDERS_ENABLED = false;
-  public static final int FASTEST = 1000000000*2;
+  public static final int FASTEST = 1000000000 * 2;
   public final Assets assets;
 
   private GameState state;
@@ -46,6 +46,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   public final Stage stage;
   public final ScoreModel score;
   private final Table hud;
+  private int fallSpeed = 64;
 
   public GameScreen(SpaceJunkGame game, Assets assets) {
     this.game = game;
@@ -183,20 +184,20 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     }
 
     float x = MathUtils.random(0, Gdx.graphics.getWidth() - BasicJunk.SIZE);
-    x = (int) (x / BasicJunk.SIZE);
+    x = (x / BasicJunk.SIZE);
 
-    addJunk(x);
+    addJunk((int) x);
 
     float doubleBlock = MathUtils.random(0, 1);
     if (doubleBlock > 0.8) {
-      addJunk(x + 1);
+      addJunk((int) x + 1);
     }
 
     lastDropTime = TimeUtils.nanoTime();
   }
 
-  private void addJunk(float x) {
-    FallingJunk block = new FallingJunk(JunkType.randomJunkType(), this);
+  private void addJunk(int x) {
+    FallingJunk block = new FallingJunk(JunkType.randomJunkType(), this, getFallSpeed());
     block.setPosition(x * BasicJunk.SIZE, Gdx.graphics.getHeight());
     stage.addActor(block);
   }
@@ -223,5 +224,12 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     }
     stage.addActor(new PointsLabel(assets, platform.getX() + (sumX / items.size), platform.getY() + (sumY / items.size), "" + points));
     assets.scoreSound.play();
+  }
+
+  public int getFallSpeed() {
+    if (fallSpeed < 196) {
+      fallSpeed++;
+    }
+    return fallSpeed;
   }
 }

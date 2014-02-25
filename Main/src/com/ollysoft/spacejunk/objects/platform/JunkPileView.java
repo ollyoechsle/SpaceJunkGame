@@ -40,7 +40,7 @@ public class JunkPileView extends Group implements JunkPileListener {
   @Override
   public void onObjectFallenFromMound(BasicJunk junk, int dx, int dy) {
     GameScreen game = platform.game;
-    FallingJunk fallingJunk = new FallingJunk(junk.type, game);
+    FallingJunk fallingJunk = new FallingJunk(junk.type, game, 128);
     // position relative to the game
     fallingJunk.setPosition(junk.getX() + platform.getX(), junk.getY() + platform.getY());
     game.stage.addActor(fallingJunk);

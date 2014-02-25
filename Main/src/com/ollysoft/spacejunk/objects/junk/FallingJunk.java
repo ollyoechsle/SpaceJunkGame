@@ -5,12 +5,13 @@ import com.ollysoft.spacejunk.util.RelativePosition;
 
 public class FallingJunk extends BasicJunk {
 
-  public static final int FALL_SPEED = 128;
+  private int FALL_SPEED = 128;
   public static int SIZE = BasicJunk.SIZE;
   private final GameScreen game;
 
-  public FallingJunk(JunkType type, GameScreen game) {
+  public FallingJunk(JunkType type, GameScreen game, int FALL_SPEED) {
     super(type, type.getTexture(game.assets));
+    this.FALL_SPEED = FALL_SPEED;
     this.game = game;
   }
 
