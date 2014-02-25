@@ -186,19 +186,27 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     float x = MathUtils.random(0, Gdx.graphics.getWidth() - BasicJunk.SIZE);
     x = (x / BasicJunk.SIZE);
 
-    addJunk((int) x);
+    addJunk((int) x, 0);
 
-    float doubleBlock = MathUtils.random(0, 1);
-    if (doubleBlock > 0.8) {
-      addJunk((int) x + 1);
+    float doubleX = MathUtils.random(0, 1);
+    float doubleY = MathUtils.random(0, 1);
+    if (doubleX > 0.8) {
+      addJunk((int) x + 1, 0);
+      if (doubleX > 0.99) {
+        addJunk((int) x + 2, 0);
+      }
+    } else {
+      if (doubleY > 0.8) {
+        addJunk((int) x, -1);
+      }
     }
 
     lastDropTime = TimeUtils.nanoTime();
   }
 
-  private void addJunk(int x) {
+  private void addJunk(int x, int y) {
     FallingJunk block = new FallingJunk(JunkType.randomJunkType(), this, getFallSpeed());
-    block.setPosition(x * BasicJunk.SIZE, Gdx.graphics.getHeight());
+    block.setPosition(x * BasicJunk.SIZE, Gdx.graphics.getHeight() + (y * BasicJunk.SIZE));
     stage.addActor(block);
   }
 
