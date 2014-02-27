@@ -3,9 +3,9 @@ package com.ollysoft.spacejunk.input;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.ollysoft.spacejunk.SpaceJunkGame;
-import com.ollysoft.spacejunk.util.Movement;
 
 import static com.badlogic.gdx.Input.Keys;
+import static com.ollysoft.spacejunk.util.Movement.*;
 
 /**
  * com.ollysoft.spacejunk.util
@@ -36,12 +36,22 @@ public class GameInputHandler extends InputAdapter {
       }
 
       if (keycode == Keys.LEFT) {
-        listener.move(new Movement(Movement.Direction.LEFT));
+        listener.move(LEFT);
         return true;
       }
 
       if (keycode == Keys.RIGHT) {
-        listener.move(new Movement(Movement.Direction.RIGHT));
+        listener.move(RIGHT);
+        return true;
+      }
+
+      if (keycode == Keys.UP) {
+        listener.move(UP);
+        return true;
+      }
+
+      if (keycode == Keys.DOWN) {
+        listener.move(DOWN);
         return true;
       }
 

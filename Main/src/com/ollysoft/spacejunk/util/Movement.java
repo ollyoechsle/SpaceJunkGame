@@ -1,36 +1,27 @@
 package com.ollysoft.spacejunk.util;
 
-public class Movement {
+public enum Movement {
 
-  private final Direction direction;
+  UP(0, +1),
+  DOWN(0, -1),
+  LEFT(-1, 0),
+  RIGHT(+1, 0);
 
-  public enum Direction {
-    UP(0, +1),
-    DOWN(0, -1),
-    LEFT(-1, 0),
-    RIGHT(+1, 0);
+  private final int dx;
+  private final int dy;
 
-    protected final int dx;
-    protected final int dy;
+  Movement(int dx, int dy) {
 
-    Direction(int dx, int dy) {
-
-      this.dx = dx;
-      this.dy = dy;
-    }
-
-  }
-
-  public Movement(Direction direction) {
-    this.direction = direction;
+    this.dx = dx;
+    this.dy = dy;
   }
 
   public float getDeltaX(float velocity) {
-    return velocity * direction.dx;
+    return velocity * dx;
   }
 
   public float getDeltaY(float velocity) {
-    return velocity * direction.dy;
+    return velocity * dy;
   }
 
 }
