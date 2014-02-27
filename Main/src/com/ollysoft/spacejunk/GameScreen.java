@@ -27,11 +27,13 @@ import com.ollysoft.spacejunk.objects.props.Stars;
 import com.ollysoft.spacejunk.objects.score.*;
 import com.ollysoft.spacejunk.util.Assets;
 import com.ollysoft.spacejunk.util.GameState;
+import com.ollysoft.spacejunk.util.Movement;
 
 public class GameScreen extends ScreenAdapter implements PointsScoredListener, FuelTankListener, MovementListener {
 
   private static final boolean BOULDERS_ENABLED = false;
   public static final int FASTEST = 1000000000 * 2;
+  public static final int VELOCITY = BasicJunk.SIZE * 3;
   public final Assets assets;
 
   private GameState state;
@@ -139,16 +141,9 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   }
 
   @Override
-  public void moveLeft() {
+  public void move(Movement movement) {
     if (state.canMove()) {
-      platform.moveX(-BasicJunk.SIZE * 3);
-    }
-  }
-
-  @Override
-  public void moveRight() {
-    if (state.canMove()) {
-      platform.moveX(BasicJunk.SIZE * 3);
+      platform.moveX(movement.getDeltaX(VELOCITY));
     }
   }
 

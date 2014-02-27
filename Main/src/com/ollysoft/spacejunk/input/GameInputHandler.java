@@ -3,6 +3,7 @@ package com.ollysoft.spacejunk.input;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.ollysoft.spacejunk.SpaceJunkGame;
+import com.ollysoft.spacejunk.util.Movement;
 
 import static com.badlogic.gdx.Input.Keys;
 
@@ -35,12 +36,12 @@ public class GameInputHandler extends InputAdapter {
       }
 
       if (keycode == Keys.LEFT) {
-        listener.moveLeft();
+        listener.move(new Movement(Movement.Direction.LEFT));
         return true;
       }
 
       if (keycode == Keys.RIGHT) {
-        listener.moveRight();
+        listener.move(new Movement(Movement.Direction.RIGHT));
         return true;
       }
 

@@ -1,10 +1,10 @@
 package com.ollysoft.spacejunk.input;
 
+import com.ollysoft.spacejunk.util.Movement;
+
 public interface MovementListener {
 
-  void moveLeft();
-
-  void moveRight();
+  void move(Movement movement);
 
   void togglePaused();
 
