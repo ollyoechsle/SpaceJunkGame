@@ -9,6 +9,7 @@ import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
 import com.ollysoft.spacejunk.objects.score.ScoreModel;
 import com.ollysoft.spacejunk.util.Assets;
+import com.ollysoft.spacejunk.util.Movement;
 import com.ollysoft.spacejunk.util.RelativePosition;
 
 /**
@@ -68,12 +69,16 @@ public class Platform extends Group {
   }
 
   private float forceX = 0;
+  private float forceY = 0;
 
-  public void moveX(float deltaX) {
+  public void moveX(Movement movement, float velocity) {
     fuelTank.onFuelSpent();
-    ship.moveThrusters(deltaX);
+    float deltaX = movement.getDeltaX(velocity);
+    float deltaY = movement.getDeltaY(velocity);
+    ship.moveThrusters(movement);
     assets.whoosh.play();
     forceX += deltaX;
+    forceY += deltaY;
     checkBounds();
   }
 
@@ -116,9 +121,7 @@ public class Platform extends Group {
   public void act(float delta) {
     super.act(delta);
     this.setX(this.getX() + (this.forceX * delta));
-    if (!this.checkBounds()) {
-      moveX(this.forceX * -1);
-    }
+    this.setY(this.getY() + (this.forceY * delta));
     this.junkPileModel.applyGravity();
   }
 }

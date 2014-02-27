@@ -11,7 +11,6 @@ public enum Movement {
   private final int dy;
 
   Movement(int dx, int dy) {
-
     this.dx = dx;
     this.dy = dy;
   }

@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.ollysoft.spacejunk.objects.junk.FallingJunk;
 import com.ollysoft.spacejunk.util.Assets;
+import com.ollysoft.spacejunk.util.Movement;
 
 public class Ship extends Group {
 
@@ -28,22 +29,24 @@ public class Ship extends Group {
 
   }
 
-  public void moveThrusters(float deltaX) {
-    if (deltaX < 0) {
-      this.prepareToTurnLeft();
-    } else {
-      this.prepareToTurnRight();
+  public void moveThrusters(Movement movement) {
+
+    switch (movement) {
+      case LEFT:
+        thruster1.pointDown();
+        thruster2.pointRight();
+        break;
+      case RIGHT:
+        thruster1.pointLeft();
+        thruster2.pointDown();
+        break;
+      case UP:
+        break;
+      case DOWN:
+        thruster1.pointDown();
+        thruster2.pointDown();
+        break;
     }
-  }
-
-  private void prepareToTurnRight() {
-    thruster1.pointLeft();
-    thruster2.pointDown();
-  }
-
-  private void prepareToTurnLeft() {
-    thruster1.pointDown();
-    thruster2.pointRight();
   }
 
   public void draw(SpriteBatch batch, float parentAlpha) {

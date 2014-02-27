@@ -143,7 +143,7 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   @Override
   public void move(Movement movement) {
     if (state.canMove()) {
-      platform.moveX(movement.getDeltaX(VELOCITY));
+      platform.moveX(movement, VELOCITY);
     }
   }
 
