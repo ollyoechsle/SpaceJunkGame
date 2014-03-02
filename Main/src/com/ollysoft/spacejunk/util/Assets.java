@@ -50,7 +50,7 @@ public class Assets {
 
     uiSkin = new Skin(Gdx.files.internal("uiskin.json"));
 
-    starsBackground = new Texture(Gdx.files.internal("stars_background.png"));
+    starsBackground = new Texture(Gdx.files.internal("stars-background-2.jpg"));
 
     bigFont = new BitmapFont(Gdx.files.internal("acknowledge.fnt"));
   }

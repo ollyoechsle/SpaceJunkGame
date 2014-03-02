@@ -27,7 +27,7 @@ public abstract class MenuScreen extends ScreenAdapter {
     table = new Table();
     table.setX(-Gdx.graphics.getWidth() / 2);
     table.setColor(1, 1, 1, 0);
-    stage.addActor(new Stars(assets));
+    stage.addActor(new Stars(assets, null));
     stage.addActor(table);
     table.setFillParent(true);
   }

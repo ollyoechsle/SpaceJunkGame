@@ -23,7 +23,7 @@ public class BasicJunk extends RectangleActor {
   }
 
   public void draw(SpriteBatch batch, float parentAlpha) {
-    batch.setColor(getColor());
+    batch.setColor(1f, 1f, 1f, 1f);
     batch.draw(texture, this.getX(), this.getY());
   }
 

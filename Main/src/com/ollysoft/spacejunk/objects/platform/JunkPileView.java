@@ -43,7 +43,7 @@ public class JunkPileView extends Group implements JunkPileListener {
     FallingJunk fallingJunk = new FallingJunk(junk.type, game, 128);
     // position relative to the game
     fallingJunk.setPosition(junk.getX() + platform.getX(), junk.getY() + platform.getY());
-    game.stage.addActor(fallingJunk);
+    game.actionStage.addActor(fallingJunk);
     removeActor(junk);
   }
 

@@ -17,18 +17,22 @@ public class FallingJunk extends BasicJunk {
 
   @Override
   public void act(float delta) {
+    //fall(delta);
+    RelativePosition position = game.platform.getRelativePosition(this.getBoundingBox());
+    if (game.platform.canLandOn(position)) {
+      this.remove();
+      game.platform.addJunk(this, position);
+      //game.assets.dropSound.play();
+    }
+  }
+
+  private void fall(float delta) {
     float y = getY() - (FALL_SPEED * delta);
     if (y + SIZE < 0) {
       //game.score.onMissedBlock(this);
       remove();
     } else {
       setY(y);
-    }
-    RelativePosition position = game.platform.getRelativePosition(this.getBoundingBox());
-    if (game.platform.canLandOn(position)) {
-      this.remove();
-      game.platform.addJunk(this, position);
-      //game.assets.dropSound.play();
     }
   }
 

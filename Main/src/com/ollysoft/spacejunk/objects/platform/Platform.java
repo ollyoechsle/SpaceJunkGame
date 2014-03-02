@@ -79,9 +79,10 @@ public class Platform extends Group {
     assets.whoosh.play();
     forceX += deltaX;
     forceY += deltaY;
-    checkBounds();
+    //checkBounds();
   }
 
+  @Deprecated
   public void moveTo(float x) {
     this.setX(
         x - (this.getWidth() / 2)
