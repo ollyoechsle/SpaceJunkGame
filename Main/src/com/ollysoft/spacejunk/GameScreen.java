@@ -98,8 +98,6 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   @Override
   public void show() {
     Gdx.input.setInputProcessor(new InputMultiplexer(actionStage, new GameInputHandler(game, this)));
-    // start the playback of the starsBackground music
-    // when the screen is shown
     assets.music.play();
     state = GameState.PLAYING;
   }
@@ -129,6 +127,9 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
       actionStage.act(Gdx.graphics.getDeltaTime());
     }
 
+    currentZoom += (desiredZoom - currentZoom) * (0.5 * delta);
+    actionStage.setViewport(Gdx.graphics.getWidth() * currentZoom, Gdx.graphics.getHeight() * currentZoom, true);
+
     batch.begin();
     stars.draw(batch, 1);
     batch.end();
@@ -143,6 +144,16 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
     handleInputs();
 
 
+  }
+
+  @Override
+  public void zoomIn() {
+    desiredZoom = Math.max(1f, desiredZoom - 0.1f);
+  }
+
+  @Override
+  public void zoomOut() {
+    desiredZoom = Math.min(2f, desiredZoom + 0.1f);
   }
 
   public void togglePaused() {
@@ -203,9 +214,12 @@ public class GameScreen extends ScreenAdapter implements PointsScoredListener, F
   public void resize(int width, int height) {
     GameScreen.width = width;
     GameScreen.height = height;
-    actionStage.setViewport(width, height, true);
+    actionStage.setViewport(width * currentZoom, height * currentZoom, true);
     fixedStage.setViewport(width, height, true);
   }
+
+  float currentZoom = 1;
+  float desiredZoom = 2;
 
   @Override
   public void dispose() {

@@ -4,6 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.SnapshotArray;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
+import com.ollysoft.spacejunk.util.Movement;
 import com.ollysoft.spacejunk.util.RelativePosition;
 import org.junit.Test;
 
@@ -68,7 +69,7 @@ public class PlatformTest {
   private boolean landed(BasicJunk fallingJunk, int heightAbovePlatform) {
     fallingJunk.setY(p.getY() + p.getHeight() + heightAbovePlatform);
     position = p.getRelativePosition(fallingJunk.getBoundingBox());
-    return p.canLandOn(position);
+    return p.canLandOn(position, Movement.DOWN);
   }
 
   private int pileSize() {

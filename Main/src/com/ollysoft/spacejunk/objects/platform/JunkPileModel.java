@@ -4,6 +4,7 @@ import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
 import com.ollysoft.spacejunk.objects.score.ScoreModel;
+import com.ollysoft.spacejunk.util.Movement;
 import com.ollysoft.spacejunk.util.RelativePosition;
 
 public class JunkPileModel {
@@ -28,30 +29,33 @@ public class JunkPileModel {
   /**
    * Return whether the block could land at the given position.
    */
-  public boolean canLandOn(RelativePosition relativePosition) {
-    return canLandOn(relativePosition.dx, relativePosition.dy);
+  public boolean isAttractedTo(RelativePosition relativePosition, Movement movement) {
+    return isAttractedTo(relativePosition.dx, relativePosition.dy, movement);
   }
 
-  protected boolean canLandOn(int dx, int dy) {
+  protected boolean isAttractedTo(int dx, int dy, Movement movement) {
 
     if (isOutOfBounds(dx) || isOutOfBounds(dy)) return false;
-
     if (!objectAt(dx, dy).empty) return false;
 
-    int highestPoint = getHighestPointBelow(dx, dy);
+    //int highestPoint = getHighestPointBelow(dx, dy);
+    //return highestPoint != VOID && dy <= highestPoint + 1;
 
-    return highestPoint != VOID && dy <= highestPoint + 1;
+    for (Movement m : Movement.values()) {
+      if (!objectAt(dx + m.dx, dy + m.dy).empty) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   private boolean isOutOfBounds(int dx) {
-    if ((dx + halfWidth) > arrayLength - 1) {
+    if ((dx + halfWidth) > arrayLength - 2) {
       return true;
     }
 
-    if ((dx - halfWidth) < -(arrayLength - 1)) {
-      return true;
-    }
-    return false;
+    return (dx - halfWidth) < -(arrayLength - 2);
   }
 
   private int getHighestPointBelow(int dx, int currentDy) {
@@ -131,7 +135,7 @@ public class JunkPileModel {
   }
 
   private boolean isNothingHoldingUp(int x, int y) {
-    return y == 0 || grid[x][y - 1].empty;
+    return false;//return y == 0 || grid[x][y - 1].empty;
   }
 
   /**

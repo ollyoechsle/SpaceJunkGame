@@ -7,8 +7,8 @@ public enum Movement {
   LEFT(-1, 0),
   RIGHT(+1, 0);
 
-  private final int dx;
-  private final int dy;
+  public final int dx;
+  public final int dy;
 
   Movement(int dx, int dy) {
     this.dx = dx;

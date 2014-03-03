@@ -4,6 +4,7 @@ import com.badlogic.gdx.utils.Array;
 import com.ollysoft.spacejunk.objects.junk.BasicJunk;
 import com.ollysoft.spacejunk.objects.junk.JunkType;
 import com.ollysoft.spacejunk.objects.score.ScoreModel;
+import com.ollysoft.spacejunk.util.Movement;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
@@ -21,15 +22,15 @@ public class JunkPileModelTest {
   private TestScoreModel score;
 
   @Test
-  public void canLandOnObjectDirectlyBeneath() {
+  public void isAttractedToObjectDirectlyBeneath() {
 
     givenMound(2);
 
-    assertFalse(m.canLandOn(0, 1));
+    assertFalse(m.isAttractedTo(0, 1, Movement.DOWN));
 
     m.objectAt(0, 0).place(PLAIN_ROCK);
 
-    assertTrue(m.canLandOn(0, 1));
+    assertTrue(m.isAttractedTo(0, 1, Movement.DOWN));
 
   }
 
@@ -40,7 +41,7 @@ public class JunkPileModelTest {
 
     m.objectAt(-1, 0).place(PLAIN_ROCK);
     m.objectAt(+1, 0).place(PLAIN_ROCK);
-    assertFalse(m.canLandOn(0, 2));
+    assertFalse(m.isAttractedTo(0, 2, Movement.DOWN));
 
   }
 
@@ -49,7 +50,7 @@ public class JunkPileModelTest {
     givenMound(2);
 
     m.objectAt(0, 2).place(PLAIN_ROCK);
-    assertFalse(m.canLandOn(0, 1));
+    assertFalse(m.isAttractedTo(0, 1, Movement.DOWN));
 
   }
 
@@ -58,7 +59,7 @@ public class JunkPileModelTest {
     givenMound(2);
 
     m.objectAt(0, 0).place(PLAIN_ROCK);
-    assertFalse(m.canLandOn(0, 0));
+    assertFalse(m.isAttractedTo(0, 0, Movement.DOWN));
 
   }
 
@@ -66,21 +67,21 @@ public class JunkPileModelTest {
   public void cannotLandIfTooFarAbove() {
     givenMound(2);
     m.objectAt(0, 0).place(PLAIN_ROCK);
-    assertFalse(m.canLandOn(0, 2));
-    assertTrue(m.canLandOn(0, 1));
+    assertFalse(m.isAttractedTo(0, 2, Movement.DOWN));
+    assertTrue(m.isAttractedTo(0, 1, Movement.DOWN));
   }
 
   @Test
   public void cannotLandIfXOutOfBounds() {
 
     givenMound(2);
-    assertFalse(m.canLandOn(5, 2));
-    assertFalse(m.canLandOn(-5, 2));
+    assertFalse(m.isAttractedTo(5, 2, Movement.DOWN));
+    assertFalse(m.isAttractedTo(-5, 2, Movement.DOWN));
 
     m.objectAt(-2, 0).place(PLAIN_ROCK);
     m.objectAt(+2, 0).place(PLAIN_ROCK);
-    assertTrue(m.canLandOn(-2, 1));
-    assertTrue(m.canLandOn(+2, 1));
+    assertTrue(m.isAttractedTo(-2, 1, Movement.DOWN));
+    assertTrue(m.isAttractedTo(+2, 1, Movement.DOWN));
 
   }
 
@@ -88,8 +89,8 @@ public class JunkPileModelTest {
   public void cannotLandIfYOutOfBounds() {
 
     givenMound(2);
-    assertFalse(m.canLandOn(0, -5));
-    assertFalse(m.canLandOn(0, +5));
+    assertFalse(m.isAttractedTo(0, -5, Movement.DOWN));
+    assertFalse(m.isAttractedTo(0, +5, Movement.DOWN));
 
   }
 
@@ -98,7 +99,7 @@ public class JunkPileModelTest {
 
     givenMound(2);
     m.objectAt(0, 0);
-    assertFalse(m.canLandOn(-1, 1));
+    assertFalse(m.isAttractedTo(-1, 1, Movement.DOWN));
 
   }
 
@@ -106,7 +107,7 @@ public class JunkPileModelTest {
   public void cannotLandIfYOutOfBoundsInBothDirections() {
 
     givenMound(2);
-    assertFalse(m.canLandOn(12, 12));
+    assertFalse(m.isAttractedTo(12, 12, Movement.DOWN));
 
   }
 

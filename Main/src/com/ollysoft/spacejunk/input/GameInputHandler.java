@@ -55,6 +55,16 @@ public class GameInputHandler extends InputAdapter {
         return true;
       }
 
+      if (keycode == Keys.A) {
+        listener.zoomIn();
+        return true;
+      }
+
+      if (keycode == Keys.Z) {
+        listener.zoomOut();
+        return true;
+      }
+
     }
 
     return false;

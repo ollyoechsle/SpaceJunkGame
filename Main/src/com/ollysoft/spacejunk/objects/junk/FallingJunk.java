@@ -1,6 +1,7 @@
 package com.ollysoft.spacejunk.objects.junk;
 
 import com.ollysoft.spacejunk.GameScreen;
+import com.ollysoft.spacejunk.util.Movement;
 import com.ollysoft.spacejunk.util.RelativePosition;
 
 public class FallingJunk extends BasicJunk {
@@ -19,7 +20,7 @@ public class FallingJunk extends BasicJunk {
   public void act(float delta) {
     //fall(delta);
     RelativePosition position = game.platform.getRelativePosition(this.getBoundingBox());
-    if (game.platform.canLandOn(position)) {
+    if (game.platform.canLandOn(position, Movement.DOWN)) {
       this.remove();
       game.platform.addJunk(this, position);
       //game.assets.dropSound.play();

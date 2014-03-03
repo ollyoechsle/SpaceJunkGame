@@ -64,8 +64,8 @@ public class Platform extends Group {
     return relativePosition;
   }
 
-  public boolean canLandOn(RelativePosition relativePosition) {
-    return this.junkPileModel.canLandOn(relativePosition);
+  public boolean canLandOn(RelativePosition relativePosition, Movement movement) {
+    return this.junkPileModel.isAttractedTo(relativePosition, movement);
   }
 
   private float forceX = 0;
