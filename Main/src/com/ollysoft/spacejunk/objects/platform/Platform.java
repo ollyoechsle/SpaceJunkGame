@@ -46,9 +46,12 @@ public class Platform extends Group {
     addActor(junkPileView);
 
     this.junkPileModel = new JunkPileModel(8, junkPileView, scoreModel);
-    this.junkPileModel.objectAt(0, 2).fix();
-    this.junkPileModel.objectAt(1, 2).fix();
-    this.junkPileModel.objectAt(2, 2).fix();
+
+    for (int y = 0; y <= 2; y++) {
+      this.junkPileModel.objectAt(0, y).fix();
+      this.junkPileModel.objectAt(1, y).fix();
+      this.junkPileModel.objectAt(2, y).fix();
+    }
 
     relativePosition = new RelativePosition();
 
